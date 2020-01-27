@@ -2,7 +2,6 @@
 <html class="no-js" lang="en">
 
 <head>
-
   <title> Cecomatec | Produtos </title>
   <?php include("utils/start.php"); ?>
 </head>
@@ -102,94 +101,6 @@
   <!-- end scroll to top  -->
   <!-- javascript libraries -->
   <?= include_once("utils/end.php") ?>
-
-  <script type="text/javascript">
-    var subcategorias = JSON.parse('<?php echo json_encode($subcategorias); ?>');
-
-    var produtos = JSON.parse('<?php echo json_encode($produtos); ?>');
-
-
-    var load_filtros = JSON.parse('<?php echo json_encode($load_filtros); ?>');
-
-    var cat_selected = "";
-    var subcat_selected = "";
-    var filtro = "*";
-
-
-    var filtro_pesquisa = "";
-
-    $(document).ready(function() {
-      $("select[name=categorias]").change(function() {
-        $("select[name=subcategorias]").html("");
-        $(".subcat-select").hide();
-        var id_categoria = $(this).val();
-        filtro = ".cat-" + id_categoria;
-        cat_selected = filtro;
-        if (filtro == ".cat-todos") {
-          cat_selected = "*";
-        }
-        filtro = cat_selected;
-        $('.portfolio-grid').isotope({
-          filter: filtro
-        });
-        $.each(subcategorias, function(index, value) {
-          if (value.id_categoria == id_categoria) {
-            $("select[name=subcategorias]").append("<option value='" + value.id + "'>" + value.nome + "</option>");
-            $(".subcat-select").fadeIn();
-          }
-        });
-
-        if ($(".subcat-select").css("display") != "none") {
-          $("select[name=subcategorias]").prepend("<option value=''>Todos</option>");
-          $("[name=subcategorias]").val("");
-        }
-      });
-
-      $("select[name=subcategorias]").change(function() {
-        var id_subcategoria = $(this).val();
-        subcat_selected = ".subcat-" + id_subcategoria;
-        if (id_subcategoria == "") {
-          subcat_selected = "";
-        }
-
-        filtro = cat_selected + subcat_selected;
-
-        $('.portfolio-grid').isotope({
-          filter: filtro
-        });
-
-      });
-
-
-
-      if (load_filtros['categoria'] != false) {
-        $("[name=categorias]").val(load_filtros['categoria']).trigger("change");
-        if (load_filtros['subcategoria'] != false) {
-          $("[name=subcategorias]").val(load_filtros['subcategoria']).trigger("change");
-        }
-      }
-
-      $("[name=pesquisar]").keyup(function() {
-        var val = $(this).val().toLowerCase();
-        filtro_pesquisa = "";
-        $.each(produtos, function(index, value) {
-          if (!value.titulo.toLowerCase().includes(val)) {
-            $("#produto-" + value.id).hide();
-          } else {
-            if (filtro_pesquisa != "") {
-              filtro_pesquisa += ",";
-            }
-            filtro_pesquisa += ".prod-" + value.id;
-            $("#produto-" + value.id).show();
-          }
-        });
-        $('.portfolio-grid').isotope({
-          filter: filtro_pesquisa
-        });
-
-      });
-    });
-  </script>
 </body>
 
 </html>
