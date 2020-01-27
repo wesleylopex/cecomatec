@@ -28,14 +28,28 @@ class Produtos extends GodController
 			"type" => "text",
 			"visivelTabela" => true,
 			"rules" => "trim|required",
-			"col" => "col-md-6",
-			"label" => "(<a href='https://google.com' target='_blank'>Google</a>)"
+			"col" => "col-md-4",
 		],
-
+		
+		"titulo" => [
+			"nome" => "Título",
+			"type" => "text",
+			"visivelTabela" => true,
+			"rules" => "trim|required",
+			"col" => "col-md-4",
+		],
+		
+		"subtitulo" => [
+			"nome" => "Subtítulo",
+			"type" => "text",
+			"visivelTabela" => false,
+			"rules" => "trim",
+			"col" => "col-md-4",
+		],
+		
 		"id_categoria" => [
 			"nome" => "Categoria",
 			"type" => "select",
-			"disabled" => false,
 			"rules" => "trim|required",
 			"fromDataBase" => true,
 			"options" => [
@@ -44,25 +58,62 @@ class Produtos extends GodController
 				"model" => "categoriasProdutosModel",
 			],
 			"visivelTabela" => true,
-			"col" => "col-md-6"
+			"col" => "col-md-4"
+		],
+
+		"id_subcategoria" => [
+			"nome" => "Subcategoria",
+			"type" => "select",
+			"rules" => "trim",
+			"fromDataBase" => true,
+			"options" => [
+				"value" => "id",
+				"texto" => "nome",
+				"model" => "subcategoriasProdutosModel",
+			],
+			"visivelTabela" => true,
+			"col" => "col-md-4"
 		],
 
 		"imagem" => [
 			"nome" => "Imagem",
 			"type" => "image",
-			// "rules" => "",
-			"col" => "col-md-4",
-			"label" => "(1920 x 1080)"
-		],
-
-		"galeria" => [
-			"nome" => "Imagens",
-			"type" => "gallery",
-			"model" => "galeriaProdutosModel",
-			"foreignKey" => "id_produto",
-			// "rules" => "trim|required",
+			"visivelTabela" => false,
+			"rules" => "trim",
 			"col" => "col-md-12",
-			"label" => "(1920 x 1080)"
+		],
+		
+		"descricao" => [
+			"nome" => "Descrição",
+			"type" => "textarea",
+			"visivelTabela" => false,
+			"rules" => "trim",
+			"col" => "col-md-12",
+		],
+		
+		"caracteristicas" => [
+			"nome" => "Características",
+			"type" => "textarea",
+			"visivelTabela" => false,
+			"rules" => "trim",
+			"col" => "col-md-12",
+		],
+		
+		"video" => [
+			"nome" => "Vídeo",
+			"type" => "text",
+			"visivelTabela" => false,
+			"rules" => "trim",
+			"col" => "col-md-12",
+			"label" => "(<a href='https://youtube.com' target='_blank'>YouTube</a>)",
+		],
+		
+		"arquivo_pdf" => [
+			"nome" => "Arquivo PDF",
+			"type" => "image",
+			"visivelTabela" => false,
+			"rules" => "trim",
+			"col" => "col-md-12",
 		],
 
 	];

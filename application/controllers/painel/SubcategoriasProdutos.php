@@ -1,13 +1,13 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Noticias extends GodController
+class SubcategoriasProdutos extends GodController
 {
 
-	protected $model = "NoticiasModel";
+	protected $model = "SubcategoriasProdutosModel";
 	protected $nomes = [
-		"singular" => "Notícia",
-		"plural" => "Notícias",
-		"link" => "noticias",
+		"singular" => "Subcategoria",
+		"plural" => "Subcategorias",
+		"link" => "subcategoriasProdutos",
 	];
 	protected $permissoes = [
 		"cadastrar" => true,
@@ -23,13 +23,12 @@ class Noticias extends GodController
 			"rules" => "trim",
 		],
 
-		"titulo" => [
-			"nome" => "Título",
+		"nome" => [
+			"nome" => "Nome",
 			"type" => "text",
 			"visivelTabela" => true,
 			"rules" => "trim|required",
-			"col" => "col-md-12",
-			"required" => "required",
+			"col" => "col-md-6",
 		],
 
 		"id_categoria" => [
@@ -40,20 +39,10 @@ class Noticias extends GodController
 			"options" => [
 				"value" => "id",
 				"texto" => "nome",
-				"model" => "categoriasNoticiasModel",
+				"model" => "categoriasProdutosModel",
 			],
 			"visivelTabela" => true,
-			"col" => "col-md-12"
-		],
-
-		"descricao" => [
-			"nome" => "Descrição",
-			"type" => "textarea",
-			"visivelTabela" => false,
-			"rules" => "trim|required",
-			"required" => true,
-			"disabled" => false,
-			"col" => "col-md-12"
+			"col" => "col-md-6"
 		],
 	];
 

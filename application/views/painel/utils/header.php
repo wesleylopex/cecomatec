@@ -138,6 +138,12 @@
             <p>Categorias</p>
           </a>
         </li>
+        <li class="nav-item <?= isset($nomes) && $nomes["link"] == "subcategoriasProdutos" ? "active" : "" ?>">
+          <a href="<?= site_url("painel/subcategoriasProdutos") ?>">
+            <i class="la la-align-justify"></i>
+            <p>Subcategorias</p>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
