@@ -10,7 +10,6 @@ class Login extends CI_Controller
     $this->load->helper('form');
     $this->load->helper('utils');
     $this->load->library('form_validation');
-    // $this->load->model('configuracao_model');
 
     $this->form_validation->set_rules('usuario', 'Usuário', 'trim|required');
     $this->form_validation->set_rules('senha', 'Senha', 'trim|required');
@@ -19,6 +18,7 @@ class Login extends CI_Controller
 
   function index()
   {
+    $this->data["nomes"]["plural"] = "Login";
     $this->load->view('painel/login/form', $this->data);
   }
 

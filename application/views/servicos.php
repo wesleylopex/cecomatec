@@ -36,7 +36,7 @@
       <div class="row margin-ten-top">
         <div class="col-md-4 col-sm-4 col-xs-12 xs-margin-15px-bottom wow fadeIn">
           <div class="position-relative overflow-hidden">
-            <img src="<?= base_url() ?>assets/img/001_index.jpg" class="width-100" alt="" style="height:285px;">
+            <img src="<?= base_url() ?>assets/site/img/001_index.jpg" class="width-100" alt="" style="height:285px;">
             <div class="opacity-extra-medium bg-dark-gray"></div>
             <div class="blog-box">
               <div class="blog-box-image height-100">
@@ -58,7 +58,7 @@
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 wow fadeIn" data-wow-delay="0.4s">
           <div class="position-relative overflow-hidden">
-            <img src="<?= base_url() ?>assets/img/norma.png" class="width-100" alt="" style="height:285px;">
+            <img src="<?= base_url() ?>assets/site/img/norma.png" class="width-100" alt="" style="height:285px;">
             <div class="opacity-extra-medium bg-dark-gray"></div>
             <div class="blog-box">
               <div class="blog-box-image height-100">
@@ -80,7 +80,7 @@
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12 xs-margin-15px-bottom wow fadeIn" data-wow-delay="0.2s">
           <div class="position-relative overflow-hidden">
-            <img src="<?= base_url() ?>assets/img/usinagem.png" class="width-100" alt="" style="height:285px;">
+            <img src="<?= base_url() ?>assets/site/img/usinagem.png" class="width-100" alt="" style="height:285px;">
             <div class="opacity-extra-medium bg-dark-gray"></div>
             <div class="blog-box">
               <div class="blog-box-image height-100">
@@ -119,7 +119,7 @@
     <div class="container-fluid bg-light-gray">
       <div class="row equalize sm-equalize-auto">
 
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 cover-background sm-height-500px xs-height-350px wow fadeInLeft" style="background-image: url(https://1920x1080);" id="img_2"></div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 cover-background sm-height-500px xs-height-350px wow fadeInLeft" style="background-image: url('<?= base_url("assets/site/img/001_index.jpg") ?>');" id="img_2"></div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wow fadeInRight padding-50px-tb">
           <div class="padding-six-all pull-left sm-no-padding-lr xs-padding-50px-tb xs-no-padding-lr">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-four-bottom sm-margin-40px-bottom xs-margin-30px-bottom xs-no-padding-lr">
@@ -161,9 +161,11 @@
                 </div>
               </div>
             </div>
-            <a href="contato.php">
-              <button id="project-contact-us-button" type="submit" class="btn btn-large margin-20px-top btn-orange-style-2 border-radius-10">Entre em contato</button>
-            </a>
+            <div class="text-center">
+              <a href="<?= site_url("contato") ?>">
+                <button id="project-contact-us-button" type="submit" class="btn btn-large margin-20px-top btn-orange-style-2 border-radius-10">Entre em contato</button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -215,21 +217,21 @@
         <div class="col-md-6 no-padding-right sm-margin-30px-bottom wow fadeInUp">
           <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp no-padding-left">
             <h6 class="alt-font text-large text-extra-dark-gray text-uppercase font-weight-600" style="text-align: center">Antes</h6>
-            <img src="<?= base_url() ?>assets/img/antes_01.png" class="width-100" alt="" style="height: 269px">
+            <img src="<?= base_url() ?>assets/site/img/antes_01.png" class="width-100" alt="" style="height: 269px">
           </div>
           <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp no-padding-left">
             <h6 class="alt-font text-large text-extra-dark-gray text-uppercase font-weight-600" style="text-align: center">Depois</h6>
-            <img src="<?= base_url() ?>assets/img/depois_1.png" class="width-100" alt="" style="height: 269px">
+            <img src="<?= base_url() ?>assets/site/img/depois_1.png" class="width-100" alt="" style="height: 269px">
           </div>
         </div>
         <div class="col-md-6 no-padding-right sm-margin-30px-bottom wow fadeInUp no-padding-left config-padding">
           <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp no-padding-left">
             <h6 class="alt-font text-large text-extra-dark-gray text-uppercase font-weight-600" style="text-align: center">Antes</h6>
-            <img src="<?= base_url() ?>assets/img/antes_2.png" class="width-100" alt="" style="height: 269px">
+            <img src="<?= base_url() ?>assets/site/img/antes_2.png" class="width-100" alt="" style="height: 269px">
           </div>
           <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp no-padding-left">
             <h6 class="alt-font text-large text-extra-dark-gray text-uppercase font-weight-600" style="text-align: center">Depois</h6>
-            <img src="<?= base_url() ?>assets/img/depois_2.png" class="width-100" alt="" style="height: 269px">
+            <img src="<?= base_url() ?>assets/site/img/depois_2.png" class="width-100" alt="" style="height: 269px">
           </div>
         </div>
       </div>
@@ -288,15 +290,15 @@
 
                 </div>
               </div>
-              <center>
-                <a href="contato.php">
+              <div class="text-center">
+                <a href="<?= site_url("contato") ?>">
                   <button id="project-contact-us-button" type="submit" class="text-white btn btn-large margin-20px-top btn-orange-style-2 border-radius-10">Entre em contato</button>
                 </a>
-              </center>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 cover-background sm-height-500px xs-height-350px wow fadeInRight" style="background-image:url(https://placehold.it/1920x1080);" id="img_3">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 cover-background sm-height-500px xs-height-350px wow fadeInRight" style="background-image: url(<?= base_url("assets/site/img/usinagem.png") ?>);" id="img_3">
           <div class="xs-height-400px"></div>
         </div>
 

@@ -77,7 +77,7 @@ class ImageModel extends CI_Model
       if ($nome_arquivo == NULL) {
         $nome_arquivo = $app_name . replace("/", "");
       }
-      $config['file_name'] = 'hbsc-' . $nome_arquivo . '-' . date('d-m-Y');
+      $config['file_name'] = 'cecomatec-' . $nome_arquivo . '-' . date('d-m-Y');
     }
     $this->load->library('upload', $config);
     if (!$this->upload->do_upload('file_video')) {
@@ -90,7 +90,7 @@ class ImageModel extends CI_Model
     }
   }
 
-  function upload_file($app_name, $nome_arquivo = NULL, $config = NULL)
+  function uploadFile($app_name, $nome_arquivo = NULL, $resize_image = TRUE, $campo = NULL, $config = NULL)
   {
     // echo "<script>alert('$app_name')</script>";
     if (empty($config)) {
@@ -100,10 +100,10 @@ class ImageModel extends CI_Model
       if ($nome_arquivo == NULL) {
         $nome_arquivo = $app_name . replace("/", "");
       }
-      $config['file_name'] = 'hbsc-' . $nome_arquivo . '-' . date('d-m-Y');
+      $config['file_name'] = 'cecomatec-' . $nome_arquivo . '-' . date('d-m-Y');
     }
     $this->load->library('upload', $config);
-    if (!$this->upload->do_upload('file_pdf')) {
+    if (!$this->upload->do_upload($campo)) {
       echo $this->upload->display_errors();
       exit();
     } else {
@@ -154,7 +154,7 @@ class ImageModel extends CI_Model
     }
   }
 
-  function upload_pdf($app_name, $config = NULL)
+  function uploadPdf($app_name, $config = NULL)
   {
     if (empty($config)) {
       $config['upload_path'] = './assets/uploads/' . $app_name;

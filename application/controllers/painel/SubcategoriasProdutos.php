@@ -29,6 +29,7 @@ class SubcategoriasProdutos extends GodController
 			"visivelTabela" => true,
 			"rules" => "trim|required",
 			"col" => "col-md-6",
+			"slug" => true
 		],
 
 		"id_categoria" => [
@@ -44,6 +45,13 @@ class SubcategoriasProdutos extends GodController
 			"visivelTabela" => true,
 			"col" => "col-md-6"
 		],
+
+		"descricao" => [
+			"nome" => "Descricao",
+			"type" => "textarea",
+			"rules" => "trim",
+			"class" => "summernote"
+		]
 	];
 
 	function __construct()

@@ -22,14 +22,6 @@ class Produtos extends GodController
 			"visivelTabela" => false,
 			"rules" => "trim",
 		],
-
-		"nome" => [
-			"nome" => "Nome",
-			"type" => "text",
-			"visivelTabela" => true,
-			"rules" => "trim|required",
-			"col" => "col-md-4",
-		],
 		
 		"titulo" => [
 			"nome" => "Título",
@@ -37,6 +29,7 @@ class Produtos extends GodController
 			"visivelTabela" => true,
 			"rules" => "trim|required",
 			"col" => "col-md-4",
+			"slug" => true
 		],
 		
 		"subtitulo" => [
@@ -97,6 +90,16 @@ class Produtos extends GodController
 			"visivelTabela" => false,
 			"rules" => "trim",
 			"col" => "col-md-12",
+			"class" => "summernote"
+		],
+
+		"modelos" => [
+			"nome" => "Modelos",
+			"type" => "textarea",
+			"visivelTabela" => false,
+			"rules" => "trim",
+			"col" => "col-md-12",
+			"class" => "summernote"
 		],
 		
 		"video" => [
@@ -110,7 +113,7 @@ class Produtos extends GodController
 		
 		"arquivo_pdf" => [
 			"nome" => "Arquivo PDF",
-			"type" => "image",
+			"type" => "file",
 			"visivelTabela" => false,
 			"rules" => "trim",
 			"col" => "col-md-12",

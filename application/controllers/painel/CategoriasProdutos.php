@@ -20,7 +20,7 @@ class CategoriasProdutos extends GodController
 			"nome" => "Id",
 			"type" => "hidden",
 			"visivelTabela" => false,
-			"rules" => "trim|required",
+			"rules" => "trim",
 		],
 
 		"nome" => [
@@ -29,6 +29,16 @@ class CategoriasProdutos extends GodController
 			"visivelTabela" => true,
 			"rules" => "trim|required",
 			"col" => "col-md-12",
+			"slug" => true
+		],
+		
+		"descricao" => [
+			"nome" => "Descrição",
+			"type" => "textarea",
+			"visivelTabela" => false,
+			"rules" => "trim",
+			"col" => "col-md-12",
+			"class" => "summernote"
 		],
 	];
 

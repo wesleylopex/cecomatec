@@ -47,3 +47,50 @@
 <script type="text/javascript" src="<?= base_url() ?>assets/site/revolution/js/jquery.themepunch.tools.min.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>assets/site/revolution/js/jquery.themepunch.revolution.min.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>assets/site/js/main.js"></script>
+
+<script src="<?= base_url() ?>assets/painel/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+<script src="<?= base_url() ?>assets/site/js/jquery.cookie.js"></script>
+
+<script type="text/javascript">
+  const base_url = "<?= base_url() ?>";
+
+  $.cookie('googtrans', "/" + localStorage.getItem("language"));
+</script>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'pt',
+      includedLanguages: 'en,es,pt',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: true
+    }, 'google_translate_element');
+  }
+
+  $("[name=idioma] li").click(function() {
+    language = $(this).attr("language")
+
+    localStorage.setItem('language', language)
+
+    location.reload()
+  })
+
+  $(document).ready(function() {
+    localLanguage = localStorage.getItem("language")
+
+    let iconCountry = "bra.png"
+    let languageName = "Português"
+
+    if (localLanguage == "en") {
+      languageName = "Inglês"
+      iconCountry = "usa.png"
+    } else if (localLanguage == "es") {
+      languageName = "Espanhol"
+      iconCountry = "Spain.png"
+    }
+    
+    $("#selectedLanguage").text(languageName)
+    $("#selectIconCountry").css("background", "url(" + base_url + "assets/site/img/country-flag-16x16/" + iconCountry + ")")
+  })
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

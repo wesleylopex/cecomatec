@@ -51,7 +51,7 @@
         <!-- start feature box item -->
         <div class="col-md-4 col-sm-6 col-xs-12 text-center display-table last-paragraph-no-margin wow fadeInRight no-padding">
           <div class="display-table-cell vertical-align-middle padding-fifteen-all sm-padding-50px-all xs-padding-30px-all">
-            <img src="<?= base_url() ?>assets/img/1.png">
+            <img src="<?= base_url() ?>assets/site/img/1.png">
             <span class="display-block alt-font text-large text-extra-dark-gray margin-15px-top margin-10px-bottom xs-margin-5px-bottom">Especialistas em Fundição de Precisão</span>
             <p>Assessoria completa à sua empresa: definição do layout industrial, acompanhamento civil, definição e fabricação de equipamentos necessários conforme quantidade, dimensões e tipos de peças a serem microfundidas.</p>
           </div>
@@ -60,7 +60,7 @@
         <!-- start feature box item -->
         <div class="col-md-4 col-sm-6 col-xs-12 text-center display-table last-paragraph-no-margin wow fadeInRight no-padding" data-wow-delay="0.2s">
           <div class="display-table-cell vertical-align-middle padding-fifteen-all sm-padding-50px-all xs-padding-30px-all">
-            <img src="<?= base_url() ?>assets/img/2.png">
+            <img src="<?= base_url() ?>assets/site/img/2.png">
             <span class="display-block alt-font text-large text-extra-dark-gray margin-15px-top margin-10px-bottom xs-margin-5px-bottom">Escolas Técnicas</span>
             <p>Fabricamos máquinas e equipamentos dimensionados para atender escolas técnicas de fundição de precisão.</p>
           </div>
@@ -69,7 +69,7 @@
         <!-- start feature box item -->
         <div class="col-md-4 col-sm-6 col-xs-12 text-center display-table last-paragraph-no-margin wow fadeInRight no-padding" data-wow-delay="0.4s">
           <div class="display-table-cell vertical-align-middle padding-fifteen-all sm-padding-50px-all xs-padding-30px-all">
-            <img src="<?= base_url() ?>assets/img/3.png">
+            <img src="<?= base_url() ?>assets/site/img/3.png">
             <span class="display-block alt-font text-large text-extra-dark-gray margin-15px-top margin-10px-bottom xs-margin-5px-bottom">Máquinas Personalizadas</span>
             <p>Produzimos máquinas e equipamentos personalizados para todos os segmentos da indústria: plástico, metalmecânico, automotivo, serviços, entre outros.</p>
           </div>
@@ -94,7 +94,7 @@
       <div class="row text-center">
 
         <div class="col-md-12 col-sm-12 col-xs-12 sm-text-center wow fadeInDown">
-          <a href="contato.php" class="btn btn-orange-style-2 btn-large btn-soft-rounded" data-wow-delay="0.4s">Fale com a Cecomatec </a>
+          <a href="<?= site_url("contato") ?>" class="btn btn-orange-style-2 btn-large btn-soft-rounded" data-wow-delay="0.4s">Fale com a Cecomatec </a>
         </div>
       </div>
     </div>

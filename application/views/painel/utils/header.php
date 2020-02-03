@@ -36,19 +36,14 @@
           </a>
         </li>
         <li class="nav-item dropdown hidden-caret">
-          <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="la la-cog"></i>
-          </a>
-        </li>
-        <li class="nav-item dropdown hidden-caret">
           <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
-            <img src="<?= base_url("assets/painel/uploads/images/".$this->session->userdata("imagem")) ?>" alt="image profile" width="36" height="36" class="img-circle">
+            <img src="<?= base_url("assets/uploads/images/".$this->session->userdata("imagem")) ?>" alt="image profile" width="36" height="36" class="img-circle">
           </a>
           <ul class="dropdown-menu dropdown-user animated fadeIn">
             <li>
               <div class="user-box">
                 <div class="profile-pic">
-                  <img src="<?= base_url("assets/painel/uploads/images/".$this->session->userdata("imagem")) ?>" alt="image profile" width="60" height="60" class="img-circle">
+                  <img src="<?= base_url("assets/uploads/images/".$this->session->userdata("imagem")) ?>" alt="image profile" width="60" height="60" class="img-circle">
                 </div>
                 <div class="u-text">
                   <h4><?= $this->session->userdata("nome") ?></h4>
@@ -78,13 +73,6 @@
   <div class="sidebar-wrapper scrollbar-inner">
     <div class="sidebar-content">
       <ul class="nav">
-        <li class="nav-item  <?= isset($nomes) && $nomes["link"] == "home" ? "active" : "" ?>">
-          <a href="<?= site_url("painel/home") ?>">
-            <i class="la la-home"></i>
-            <p>Home</p>
-          </a>
-        </li>
-
         <!-- GERAL -->
         <li class="nav-section">
           <span class="sidebar-mini-icon">
@@ -98,27 +86,25 @@
             <p>Usuários</p>
           </a>
         </li>
+        <li class="nav-item <?= isset($nomes) && $nomes["link"] == "banners" ? "active" : "" ?>">
+          <a href="<?= site_url("painel/banners") ?>">
+            <i class="la la-image"></i>
+            <p>Banners</p>
+          </a>
+        </li>
+        <li class="nav-item <?= isset($nomes) && $nomes["link"] == "mensagens" ? "active" : "" ?>">
+          <a href="<?= site_url("painel/mensagens") ?>">
+            <i class="flaticon-chat-1"></i>
+            <p>Mensagens</p>
+          </a>
+        </li>
+        <li class="nav-item <?= isset($nomes) && $nomes["link"] == "configuracoes" ? "active" : "" ?>">
+          <a href="<?= site_url("painel/configuracoes") ?>">
+            <i class="flaticon-settings"></i>
+            <p>Configurações</p>
+          </a>
+        </li>
 
-        <!-- NOTICIAS -->
-        <li class="nav-section">
-          <span class="sidebar-mini-icon">
-            <i class="la la-ellipsis-h"></i>
-          </span>
-          <h4 class="text-section">Notícias</h4>
-        </li>
-        <li class="nav-item <?= isset($nomes) && $nomes["link"] == "noticias" ? "active" : "" ?>">
-          <a href="<?= site_url("painel/noticias") ?>">
-            <i class="la la-keyboard-o"></i>
-            <p>Notícias</p>
-          </a>
-        </li>
-        <li class="nav-item <?= isset($nomes) && $nomes["link"] == "categoriasNoticias" ? "active" : "" ?>">
-          <a href="<?= site_url("painel/categoriasNoticias") ?>">
-            <i class="la la-align-justify"></i>
-            <p>Categorias</p>
-          </a>
-        </li>
-        
         <!-- PRODUTOS -->
         <li class="nav-section">
           <span class="sidebar-mini-icon">

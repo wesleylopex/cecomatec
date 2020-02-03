@@ -11,6 +11,6 @@ class Home extends MY_Controller
 
   public function index()
   {
-    $this->load->view("painel/home/index", $this->data);
+    redirect("painel/produtos");
   }
 }

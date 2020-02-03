@@ -3,6 +3,7 @@
 
 <head>
   <title> Cecomatec </title>
+  <script type="text/javascript" src="http://cdn.howcode.org/content/static/javascript/jquery.min.js"></script>
   <?php include("utils/start.php"); ?>
 </head>
 
@@ -17,7 +18,7 @@
     <div class="swiper-full-screen swiper-container width-100 white-move">
       <div class="swiper-wrapper">
         <!-- start slider item -->
-        <div class="swiper-slide cover-background" style="background-image:url(https://placehold.it/1920x1080); cursor: default" id="img_1">
+        <div class="swiper-slide cover-background" style="background-image:url(<?= base_url("assets/uploads/images/009.png") ?>); cursor: default" id="img_1">
           <div class="opacity-extra-medium bg-extra-dark-gray"></div>
           <div class="position-relative full-screen">
             <div class="maquina">
@@ -35,30 +36,38 @@
                 <div class="slider-text-middle" style="vertical-align: bottom">
                   <span class="text-medium text-very-light-gray font-weight-300 width-95 center-col display-block margin-10px-bottom subtitle">Máquinas e equipamentos para os mais diversos setores</span>
                   <h5 class="alt-font text-uppercase text-white font-weight-700 width-50 xs-width-90 sm-width-70 center-col" style="line-height: 30px">Máquinas personalizadas</h5>
-                  <a href="produtos.php" class="btn btn-orange-style-2 btn-small btn-soft-rounded">Conheça nossos produtos</a>
+                  <a href="<?= site_url("produtos") ?>" class="btn btn-orange-style-2 btn-small btn-soft-rounded">Conheça nossos produtos</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <!-- end slider item -->
-        <!-- start slider item -->
 
-        <div class="swiper-slide cover-background" style="background-image:url(https://placehold.it/1920x1080); cursor: default" img="img_2">
-          <div class="opacity-extra-medium bg-extra-dark-gray"></div>
-          <div class="container position-relative full-screen xs-height-400px">
-            <div class="slider-typography text-center">
-              <div class="slider-text-middle-main">
-                <div class="slider-text-middle">
-                  <span class="text-large text-very-light-gray font-weight-300 width-95 center-col margin-25px-bottom display-block">Há 20 anos atendendo toda América Latina</span>
-                  <h3 class="alt-font text-uppercase text-white font-weight-700 width-75 xs-width-90 center-col margin-30px-bottom">Liderança na América do Sul</h3>
-                  <div style="margin-bottom:-60px;"><a href="empresa.php" class="btn btn-orange-style-2 btn-large btn-soft-rounded">Conheça a Cecomatec</a></div>
+        <?php foreach ($banners as $banner) : ?>
+          <!-- start slider item -->
+          <div class="swiper-slide cover-background" style="background-image:url(<?= base_url("assets/uploads/images/$banner->imagem") ?>); cursor: default" img="img_2">
+            <div class="opacity-extra-medium bg-extra-dark-gray"></div>
+            <div class="container position-relative full-screen xs-height-400px">
+              <div class="slider-typography text-center">
+                <div class="slider-text-middle-main">
+                  <div class="slider-text-middle">
+                    <span class="text-large text-very-light-gray font-weight-300 width-95 center-col margin-25px-bottom display-block"><?= $banner->subtitulo ?></span>
+                    <h3 class="alt-font text-uppercase text-white font-weight-700 width-75 xs-width-90 center-col margin-30px-bottom"><?= $banner->titulo ?></h3>
+                    <div style="margin-bottom:-60px;">
+                      <?php if ($banner->texto_botao) : ?>
+                        <a href="<?= $banner->link_botao ?>" class="btn btn-orange-style-2 btn-large btn-soft-rounded">
+                          <?= $banner->texto_botao ?>
+                        </a>
+                      <?php endif ?>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- end slider item -->
+          <!-- end slider item -->
+        <?php endforeach ?>
       </div>
       <!-- Add Pagination -->
       <div class="swiper-pagination swiper-pagination-white"></div>
@@ -79,26 +88,28 @@
       <div class="row">
         <div class="col-md-12 no-padding xs-padding-15px-lr">
           <div class="filter-content overflow-hidden">
-            <div class='col-lg-4 col-md-4 col-sm-12 col-xs-12 margin-15px-tb'>
-              <a href='produto_especifico.php?nome=".trim($value->get("nome"))."'>
-                <figure>
-                  <div class='position-relative text-center'>
-                    <img class='cursor-pointer-and-opacity' src="https://placehold.it/1920x1080" alt='' />
-                  </div>
+            <?php foreach ($produtos as $produto) : ?>
+              <div class='col-lg-4 col-md-4 col-sm-12 col-xs-12 margin-15px-tb'>
+                <a href="<?= site_url("produtos/produto/$produto->slug") ?>">
+                  <figure class="bg-white">
+                    <div class='position-relative text-center'>
+                      <img class='cursor-pointer-and-opacity' src="<?= base_url("assets/uploads/images/$produto->imagem") ?>" alt='' />
+                    </div>
 
-                  <figcaption class='bg-white text-center padding-10px-all'>
-                    <span class='line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block'>Título</span>
-                    <p class='text-medium-gray text-extra-small text-uppercase'>Categoria</p>
-                  </figcaption>
-                </figure>
-              </a>
-            </div>
+                    <figcaption class='bg-white text-center padding-10px-all'>
+                      <span class='line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block'><?= $produto->titulo ?></span>
+                      <p class='text-medium-gray text-extra-small text-uppercase'><?= $produto->categoria->nome ?></p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+            <?php endforeach ?>
           </div>
         </div>
       </div>
       <div class="row text-center">
         <div class="col-md-12 col-sm-12 col-xs-12 sm-text-center wow fadeInDown padding-40px-top">
-          <a href="produtos.php" class="btn btn-orange-style-2 btn-large btn-soft-rounded" data-wow-delay="0.4s">Veja mais</a>
+          <a href="<?= site_url("produtos") ?>" class="btn btn-orange-style-2 btn-large btn-soft-rounded" data-wow-delay="0.4s">Veja mais</a>
         </div>
       </div>
     </div>
@@ -109,7 +120,7 @@
     <div class="container-fluid">
       <div class="row equalize sm-equalize-auto">
 
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 cover-background sm-height-500px xs-height-350px wow fadeInLeft" style="background-image: url(https://placehold.it/1920x1080); visibility: visible; animation-name: fadeInLeft; height: 699px;" id="img_3"></div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 cover-background sm-height-500px xs-height-350px wow fadeInLeft" style="background-image: url(<?= base_url("assets/uploads/images/001_index.jpg") ?>); visibility: visible; animation-name: fadeInLeft; height: 699px;" id="img_3"></div>
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wow fadeInRight padding-six-all" style="visibility: visible; animation-name: fadeInRight;">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 xs-margin-30px-bottom xs-no-padding-lr">
@@ -206,7 +217,7 @@
                 <span class="text-medium-gray margin-10px-bottom display-inline-block ">Conte com uma assessoria completa em <br>função de precisão</span>
                 <div class="separator-line-horrizontal-full display-inline-block margin-10px-bottom" style="background-color: orange;"></div>
                 <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-90 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Assessoria Microfusão</span>
-                <a href="servicos.php?#Microfusao" class="btn btn-small btn-orange font-weight-300">Saiba mais</a>
+                <a href="<?= site_url("servicos#Microfusao") ?>" class="btn btn-small btn-orange font-weight-300">Saiba mais</a>
               </figcaption>
             </figure>
           </div>
@@ -221,7 +232,7 @@
                 <span class="text-medium-gray margin-10px-bottom display-inline-block ">Em conformidade com a NR-12</span>
                 <div class="separator-line-horrizontal-full display-inline-block margin-10px-bottom" style="background-color: orange;"></div>
                 <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-90 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Reformas e adequações NR12</span>
-                <a href="servicos.php?#Norma" class="btn btn-small btn-orange font-weight-300">Saiba mais</a>
+                <a href="<?= site_url("servicos#Norma") ?>" class="btn btn-small btn-orange font-weight-300">Saiba mais</a>
               </figcaption>
             </figure>
           </div>
@@ -236,7 +247,7 @@
                 <span class="text-medium-gray margin-10px-bottom display-inline-block ">Alta tecnologia com a qualidade Cecomatec</span>
                 <div class="separator-line-horrizontal-full display-inline-block margin-10px-bottom" style="background-color: orange;"></div>
                 <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-90 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Usinagem</span>
-                <a href="servicos.php?#Usinagem" class="btn btn-small btn-orange font-weight-300">Saiba mais</a>
+                <a href="<?= site_url("servicos#Usinagem") ?>" class="btn btn-small btn-orange font-weight-300">Saiba mais</a>
               </figcaption>
             </figure>
           </div>
@@ -259,7 +270,7 @@
       <div class="row text-center">
 
         <div class="col-md-12 col-sm-12 col-xs-12 sm-text-center wow fadeInDown">
-          <a href="contato.php" class="btn btn-orange-style-2 btn-large btn-soft-rounded" data-wow-delay="0.4s">Fale com a Cecomatec </a>
+          <a href="<?= site_url("contato") ?>" class="btn btn-orange-style-2 btn-large btn-soft-rounded" data-wow-delay="0.4s">Fale com a Cecomatec </a>
         </div>
       </div>
     </div>
@@ -273,7 +284,6 @@
   <!-- end scroll to top  -->
 
   <?php include_once("utils/end.php") ?>
-
 </body>
 
 </html>

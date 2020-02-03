@@ -31,7 +31,7 @@
     .maquina figure{
         width: 239px;
         height: 356px;
-        background-image: url("../images/maquina_small.png");
+        background-image: url("../../site/img/maquina_small.png");
         background-repeat: no-repeat;
         background-size: 239px 356px;
         background-position: center;
@@ -43,7 +43,7 @@
     .elemento-esquerda figure{
         width: 157px;
         height: 359px;
-        background-image: url("../images/02_small.png");
+        background-image: url("../../site/img/02_small.png");
         background-repeat: no-repeat;
         background-size: 157px 359px;
         background-position: center;
@@ -58,7 +58,7 @@
     .maquina figure{
         width: 470px;
         height: 700px;
-        background-image: url("../images/maquina_big.png");
+        background-image: url("../../site/img/maquina_big.png");
         background-size: 470px 700px;
         right: 5%;
         margin-top: -350px;
@@ -67,16 +67,16 @@
     .elemento-esquerda figure{
         width: 306px;
         height: 700px;
-        background-image: url("../images/02_big.png");
+        background-image: url("../../site/img/02_big.png");
         background-size: 306px 700px;
         top: 50%;
         margin-top: -350px;
     }
-
+    
     .elemento-direita figure{
         width: 496px;
         height: 500px;
-        background-image: url("../images/01_big.png");
+        background-image: url("../../site/img/01_big.png");
         background-size: 496px 500px;
         margin-right: -248px;
         margin-top: -250px;
@@ -87,7 +87,7 @@
     .maquina figure{
         width: 440px;
         height: 655px;
-        background-image: url("../images/maquina_big.png");
+        background-image: url("../../site/img/maquina_big.png");
         background-size: 440px 655px;
         right: 5%;
         margin-top: -270px;
@@ -96,7 +96,7 @@
     .elemento-esquerda figure{
         width: 218px;
         height: 500px;
-        background-image: url("../images/02_big.png");
+        background-image: url("../../site/img/02_big.png");
         background-size: 218px 500px;
         top: 50%;
         margin-top: -200px;
@@ -105,7 +105,7 @@
     .elemento-direita figure{
         width: 345px;
         height: 350px;
-        background-image: url("../images/01_big.png");
+        background-image: url("../../site/img/01_big.png");
         background-size: 345px 350px;
         margin-right: -115px;
         margin-top: -205px;
@@ -3187,7 +3187,7 @@
     .maquina figure{
         width: 168px;
         height: 250px;
-        background-image: url("../images/maquina_small.png");
+        background-image: url("../../site/img/maquina_small.png");
         background-repeat: no-repeat;
         background-size: 168px 250px;
         background-position: center;
@@ -3200,7 +3200,7 @@
     .elemento-esquerda figure{
         width: 109px;
         height: 250px;
-        background-image: url("../images/02_small.png");
+        background-image: url("../../site/img/02_small.png");
         background-repeat: no-repeat;
         background-size: 109px 250px;
         background-position: center;

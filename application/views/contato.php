@@ -82,26 +82,25 @@
                   <div id="success-project-contact-form" class="no-margin-lr"></div>
                 </div>
                 <div class="col-md-6">
-                  <input type="text" name="name" id="name" placeholder="Nome *" class="bg-transparent border-color-medium-gray medium-input border-radius-5 border-color-dark-gray-hover transition-zero4">
+                  <input type="text" name="nome" placeholder="Nome" class="bg-transparent border-color-medium-gray medium-input border-radius-5 border-color-dark-gray-hover transition-zero4">
                 </div>
                 <div class="col-md-6">
-                  <input type="text" name="phone" id="phone" placeholder="Telefone" class="bg-transparent border-color-medium-gray medium-input border-radius-5 border-color-dark-gray-hover transition-zero4">
+                  <input type="text" name="telefone" placeholder="Telefone" class="bg-transparent border-color-medium-gray medium-input border-radius-5 border-color-dark-gray-hover transition-zero4">
                 </div>
                 <div class="col-md-6">
-                  <input type="text" name="empresa" id="empresa" placeholder="Empresa" class="bg-transparent border-color-medium-gray medium-input border-radius-5 border-color-dark-gray-hover transition-zero4">
+                  <input type="text" name="empresa" placeholder="Empresa" class="bg-transparent border-color-medium-gray medium-input border-radius-5 border-color-dark-gray-hover transition-zero4">
                 </div>
                 <div class="col-md-6">
-                  <input type="text" name="cidade_estado" id="cidade_estado" placeholder="Cidade / Estado" class="bg-transparent border-color-medium-gray medium-input border-radius-5 border-color-dark-gray-hover transition-zero4">
+                  <input type="text" name="endereco" placeholder="Cidade / Estado" class="bg-transparent border-color-medium-gray medium-input border-radius-5 border-color-dark-gray-hover transition-zero4">
                 </div>
                 <div class="col-md-12">
-                  <input type="text" name="email" id="email" placeholder="E-mail *" class="bg-transparent border-color-medium-gray medium-input border-radius-5 border-color-dark-gray-hover transition-zero4">
+                  <input type="text" name="email" placeholder="E-mail" class="bg-transparent border-color-medium-gray medium-input border-radius-5 border-color-dark-gray-hover transition-zero4">
                 </div>
                 <div class="col-md-12">
-                  <textarea name="comment" id="comment" placeholder="Mensagem" rows="6" class="bg-transparent border-color-medium-gray medium-textarea border-radius-5 border-color-dark-gray-hover transition-zero4"></textarea>
+                  <textarea name="mensagem" placeholder="Mensagem" rows="6" class="bg-transparent border-color-medium-gray medium-textarea border-radius-5 border-color-dark-gray-hover transition-zero4"></textarea>
                 </div>
                 <div class="col-md-12 text-center">
-                  <button id="project-contact-us-button " type="submit" class="text-white btn btn-orange-style-2 btn-large margin-20px-top" style="border-radius: 5px; border: 1px solid">Enviar</button>
-
+                  <button id="sendMessage" type="button" class="text-white btn btn-orange-style-2 btn-large margin-20px-top" style="border-radius: 5px; border: 1px solid">Enviar</button>
                 </div>
               </div>
             </form>
@@ -129,11 +128,58 @@
   <!-- start scroll to top -->
   <a class="scroll-top-arrow" href="javascript:void(0);"><i class="ti-arrow-up"></i></a>
   <!-- end scroll to top  -->
-
-  <script src="<?= base_url() ?>assets/js/map.js"></script>
+  <script>
+    var configuracoes = <?= json_encode($configuracoes) ?>;
+  </script>
+  <script src="<?= base_url("assets/site/js/map.js") ?>"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlYRX4JcJLzJQ4S8lnVZy6FdvipuszGKY&callback=initMap" defer></script>
 
   <?php include_once("utils/end.php") ?>
+
+  <script>
+    function showAlert(message = null, type = "primary", icon = "fa fa-check", title = null) {
+      $.notify({
+        icon: icon,
+        title: title,
+        message: message,
+      }, {
+        type: type,
+        placement: {
+          from: "bottom",
+          align: "right"
+        },
+        time: 1000,
+      });
+    }
+
+    $("#sendMessage").click(function() {
+      let form = document.querySelector("#project-contact-form")
+      let formData = new FormData(form)
+
+      $.ajax({
+        url: "<?= site_url("contato/enviarMensagem/") ?>",
+        type: "POST",
+        cache: false,
+        processData: false,
+        contentType: false,
+        data: formData,
+        success(result) {
+          result = JSON.parse(result)
+          let message = "Erro ao enviar. Tente novamente"
+          let icon = "fa fa-exclamation"
+
+          if (result.success) {
+            message = "Mensagem enviada. Em breve retornaremos"
+            icon = "fa fa-check"
+            $("#project-contact-form")[0].reset()
+          }
+
+          showAlert(message, "warning", icon)
+
+        },
+      })
+    })
+  </script>
 </body>
 
 </html>

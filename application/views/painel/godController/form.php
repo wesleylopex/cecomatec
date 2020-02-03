@@ -85,6 +85,13 @@
                             </div>
                           <?php endif ?>
 
+                          <?php if ($campo["type"] == "file") : ?>
+                            <div class="custom-file">
+                              <input type="file" name="<?= $key ?>" class="custom-file-input" id="<?= $key ?>" accept="application/pdf">
+                              <label class="custom-file-label" for="<?= $key ?>" data-browse="Procurar">Escolher um arquivo</label>
+                            </div>
+                          <?php endif ?>
+
                           <?php if ($campo["type"] == "select") : ?>
                             <?= form_dropdown($key, $campo["options"], isset($registro) ? $registro->{$key} : "", ["class" => "form-control $class select2", $disabled ? "disabled" : "" => "disabled", $required ? "required" : "" => "required"]) ?>
                           <?php endif ?>
@@ -103,7 +110,7 @@
                       <?php endif ?>
                     <?php endforeach ?>
                   </div>
-                          </form>
+                  </form>
                 </div>
                 <div class="card-action">
                   <button type="submit" class="btn btn-black float-right btn-save">Feito!</button>
@@ -128,6 +135,16 @@
       theme: "bootstrap",
       minimumResultsForSearch: 10
     });
+
+    $('input[type=file]').on('change', function() {
+      //get the file name
+      var fileName = $(this).val().replace("C:\\fakepath\\", "");
+      //replace the "Choose a file" label
+      if(fileName)
+        $(this).next('.custom-file-label').html(fileName);
+      else
+        $(this).next('.custom-file-label').html("Escolher um arquivo");
+    })
 
     function showAlert(type = "primary", message = null, icon = "la la-trash", title = null) {
       $.notify({
@@ -173,7 +190,7 @@
         processData: false,
         contentType: false,
         type: 'POST',
-        success (result) {
+        success(result) {
           response = JSON.parse(result)
           if (response.success) {
             showAlert("primary", response.message, response.icon)
@@ -183,9 +200,6 @@
             }, 1500)
           } else
             showAlert("primary", response.message, response.icon)
-        },
-        error (result) {
-          console.table(result)
         }
       });
     }

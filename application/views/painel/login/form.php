@@ -8,7 +8,11 @@
 <body class="login">
   <div class="wrapper wrapper-login">
     <div class="container container-login animated fadeIn">
-      <h3 class="text-center">Sign In To Admin</h3>
+      <div class="col-md-12 col-xs-5 text-center mb-4">
+        <a href="<?= base_url() ?>" class="logo">
+          <img src="<?= base_url() ?>assets/site/img/logo.png" data-no-retina class="logo-dark default" style="max-height:40px;">
+        </a>
+      </div>
       <?= form_open("painel/login/logar", ["class" => "login-form"]) ?>
       <!-- <div class="login-form"> -->
       <div class="form-group form-floating-label">
@@ -23,7 +27,7 @@
         </div>
       </div>
       <div class="form-action">
-        <button class="btn btn-primary btn-rounded btn-login">Entrar</button>
+        <button class="btn btn-black btn-rounded btn-login">Entrar</button>
       </div>
       </form>
     </div>

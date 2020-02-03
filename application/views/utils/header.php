@@ -8,18 +8,23 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 text-uppercase alt-font xs-no-padding-lr xs-text-center">
-          <a href="tel:+55(54)32615048" class="text-link-orange xs-width-100">(54) 3261-5048</a>
+          <a class="text-link-orange xs-width-100"><?= $configuracoes->telefone ?></a>
           <div class="separator-line-verticle-extra-small bg-dark-gray display-inline-block margin-two-lr hidden-xs position-relative vertical-align-middle top-minus1"></div>
-          <a href="mailto:contato@cecomatec.com.br" class="text-link-orange xs-width-100">contato@cecomatec.com.br</a>
+          <a href="mailto:<?= $configuracoes->email ?>" class="text-link-orange xs-width-100"><?= $configuracoes->email ?></a>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12 hidden-xs xs-no-padding-lr text-right">
+
+          <div id="google_translate_element" style="display: none;"></div>
           <div class="btn-group dropdown-style-1 xs-width-100 xs-text-center xs-margin-three-bottom display-inline-block">
             <button type="button" class="btn dropdown-toggle xs-width-100 hover-orange" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Português (Brasil)<span class="caret"></span>
+              <span class="icon-country" id="selectIconCountry"></span>
+              <span id="selectedLanguage">Idioma</span>
+              <span class="caret"></span>
             </button>
             <ul class="dropdown-menu xs-width-100" name="idioma">
-              <li><a href="../en/"><span class="icon-country usa" style="background: url(<?= base_url("assets/site/img/country-flag-16x16/usa.png") ?>)"></span>Inglês</a></li>
-              <li><a href="../es/"><span class="icon-country esp" style="background: url(<?= base_url("assets/site/img/country-flag-16x16/Spain.png") ?>)"></span>Espanhol</a></li>
+              <li language="pt"><span class="icon-country" style="background: url(<?= base_url("assets/site/img/country-flag-16x16/bra.png") ?>)"></span>Português</li>
+              <li language="en"><span class="icon-country" style="background: url(<?= base_url("assets/site/img/country-flag-16x16/usa.png") ?>)"></span>Inglês</li>
+              <li language="es"><span class="icon-country" style="background: url(<?= base_url("assets/site/img/country-flag-16x16/Spain.png") ?>)"></span>Espanhol</li>
             </ul>
           </div>
         </div>
@@ -33,7 +38,7 @@
       <div class="row">
         <!-- start logo -->
         <div class="col-md-4 col-xs-5">
-          <a href="index.php" class="logo">
+          <a href="<?= base_url() ?>" class="logo">
             <img src="<?= base_url() ?>assets/site/img/logo.png" data-no-retina class="logo-dark default" style="max-height:40px;">
           </a>
         </div>
@@ -55,21 +60,27 @@
               <li class="dropdown simple-dropdown <?= $page == "produtos" ? "active" : "" ?>">
                 <a class="hover-orange" href="<?= site_url("produtos") ?>">Produtos</a>
                 <ul class="dropdown-menu animated fadeOut" role="menu" style="top: 72px; display: none; opacity: 1;background-color:white;border:1px solid #f9f9f9; width: 250px;">
-                  <li class='dropdown'>
-                    <a href="" class='dropdown-toggle hover-orange' data-toggle='dropdown' style='color:black;'>Lorem<i class='fa fa-angle-right'></i></a>
-                    <ul class='dropdown-menu animated fadeOut' style='top:0px;display: none; opacity: 1;background-color:white;border:1px solid #f9f9f9;'>
-                      <li><a href="" class='hover-orange' style='color:black;'>Lorem</a></li>
-                    </ul>
-                  </li>
+                  <?php foreach ($categorias as $categoria) : ?>
+                    <li class='dropdown'>
+                      <a href="<?= site_url("produtos/index/$categoria->slug") ?>" class='dropdown-toggle hover-orange' data-toggle='dropdown' style='color:black;'><?= $categoria->nome ?><?php if (sizeof($categoria->subcategorias) > 0) : ?><i class='fa fa-angle-right'><?php endif ?></i></a>
+                      <?php if (sizeof($categoria->subcategorias) > 0) : ?>
+                        <ul class='dropdown-menu animated fadeOut' style='top:0px;display: none; opacity: 1;background-color:white;border:1px solid #f9f9f9;'>
+                          <?php foreach ($categoria->subcategorias as $subcategoria) : ?>
+                            <li><a href="<?= site_url("produtos/index/$categoria->slug/$subcategoria->slug") ?>" class='hover-orange' style='color:black;'><?= $subcategoria->nome ?></a></li>
+                          <?php endforeach ?>
+                        </ul>
+                      <?php endif ?>
+                    </li>
+                  <?php endforeach ?>
                 </ul>
               </li>
 
               <li class="dropdown simple-dropdown <?= $page == "servicos" ? "active" : "" ?>">
                 <a class="hover-orange" href="<?= site_url("servicos") ?>">Serviços</a>
                 <ul class="dropdown-menu animated fadeOut" role="menu" style="top: 72px; display: none; opacity: 1;background-color:white;border:1px solid #f9f9f9;">
-                  <li><a href="servicos.php#Microfusao" class="hover-orange" style="color:black;">Assessoria Microfusão</a></li>
-                  <li><a href="servicos.php#Usinagem" class="hover-orange" style="color:black;">Usinagem</a></li>
-                  <li><a href="servicos.php#Norma" class="hover-orange" style="color:black;">Norma NR-12</a></li>
+                  <li><a href="<?= site_url("servicos") ?>" class="hover-orange" style="color:black;">Assessoria Microfusão</a></li>
+                  <li><a href="<?= site_url("servicos") ?>" class="hover-orange" style="color:black;">Usinagem</a></li>
+                  <li><a href="<?= site_url("servicos") ?>" class="hover-orange" style="color:black;">Norma NR-12</a></li>
                 </ul>
               </li>
 
@@ -85,9 +96,9 @@
         </div>
         <div class="col-md-4 col-xs-8 width-auto">
           <div class="header-searchbar">
-            <a href="https://www.facebook.com/cecomatecmaquinas/" title="Facebook" target="_blank" class="hover-orange text-extra-dark-gray"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="https://www.linkedin.com/in/cecomatec-m%C3%A1quinas-e-equipamentos-2a1665134" title="Linked In" target="_blank" class="hover-orange text-extra-dark-gray"><i class="fa fa-linkedin"></i></a>
-            <a href="https://www.youtube.com/channel/UCvwAiKZqMXHaCcdzi7Rxl_A" title="Linked In" target="_blank" class="hover-orange text-extra-dark-gray"><i class="fa fa-youtube"></i></a>
+            <a href="<?= $configuracoes->facebook ?>" title="Facebook" target="_blank" class="hover-orange text-extra-dark-gray"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="<?= $configuracoes->linkedin ?>" title="Linked In" target="_blank" class="hover-orange text-extra-dark-gray"><i class="fa fa-linkedin"></i></a>
+            <a href="<?= $configuracoes->youtube ?>" title="YouTube" target="_blank" class="hover-orange text-extra-dark-gray"><i class="fa fa-youtube"></i></a>
           </div>
         </div>
       </div>

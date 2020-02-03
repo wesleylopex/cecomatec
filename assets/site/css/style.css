@@ -2860,7 +2860,7 @@ header.sticky nav.navbar.brand-center ul.nav > li > a {padding: 20px; margin: 0 
 /* gutter type */
 .portfolio-grid.gutter-very-small li, .blog-grid.gutter-very-small li {padding: 3px 3px }
 .portfolio-grid.gutter-small li, .blog-grid.gutter-small li {padding:5px 5px }
-.portfolio-grid.gutter-medium li, .blog-grid.gutter-medium li {padding:7px 7px }
+.portfolio-grid.gutter-medium li, .blog-grid.gutter-medium li {padding: 15px }
 .portfolio-grid.gutter-large li, .blog-grid.gutter-large li {padding:10px 10px; }
 .portfolio-grid.gutter-extra-large li, .blog-grid.gutter-extra-large li {padding:20px;}
 .portfolio-grid.gutter-extra-large, .blog-grid.gutter-extra-large {margin:0 -20px;}
@@ -3876,7 +3876,7 @@ aside .latest-post li figure {width: 75px;}
 .maquina figure{
     width: 300px;
     height: 447px;
-    background-image: url("../images/maquina.png");
+    background-image: url("../../uploads/images/maquina.png");
     background-repeat: no-repeat;
     background-size: 300px 447px;
     background-position: center;
@@ -3889,7 +3889,7 @@ aside .latest-post li figure {width: 75px;}
 .elemento-esquerda figure{
     width: 157px;
     height: 359px;
-    background-image: url("../images/02.png");
+    background-image: url("../../uploads/images/02.png");
     background-repeat: no-repeat;
     background-size: 157px 359px;
     background-position: center;
@@ -3902,7 +3902,7 @@ aside .latest-post li figure {width: 75px;}
 .elemento-direita figure{
     width: 220px;
     height: 223px;
-    background-image: url("../images/01.png");
+    background-image: url("../../../assets/uploads/images/01.png");
     background-repeat: no-repeat;
     background-size: 220px 223px;
     background-position: center;
@@ -3944,4 +3944,147 @@ aside .latest-post li figure {width: 75px;}
     .config-padding {
         padding-left: 15px!important;
     }
+}
+
+.mt-10px {
+    margin-top: 10px;
+}
+
+/*     Alert    */
+
+.alert {
+    border: 0px;
+    position: relative;
+    padding: .95rem 1.25rem;
+}
+
+.alert [data-notify="icon"] {
+    font-size: 30px;
+    display: block;
+    left: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.alert [data-notify="title"] {
+    display: block;
+    font-weight: 500;
+}
+
+.alert [data-notify="message"] {
+    font-size: 13px;
+}
+
+.alert .close {
+    background: rgba(255, 255, 255, 0.8);
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    top: 12px !important;
+    border-radius: 50%;
+}
+
+.alert-default,
+.alert-primary,
+.alert-secondary,
+.alert-info,
+.alert-success,
+.alert-warning,
+.alert-danger {
+    color: #ffffff;
+}
+
+
+/*    Alert States    */
+
+.alert-default {
+    background-color: #282a3c;
+}
+
+.alert-primary {
+    background-color: #177dff;
+}
+
+.alert-secondary {
+    background-color: #716aca;
+}
+
+.alert-info {
+    background-color: #05b4d8;
+}
+
+.alert-success {
+    background-color: #35cd3a;
+}
+
+.alert-warning {
+    background-color: #ffa534;
+}
+
+.alert-danger {
+    background-color: #f3545d;
+}
+
+#design3 table {
+    max-width: 748px;
+}
+
+.goog-tooltip.skiptranslate, .goog-tooltip, #goog-gt-tt, .goog-te-banner-frame.skiptranslate {
+    display: none!important;
+    visibility: hidden!important;
+}
+
+.goog-text-highlight {
+    background-color: transparent!important;
+    box-shadow: none!important;
+}
+
+
+.google-translate {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 15px;
+}
+
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+}
+
+#google_translate_element {
+    display: none;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+[name=idioma] {
+    cursor: pointer;
+}
+
+[name=idioma] li:hover {
+    background-color: #f1f1f1;
+}
+
+*::first-letter {
+    text-transform: uppercase;
+}
+
+.p-30px {
+    padding: 30px
+}
+
+.ml-50px {
+    margin-left: 50px!important;
+}
+.ml-100px {
+    margin-left: 100px!important;
+}
+.hover-bg-gray:hover {
+    background-color: rgba(0,0,0,.7)
 }

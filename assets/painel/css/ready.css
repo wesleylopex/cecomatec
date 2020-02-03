@@ -643,7 +643,7 @@ body {
 }
 
 .sidebar .nav>.nav-item.active a i {
-    color: #4d7cfe;
+    color: #191919;
 }
 
 .sidebar .nav>.nav-item.submenu {
@@ -21225,4 +21225,10 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 .btn-black.btn-border {
     background: transparent;
     color: #191919;
+}
+
+.custom-file-label, .custom-file-label::after {
+    display: flex;
+    align-items: center;
+    content: "Procurar"
 }

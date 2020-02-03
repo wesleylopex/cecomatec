@@ -1,7 +1,7 @@
  var map;
       function initMap() {
 
-    var cecomatec = {lat: -29.2204562, lng: -51.3359362};
+    var cecomatec = {lat: parseFloat(configuracoes.latitude), lng: parseFloat(configuracoes.longitude)};
 
       map = new google.maps.Map(document.getElementById('map'), {
         center: cecomatec, 

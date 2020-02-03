@@ -61,26 +61,26 @@ class GodController extends MY_Controller
   {
     // replace non letter or digits by -
     $text = preg_replace('~[^\pL\d]+~u', '-', $text);
-  
+
     // transliterate
     $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-  
+
     // remove unwanted characters
     $text = preg_replace('~[^-\w]+~', '', $text);
-  
+
     // trim
     $text = trim($text, '-');
-  
+
     // remove duplicate -
     $text = preg_replace('~-+~', '-', $text);
-  
+
     // lowercase
     $text = strtolower($text);
-  
+
     if (empty($text)) {
       return 'n-a';
     }
-  
+
     return $text;
   }
 
@@ -100,6 +100,14 @@ class GodController extends MY_Controller
           $dados[$key] = $imagem['upload_data']['file_name'];
         } else
           unset($dados[$key]);
+      } else if ($campo["type"] == "file") {
+        $dados[$key] = $_FILES[$key];
+
+        if ($dados[$key]['name']) {
+          $imagem = $this->imageModel->uploadFile('files/', $this->nomes["link"], FALSE, $key, null);
+          $dados[$key] = $imagem['upload_data']['file_name'];
+        } else
+          unset($dados[$key]);
       } else if ($campo["type"] == "password") {
         $senha = $this->input->post($key);
 
@@ -108,7 +116,7 @@ class GodController extends MY_Controller
       } else if (!isset($campo["disabled"]) || (isset($campo["disabled"]) && $campo["disabled"] == false))
         $dados[$key] = $this->input->post($key);
 
-      if(isset($campo["slug"]) && $campo["slug"] == true)
+      if (isset($campo["slug"]) && $campo["slug"] == true)
         $dados["slug"] = $this->slugify($this->input->post($key));
     }
 
@@ -222,29 +230,28 @@ class MY_Site_Controller extends CI_Controller
   {
     parent::__construct();
 
-    // $this->load->model('metatags_model');
-    $this->load->model('configuracaoModel');
-    // $this->load->model('banner_pagina_model');
-    // $this->load->model('textos_model');
-    // $this->load->model("info_contato_model");
-    // $this->load->model("call_to_action_model");
-    // $this->load->model("servico_model");
-    // $this->load->model("instagram_model");
-    // $this->load->model("anuncios_model");
-    // $this->load->model("banners_anuncios_model");
+    $this->load->model('configuracoesModel');
+    $this->load->model('categoriasProdutosModel');
+    $this->load->model('subcategoriasProdutosModel');
 
-    $this->is_publicado();
-    $this->data['configuracao'] = $this->configuracaoModel->get_by_primary(1);
-    // $this->data['banners_paginas'] = $this->banner_pagina_model->get_all();
-
-    // $this->data['info_contato'] = $this->info_contato_model->get_all()[0];
-    // $this->data['call_to_action'] = $this->call_to_action_model->get_all()[0];
-    // // $this->data['servicos'] = $this->servico_model->get_all(6);
-    // $this->data['informacoes'] = $this->info_contato_model->get_by_primary(1);
-    // $this->data['instagram'] = $this->instagram_model->get_by_primary(1);
-    // $this->data['numero_nascimentos'] = $this->contador_model->get_all()[0]->nascimentos;
+    $this->data['configuracoes'] = $this->configuracoesModel->getByPrimary(1);
+    $categorias = $this->categoriasProdutosModel->getAll();
+    $this->data["categorias"] = $this->getCategoriasWithSubcategorias($categorias);
+    $this->data["subcategorias"] = $this->subcategoriasProdutosModel->getAll();
 
     $this->load->vars($this->data);
+  }
+
+  public function getCategoriasWithSubcategorias($categorias)
+  {
+
+    $this->load->model("subcategoriasProdutosModel");
+
+    foreach ($categorias as $categoria) {
+      $categoria->subcategorias = $this->subcategoriasProdutosModel->getAllWhere(["id_categoria" => $categoria->id]);
+    }
+
+    return $categorias;
   }
 
   public function getAnunciosWithBanners($anuncios = null, $pagina = null)
@@ -257,21 +264,5 @@ class MY_Site_Controller extends CI_Controller
     }
 
     return $anuncios;
-  }
-
-  function is_publicado()
-  {
-    if ($this->configuracaoModel->site_publicado() == 0) {
-      redirect('espera', 'refresh');
-    }
-  }
-
-  public function loadBanner()
-  {
-    foreach ($this->data['banners_paginas'] as $key => $value) {
-      if ($value->pagina == $this->data['page']) {
-        $this->data['banner_page'] = $value;
-      }
-    }
   }
 }
