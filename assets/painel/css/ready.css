@@ -21295,3 +21295,8 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 .custom-file-input:lang(en) ~ .custom-file-label::after {
     content: "Procurar"!important
 }
+
+.btn-green {
+    background-color: #6accbd;
+    border-color: #6accbd;
+}

@@ -42,7 +42,7 @@
                   <div class="bg-extra-medium-gray icon-round-very-small" style="background-color:orange"><i class="icon-map-pin icon-small text-white"></i></div>
                 </div>
                 <div class="text-extra-dark-gray text-uppercase text-small font-weight-600 alt-font margin-5px-bottom">Faça uma visita</div>
-                <p class="center-col">Rua Francisco Balbinot, 163 <br> Santa Catarina, Farroupilha</p>
+                <p class="center-col"><?= $configuracoes->endereco ?></p>
                 <a href="#map" class="scroll text-uppercase text-green-jocc text-small margin-15px-top xs-margin-10px-top display-inline-block" style="color:#FF8C00">VEJA NO MAPA</a>
               </div>
               <!-- end contact info item -->
@@ -52,8 +52,16 @@
                   <div class="bg-extra-dark-gray icon-round-very-small" style="background-color:orange"><i class="icon-chat icon-small text-white"></i></div>
                 </div>
                 <div class="text-extra-dark-gray text-uppercase text-small font-weight-600 alt-font margin-5px-bottom">Vamos conversar</div>
-                <p class="center-col"> <a href="tel:+55(54)32615048" class="emails hover-orange"> Fone: (54) 3261-5048 </a> <br> <a href="tel:+55(54)32683891" class="emails hover-orange"> Fax: (54) 3268-3891 </a> </p>
-                <a href="tel:+55(54)32615048" class="text-uppercase text-green-jocc text-small margin-15px-top xs-margin-10px-top display-inline-block" style="color:#FF8C00">nos ligue</a>
+                <p class="center-col">
+                  <a class="emails hover-orange">
+                    <?= $configuracoes->telefone_principal ?>
+                  </a>
+                  <br>
+                  <a class="emails hover-orange">
+                    <?= $configuracoes->telefone_secundario ?>
+                  </a>
+                </p>
+                <a class="text-uppercase text-green-jocc text-small margin-15px-top xs-margin-10px-top display-inline-block" style="color:#FF8C00">nos ligue</a>
               </div>
               <!-- end contact info item -->
               <!-- start contact info item -->
@@ -62,8 +70,8 @@
                   <div class="bg-extra-dark-gray icon-round-very-small" style="background-color:orange"><i class="icon-envelope icon-small text-white"></i></div>
                 </div>
                 <div class="text-extra-dark-gray text-uppercase text-small font-weight-600 alt-font margin-5px-bottom">deixe um recado</div>
-                <p class="center-col"><a href="mailto:cecomatec@cecomatec.com.br" class="emails hover-orange">cecomatec@cecomatec.com.br</a></p><br>
-                <a href="mailto:cecomatec@cecomatec.com.br" class="text-uppercase  text-small margin-15px-top xs-margin-10px-top display-inline-block" style="color:#FF8C00">envie um e-mail</a>
+                <p class="center-col"><a href="mailto:<?= $configuracoes->email ?>" class="emails hover-orange"><?= $configuracoes->email ?></a></p><br>
+                <a href="mailto:<?= $configuracoes->email ?>" class="text-uppercase  text-small margin-15px-top xs-margin-10px-top display-inline-block" style="color:#FF8C00">envie um e-mail</a>
               </div>
               <!-- end contact info item -->
             </div>

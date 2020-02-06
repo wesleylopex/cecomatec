@@ -9,6 +9,7 @@ class Configuracoes extends GodController
 		"plural" => "Configurações",
 		"link" => "configuracoes",
 	];
+
 	protected $permissoes = [
 		"cadastrar" => false,
 		"editar" => true,
@@ -23,20 +24,28 @@ class Configuracoes extends GodController
 			"rules" => "trim|required",
 		],
 
-		"telefone" => [
-			"nome" => "Telefone",
+		"telefone_principal" => [
+			"nome" => "Telefone Principal",
 			"type" => "text",
 			"visivelTabela" => true,
 			"rules" => "trim",
-			"col" => "col-md-6",
+			"col" => "col-md-4",
 		],
 		
-		"fax" => [
-			"nome" => "Fax",
+		"telefone_secundario" => [
+			"nome" => "Telefone Secundário",
 			"type" => "text",
 			"visivelTabela" => false,
 			"rules" => "trim",
-			"col" => "col-md-6",
+			"col" => "col-md-4",
+		],
+
+		"tempo_banner" => [
+			"nome" => "Tempo dos Banner (Home)",
+			"type" => "text",
+			"visivelTabela" => true,
+			"rules" => "trim",
+			"col" => "col-md-4",
 		],
 		
 		"endereco" => [

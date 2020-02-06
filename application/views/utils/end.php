@@ -1,3 +1,11 @@
+<script>
+  
+  const base_url = "<?= base_url() ?>";
+  
+  var configuracoes = <?= json_encode($configuracoes) ?>;
+
+</script>
+
 <script type="text/javascript" src="<?= base_url() ?>assets/site/js/jquery.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>assets/site/js/modernizr.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>assets/site/js/bootstrap.min.js"></script>
@@ -53,7 +61,6 @@
 <script src="<?= base_url() ?>assets/site/js/jquery.cookie.js"></script>
 
 <script type="text/javascript">
-  const base_url = "<?= base_url() ?>";
 
   $.cookie('googtrans', "/" + localStorage.getItem("language"));
 </script>

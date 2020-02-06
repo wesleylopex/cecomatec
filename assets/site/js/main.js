@@ -449,7 +449,7 @@ $(document).ready(function () {
         pagination: '.swiper-pagination',
         paginationClickable: true,
         loop: true,
-        autoplay: 5000,
+        autoplay: configuracoes.tempo_banner,
         slidesPerView: 1,
         keyboardControl: true,
         preventClicks: false,

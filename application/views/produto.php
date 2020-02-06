@@ -59,7 +59,7 @@
                     <div class="swiper-slide">
                       <div class="owl-product-thumb text-center">
                         <img src="<?= base_url("assets/uploads/" . $imagem->imagem) ?>" />
-                    </div>
+                      </div>
                     </div>
                   <?php endforeach ?>
                 </div>
@@ -111,64 +111,75 @@
     </div>
   </section>
 
-  <section class="wow fadeIn no-padding">
-    <div class="container">
+  <!-- start tab style 01 section -->
+  <section class="wow fadeIn">
+    <div class="container tab-style2">
       <div class="row">
-        <div class="col-md-8 col-sm-12 center-col">
-          <div class="panel-group accordion-style1" id="accordion-design">
-
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <!-- start tab navigation -->
+          <ul class="nav nav-tabs alt-font text-uppercase text-small display-inherit text-center font-weight-600">
             <?php if ($produto->caracteristicas) : ?>
-              <div class="panel">
-                <div class="panel-heading">
-                  <a data-toggle="collapse" data-parent="#accordion-design" href="#design1" aria-expanded="true">
-                    <div class="panel-title alt-font font-weight-500 text-extra-dark-gray text-uppercase">Características<span class="pull-right"><i class="ti-minus"></i></span></div>
-                  </a>
-                </div>
-                <div id="design1" class="panel-collapse collapse in" aria-expanded="true" role="tablist">
-                  <div class="panel-body text-medium">
-                    <?= nl2br($produto->caracteristicas) ?>
-                  </div>
-                </div>
-              </div>
-            <?php endif;
-            if ($produto->arquivo_pdf) : ?>
-              <div class="panel">
-                <div class="panel-heading">
-                  <a data-toggle="collapse" data-parent="#accordion-design" href="#design2" class="collapsed" aria-expanded="false">
-                    <div class="panel-title alt-font font-weight-500 text-extra-dark-gray text-uppercase">Downloads<span class="pull-right"><i class="ti-plus"></i></span></div>
-                  </a>
-                </div>
-                <div id="design2" class="panel-collapse collapse" aria-expanded="false" role="tablist">
-                  <div class="panel-body text-medium text-center">
-                    <a href="<?= base_url("assets/uploads/files/$produto->arquivo_pdf") ?>" download style="width: 100%;">
-                      <button class="btn btn-small btn-soft-rounded btn-style-download wow fadeInDown">
-                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                        Download
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            <?php endif;
-            if ($produto->modelos) : ?>
-              <div class="panel">
-                <div class="panel-heading">
-                  <a data-toggle="collapse" data-parent="#accordion-design" href="#design3" aria-expanded="true">
-                    <div class="panel-title alt-font font-weight-500 text-extra-dark-gray text-uppercase">Modelos<span class="pull-right"><i class="ti-plus"></i></span></div>
-                  </a>
-                </div>
-                <div id="design3" class="panel-collapse collapse" aria-expanded="false" role="tablist">
-                  <div class="panel-body text-medium">
-                    <?= $produto->modelos ?>
-                  </div>
-                </div>
-              </div>
+              <li class="active"><a href="#caracteristicas" data-toggle="tab">Características</a></li>
             <?php endif ?>
-          </div>
+            <?php if ($produto->modelos) : ?>
+              <li><a href="#modelos" data-toggle="tab">Modelos</a></li>
+            <?php endif ?>
+            <?php if ($produto->arquivo_pdf) : ?>
+              <li><a href="#download" data-toggle="tab">Download</a></li>
+            <?php endif ?>
+          </ul>
+          <!-- end tab navigation -->
         </div>
+      </div>
+      <div class="tab-content">
+        <!-- start tab content -->
+        <?php if ($produto->caracteristicas) : ?>
+          <div class="tab-pane med-text fade in active" id="caracteristicas">
+            <div class="row equalize">
+              <div class="col-md-7 center-col">
+                <div class="panel-body text-medium">
+                  <?= $produto->caracteristicas ?>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php endif ?>
+        <!-- end tab content -->
+        <!-- start tab content -->
+        <?php if ($produto->modelos) : ?>
+          <div class="tab-pane fade in" id="modelos">
+            <div class="row equalize">
+              <div class="col-md-6 center-col">
+                <div class="panel-body text-medium text-center">
+                  <?= $produto->modelos ?>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php endif ?>
+        <!-- end tab content -->
+        <!-- start tab content -->
+        <?php if ($produto->arquivo_pdf) : ?>
+          <div class="tab-pane fade in" id="download">
+            <div class="row equalize">
+              <div class="col-md-12 center-col">
+                <div class="panel-body text-medium text-center">
+                  <a href="<?= base_url("assets/uploads/files/$produto->arquivo_pdf") ?>" download style="width: 100%;">
+                    <button class="btn btn-small btn-soft-rounded btn-style-download wow fadeInDown">
+                      <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                      Download
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php endif ?>
+        <!-- end tab content -->
       </div>
     </div>
   </section>
+  <!-- end tab style 01 section -->
 
   <section class="no-padding-bottom">
     <div class="container-fluid">

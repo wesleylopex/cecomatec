@@ -34,8 +34,8 @@
             <div class="slider-typography text-center container-text">
               <div class="slider-text-middle-main">
                 <div class="slider-text-middle" style="vertical-align: bottom">
-                  <span class="text-medium text-very-light-gray font-weight-300 width-95 center-col display-block margin-10px-bottom subtitle">Máquinas e equipamentos para os mais diversos setores</span>
-                  <h5 class="alt-font text-uppercase text-white font-weight-700 width-50 xs-width-90 sm-width-70 center-col" style="line-height: 30px">Máquinas personalizadas</h5>
+                  <span class="text-medium text-very-light-gray font-weight-300 width-95 center-col display-block margin-10px-bottom subtitle">Texto: Há 30 anos, fabricando máquinas para fundição de precisão.</span>
+                  <h5 class="alt-font text-uppercase text-white font-weight-700 width-50 xs-width-90 sm-width-70 center-col" style="line-height: 40px">LIDERANÇA EM MÁQUINAS PARA MICROFUSÃO</h5>
                   <a href="<?= site_url("produtos") ?>" class="btn btn-orange-style-2 btn-small btn-soft-rounded">Conheça nossos produtos</a>
                 </div>
               </div>

@@ -88,7 +88,7 @@
                             <div class="input-file input-file-image">
                               <img class="img-upload-preview" width="150" src="<?= isset($registro) ? base_url("assets/uploads/images/" . $registro->{$key}) : "" ?>" alt="">
                               <input type="file" class="form-control form-control-file" id="<?= $key ?>" name="<?= $key ?>" accept="image/*">
-                              <label for="<?= $key ?>" class="label-input-file btn btn-icon btn-primary btn-lg"><i class="la la-file-image-o"></i> Escolher imagem</label>
+                              <label for="<?= $key ?>" class="label-input-file btn btn-icon btn-green btn-lg"><i class="la la-file-image-o"></i> Escolher imagem</label>
                             </div>
                           <?php endif ?>
 

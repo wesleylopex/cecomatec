@@ -8,7 +8,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12 text-uppercase alt-font xs-no-padding-lr xs-text-center">
-          <a class="text-link-orange xs-width-100"><?= $configuracoes->telefone ?></a>
+          <a class="text-link-orange xs-width-100"><?= $configuracoes->telefone_principal ?></a>
           <div class="separator-line-verticle-extra-small bg-dark-gray display-inline-block margin-two-lr hidden-xs position-relative vertical-align-middle top-minus1"></div>
           <a href="mailto:<?= $configuracoes->email ?>" class="text-link-orange xs-width-100"><?= $configuracoes->email ?></a>
         </div>
@@ -62,14 +62,7 @@
                 <ul class="dropdown-menu animated fadeOut" role="menu" style="top: 72px; display: none; opacity: 1;background-color:white;border:1px solid #f9f9f9; width: 250px;">
                   <?php foreach ($categorias as $categoria) : ?>
                     <li class='dropdown'>
-                      <a href="<?= site_url("produtos/index/$categoria->slug") ?>" class='dropdown-toggle hover-orange' data-toggle='dropdown' style='color:black;'><?= $categoria->nome ?><?php if (sizeof($categoria->subcategorias) > 0) : ?><i class='fa fa-angle-right'><?php endif ?></i></a>
-                      <?php if (sizeof($categoria->subcategorias) > 0) : ?>
-                        <ul class='dropdown-menu animated fadeOut' style='top:0px;display: none; opacity: 1;background-color:white;border:1px solid #f9f9f9;'>
-                          <?php foreach ($categoria->subcategorias as $subcategoria) : ?>
-                            <li><a href="<?= site_url("produtos/index/$categoria->slug/$subcategoria->slug") ?>" class='hover-orange' style='color:black;'><?= $subcategoria->nome ?></a></li>
-                          <?php endforeach ?>
-                        </ul>
-                      <?php endif ?>
+                      <a href="<?= site_url("produtos/index/$categoria->slug") ?>" class='dropdown-toggle hover-orange' data-toggle='dropdown' style='color:black;'><?= $categoria->nome ?></i></a>
                     </li>
                   <?php endforeach ?>
                 </ul>
