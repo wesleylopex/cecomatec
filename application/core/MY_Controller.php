@@ -35,7 +35,8 @@ class GodController extends MY_Controller
       redirect("painel/" . $this->nomes["link"]);
   }
 
-  public function removeFilesFromDataBase() {
+  public function removeFilesFromDataBase()
+  {
     $model = $this->camposNaoModificados["galeria"]["model"];
     $this->load->model($model);
 
@@ -44,20 +45,20 @@ class GodController extends MY_Controller
     foreach ($ids as $key => $id) {
       $this->{$model}->delete($id);
     }
-
   }
 
-  public function removeAllFilesFromDataBase() {
+  public function removeAllFilesFromDataBase()
+  {
     $model = $this->camposNaoModificados["galeria"]["model"];
     $this->load->model($model);
 
     $id_produto = $this->input->post("id_produto");
 
     $this->{$model}->deleteWhere(["id_produto" => $id_produto]);
-
   }
 
-  public function getImagensFromRegistro($registro = null) {
+  public function getImagensFromRegistro($registro = null)
+  {
 
     $model = $this->camposNaoModificados["galeria"]["model"];
     $this->load->model($model);
@@ -73,7 +74,8 @@ class GodController extends MY_Controller
     $registro = $this->model->getByPrimary($id);
     if ($this->permissoes["editar"] && $registro) {
 
-      $registro->imagens = $this->getImagensFromRegistro($registro);
+      if (isset($this->campos["galeria"]))
+        $registro->imagens = $this->getImagensFromRegistro($registro);
 
       $this->data["registro"] = $registro;
       $this->load->view("painel/godController/form", $this->data);
@@ -126,21 +128,21 @@ class GodController extends MY_Controller
 
     if (!empty($_FILES['file']['name'])) {
 
-      $path = $_FILES['file']['name'];
-      $ext = pathinfo($path, PATHINFO_EXTENSION);
-      $imageName = "jocc-" . $this->nomes["link"] . date('dmYHis') . ".$ext";
+      $path = "jocc-" . $_FILES['file']['name'];
+      // $ext = pathinfo($path, PATHINFO_EXTENSION);
+      // $imageName = "jocc-" . $this->nomes["link"] . date('dmYHis') . ".$ext";
 
       session_start();
       if (!isset($_SESSION["dropzoneImages"]))
         $_SESSION["dropzoneImages"] = [];
       else
-        array_push($_SESSION["dropzoneImages"], $imageName);
+        array_push($_SESSION["dropzoneImages"], $path);
 
       // Set preference
       $config['upload_path'] = 'assets/uploads/';
       $config['allowed_types'] = 'jpg|jpeg|png';
       $config['max_size'] = '1024'; // max_size in kb
-      $config['file_name'] = $imageName;
+      $config['file_name'] = $path;
 
       //Load upload library
       $this->load->library('upload', $config);
@@ -208,9 +210,12 @@ class GodController extends MY_Controller
       session_start();
       $dropzoneImages = $_SESSION["dropzoneImages"];
 
+      // var_dump($dropzoneImages);
+
       if ($dropzoneImages) {
         $this->load->model($dropzoneModel);
         foreach ($dropzoneImages as $key => $imageName) {
+          // echo $imageName . "\n";
           $this->{$dropzoneModel}->create([
             "imagem" => $imageName,
             $dropzoneForeignKey => $dados["id"] ? $dados["id"] : $id_registro

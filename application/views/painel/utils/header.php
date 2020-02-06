@@ -30,11 +30,11 @@
         </button>
       </div> -->
       <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-        <!-- <li class="nav-item toggle-nav-search hidden-caret">
-          <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
-            <i class="flaticon-settings"></i>
+        <li class="nav-item mr-20px">
+          <a class="nav-link" href="<?= base_url() ?>" target="_blank">
+            Visitar site<i class="flaticon-internet ml-10px"></i>
           </a>
-        </li> -->
+        </li>
         <li class="nav-item dropdown hidden-caret">
           <span class="dropdown-toggle color-white font-20px cursor-pointer" data-toggle="dropdown" href="" aria-expanded="false">
             <i class="flaticon-settings"></i>
@@ -85,7 +85,7 @@
         </li>
         <li class="nav-item <?= isset($nomes) && $nomes["link"] == "banners" ? "active" : "" ?>">
           <a href="<?= site_url("painel/banners") ?>">
-            <i class="la la-image"></i>
+            <i class="flaticon-picture"></i>
             <p>Banners</p>
           </a>
         </li>
@@ -111,19 +111,19 @@
         </li>
         <li class="nav-item <?= isset($nomes) && $nomes["link"] == "produtos" ? "active" : "" ?>">
           <a href="<?= site_url("painel/produtos") ?>">
-            <i class="la la-mobile"></i>
+            <i class="flaticon-box-2"></i>
             <p>Produtos</p>
           </a>
         </li>
         <li class="nav-item <?= isset($nomes) && $nomes["link"] == "categoriasProdutos" ? "active" : "" ?>">
           <a href="<?= site_url("painel/categoriasProdutos") ?>">
-            <i class="la la-align-justify"></i>
+            <i class="flaticon-layers"></i>
             <p>Categorias</p>
           </a>
         </li>
         <li class="nav-item <?= isset($nomes) && $nomes["link"] == "subcategoriasProdutos" ? "active" : "" ?>">
           <a href="<?= site_url("painel/subcategoriasProdutos") ?>">
-            <i class="la la-align-justify"></i>
+            <i class="flaticon-layers"></i>
             <p>Subcategorias</p>
           </a>
         </li>

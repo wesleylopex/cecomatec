@@ -34,7 +34,7 @@
 									<div class="card-header">
 										<?php if ($permissoes["excluir"]) : ?>
 											<a class="btn-excluir" style="display: none" data-toggle="tooltip" data-placement="bottom" title="Excluir">
-												<i class="la la-trash"></i>
+												<i class="flaticon-interface-5"></i>
 											</a>
 										<?php endif ?>
 										<?php if ($permissoes["cadastrar"]) : ?>

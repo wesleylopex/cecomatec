@@ -65,7 +65,7 @@
                         <div class="form-group <?= $col ?> form-show-validation">
                           <label class="d-flex align-items-center">
                             <?= $campo["nome"] ?><?= isset($campo["label"]) && $campo["label"] ? " " . $campo["label"] : "" ?>
-                            <?php if ($campo["type"] == "gallery") : ?> 
+                            <?php if ($campo["type"] == "gallery") : ?>
                               <a class="btn-excluir-file" data-toggle="tooltip" data-placement="right" title="Excluir todos">
                                 <i class="la la-trash"></i>
                               </a>
@@ -210,34 +210,38 @@
     var ids = []
     var removeAllFiles = false
 
-    var myDropzone = new Dropzone(".dropzone", {
-      url: `${base_url}/painel/${nomes.link}/uploadDropzoneImage`,
-      autoProcessQueue: false,
-      parallelUploads: 10,
-      addRemoveLinks: true,
-      dictRemoveFile: "<button class='btn btn-black btn-sm btn-remove-dropzone-image btn-round'><i class='la la-trash'></i></button>",
-      dictRemoveFile: "Excluir",
-      removedfile(file) {
+    if ($(".dropzone").length > 0) {
 
-        ids.push(file.id)
+      var myDropzone = new Dropzone(".dropzone", {
+        url: `${base_url}/painel/${nomes.link}/uploadDropzoneImage`,
+        autoProcessQueue: false,
 
-        file.previewElement.remove();
-      }
-    })
+        parallelUploads: 10,
+        // uploadMultiple: true,
+        addRemoveLinks: true,
+        // parallelChunkUploads: true,
+        dictRemoveFile: "Excluir",
+        dictCancelUpload: "Cancelar",
+        removedfile(file) {
+          ids.push(file.id)
+          file.previewElement.remove();
+        }
+      })
 
-    let registro = <?= json_encode($registro) ?>;
+      let registro = <?= json_encode($registro) ?>;
 
-    registro.imagens.forEach(imagem => {
-      let file = {
-        name: imagem.imagem,
-        id: imagem.id,
-        size: 1000000
-      }
-      myDropzone.emit("addedfile", file);
-      myDropzone.emit("thumbnail", file, `${base_url}assets/uploads/${imagem.imagem}`);
-      myDropzone.emit("complete", file);
-      myDropzone.files.push(file);
-    });
+      registro.imagens.forEach(imagem => {
+        let file = {
+          name: imagem.imagem,
+          id: imagem.id,
+          size: 1000000
+        }
+        myDropzone.emit("addedfile", file);
+        myDropzone.emit("thumbnail", file, `${base_url}assets/uploads/${imagem.imagem}`);
+        myDropzone.emit("complete", file);
+        myDropzone.files.push(file);
+      });
+    }
 
     $(".btn-excluir-file").click(function() {
       removeAllFiles = true
@@ -259,11 +263,14 @@
         saveRegister()
     });
 
-    function saveRegister() {
+    function executeProcessQueue() {
       if ($(".dropzone").length > 0) {
         let dropzone = Dropzone.forElement(".dropzone");
         dropzone.processQueue();
       }
+    }
+
+    function saveRegister() {
 
       let form = document.querySelector("form")
       let formData = new FormData(form);
@@ -275,13 +282,16 @@
         cache: false,
         processData: false,
         contentType: false,
+        beforeSend() {
+          executeProcessQueue()
+        },
         type: 'POST',
         success(result) {
           response = JSON.parse(result)
           if (response.success) {
             removeFilesFromDataBase(ids)
 
-            if(removeAllFiles)
+            if (removeAllFiles)
               removeAllFilesFromDataBase(registro.id)
 
             showAlert("primary", response.message, response.icon)

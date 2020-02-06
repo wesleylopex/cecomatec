@@ -4185,3 +4185,7 @@ aside .latest-post li figure {width: 75px;}
 .swiper-slide {
     cursor: default!important;
 }
+
+.mt-0 {
+    margin-top: 0!important;
+}

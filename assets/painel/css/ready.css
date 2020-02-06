@@ -21197,9 +21197,9 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 }
 
 .btn-excluir {
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
-    padding: 6px 8px;
+    padding: 8px 10px;
     border-radius: 20px;
 }
 
@@ -21250,6 +21250,16 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
     width: auto;
 }
 
+.dropzone .dz-preview:hover .dz-image img {
+  -webkit-transform: scale(1.05, 1.05);
+  -moz-transform: scale(1.05, 1.05);
+  -ms-transform: scale(1.05, 1.05);
+  -o-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+  -webkit-filter: none!important;
+  filter: none!important; 
+}
+
 .btn-remove-dropzone-image {
     font-size: 20px;
     padding: 0 10px;
@@ -21268,3 +21278,20 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+.ml-10px {
+    margin-left: 10px;
+}
+.ml-15px {
+    margin-left: 15px;
+}
+
+.mr-15px {
+    margin-right: 15px!important;
+}
+.mr-20px {
+    margin-right: 20px!important;
+}
+
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+    content: "Procurar"!important
+}

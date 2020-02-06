@@ -94,6 +94,19 @@
             </ul>
           </div>
         </div>
+        <div class="col-2">
+          <div class="header-searchbar">
+            <a href="#search-header" class="header-search-form text-white"><i class="fa fa-search search-button"></i></a>
+            <!-- start search input -->
+            <?= form_open(site_url("pesquisa"), ["id" => "search-header", "class" => "mfp-hide search-form-result"]) ?>
+              <div class="search-form position-relative">
+                <button type="submit" class="fa fa-search close-search search-button"></button>
+                <input type="text" name="pesquisa" class="search-input" placeholder="Pesquisar" autocomplete="off">
+              </div>
+            </form>
+            <!-- end search input -->
+          </div>
+        </div>
         <div class="col-md-4 col-xs-8 width-auto">
           <div class="header-searchbar">
             <a href="<?= $configuracoes->facebook ?>" title="Facebook" target="_blank" class="hover-orange text-extra-dark-gray"><i class="fa fa-facebook" aria-hidden="true"></i></a>
