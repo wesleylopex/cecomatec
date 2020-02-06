@@ -11,14 +11,16 @@ class Home extends MY_Site_Controller
 
   public function index() {
     $this->load->model("produtosModel");
-    $this->data["produtos"] = $this->getProdutosWithCategoria($this->produtosModel->getAll(3));
-    
+    $produtos = $this->getProdutosWithCategoria($this->produtosModel->getAll(3));
+    $this->data["produtos"] = $this->getProdutosWithFirstImage($produtos);
+
     $this->load->model("bannersModel");
     $this->data["banners"] = $this->bannersModel->getAll();
     
     $this->load->view("index", $this->data);
   }
 
+  // HELPING METHODS
   public function getProdutoWithCategoria($produto) {
 
     $this->load->model("categoriasProdutosModel");
@@ -33,5 +35,22 @@ class Home extends MY_Site_Controller
     }
 
     return $produtos;
+  }
+
+  public function getProdutosWithFirstImage($produtos = [])
+  {
+    foreach ($produtos as $produto) {
+      $produto = $this->getProdutoWithFirstImage($produto);
+    }
+
+    return $produtos;
+  }
+
+  public function getProdutoWithFirstImage($produto = null)
+  {
+    $this->load->model("galeriaProdutosModel");
+    $produto->primeiraImagemGaleria = $this->galeriaProdutosModel->getAllWhere(["id_produto" => $produto->id], 1);
+
+    return $produto;
   }
 }

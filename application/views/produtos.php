@@ -71,8 +71,8 @@
                 <li class="subcat-<?= $produto->id_subcategoria ?> cat-<?= $produto->id_categoria ?> grid-item fadeInUp last-paragraph-no-margin" style="visibility: visible; animation-name: fadeInUp; position: absolute; left: 22.9901%; top: 0px;">
                   <a href="<?= site_url("produtos/produto/$produto->slug") ?>">
                     <figure>
-                      <div class="portfolio-img p-30px portfolio-item-style position-relative text-center overflow-hidden">
-                        <img class="cursor-pointer-and-opacity" src="<?= base_url("assets/uploads/images/$produto->imagem") ?>" alt="" data-no-retina="">
+                      <div class="portfolio-img product-image p-30px portfolio-item-style position-relative text-center overflow-hidden">
+                        <img class="cursor-pointer-and-opacity" src="<?= base_url("assets/uploads/".$produto->primeiraImagemGaleria[0]->imagem) ?>" alt="" data-no-retina="">
                       </div>
                       <figcaption class="bg-white">
                         <div class="portfolio-hover-main text-center">

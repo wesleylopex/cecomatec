@@ -90,7 +90,7 @@
     }
     
     $("#selectedLanguage").text(languageName)
-    $("#selectIconCountry").css("background", "url(" + base_url + "assets/site/img/country-flag-16x16/" + iconCountry + ")")
+    $("#selectIconCountry").css("background", "url(" + base_url + "assets/site/img/country-flag-16X16/" + iconCountry + ")")
   })
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

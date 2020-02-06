@@ -63,7 +63,14 @@
                       <!-- DEMAIS CAMPOS -->
                       <?php if ($campo["type"] != "hidden") : ?>
                         <div class="form-group <?= $col ?> form-show-validation">
-                          <label><?= $campo["nome"] ?><?= isset($campo["label"]) && $campo["label"] ? " " . $campo["label"] : "" ?></label>
+                          <label class="d-flex align-items-center">
+                            <?= $campo["nome"] ?><?= isset($campo["label"]) && $campo["label"] ? " " . $campo["label"] : "" ?>
+                            <?php if ($campo["type"] == "gallery") : ?> 
+                              <a class="btn-excluir-file" data-toggle="tooltip" data-placement="right" title="Excluir todos">
+                                <i class="la la-trash"></i>
+                              </a>
+                            <?php endif ?>
+                          </label>
 
                           <?php if ($campo["type"] == "text") : ?>
                             <input type="text" class="form-control <?= $class ?>" <?php if ($disabled) : ?> disabled <?php endif ?> name="<?= $key ?>" value="<?= isset($registro) ? $registro->{$key} : "" ?>" <?php if ($required) : ?> required <?php endif ?>>
@@ -106,6 +113,22 @@
                               </div>
                             </div>
                           <?php endif ?>
+
+                          <?php if ($campo["type"] == "gallery") : ?>
+                            <div action="<?= base_url("painel/" . $nomes["link"] . "/uploadDropzoneImage") ?>" class="dropzone">
+                              <div class="dz-message" data-dz-message>
+                                <div class="icon">
+                                  <i class="flaticon-picture"></i>
+                                </div>
+                                <h4 class="message">Arraste e solte imagens</h4>
+                                <div class="note">(Ou clique e selecione)</div>
+                              </div>
+                              <div class="fallback">
+                                <input name="file" type="file" multiple />
+                              </div>
+                            </div>
+                          <?php endif ?>
+
                         </div>
                       <?php endif ?>
                     <?php endforeach ?>
@@ -140,7 +163,7 @@
       //get the file name
       var fileName = $(this).val().replace("C:\\fakepath\\", "");
       //replace the "Choose a file" label
-      if(fileName)
+      if (fileName)
         $(this).next('.custom-file-label').html(fileName);
       else
         $(this).next('.custom-file-label').html("Escolher um arquivo");
@@ -161,6 +184,66 @@
       });
     }
 
+    function removeFilesFromDataBase(ids = []) {
+      $.ajax({
+        url: "<?= base_url("painel/" . $nomes["link"] . "/removeFilesFromDataBase") ?>",
+        data: {
+          ids
+        },
+        type: 'POST',
+      });
+    }
+
+    function removeAllFilesFromDataBase(idProduto = []) {
+      $.ajax({
+        url: "<?= base_url("painel/" . $nomes["link"] . "/removeAllFilesFromDataBase") ?>",
+        data: {
+          idProduto
+        },
+        type: 'POST',
+      });
+    }
+
+    var nomes = {
+      link: "<?= $nomes["link"] ?>"
+    }
+    var ids = []
+    var removeAllFiles = false
+
+    var myDropzone = new Dropzone(".dropzone", {
+      url: `${base_url}/painel/${nomes.link}/uploadDropzoneImage`,
+      autoProcessQueue: false,
+      parallelUploads: 10,
+      addRemoveLinks: true,
+      dictRemoveFile: "<button class='btn btn-black btn-sm btn-remove-dropzone-image btn-round'><i class='la la-trash'></i></button>",
+      dictRemoveFile: "Excluir",
+      removedfile(file) {
+
+        ids.push(file.id)
+
+        file.previewElement.remove();
+      }
+    })
+
+    let registro = <?= json_encode($registro) ?>;
+
+    registro.imagens.forEach(imagem => {
+      let file = {
+        name: imagem.imagem,
+        id: imagem.id,
+        size: 1000000
+      }
+      myDropzone.emit("addedfile", file);
+      myDropzone.emit("thumbnail", file, `${base_url}assets/uploads/${imagem.imagem}`);
+      myDropzone.emit("complete", file);
+      myDropzone.files.push(file);
+    });
+
+    $(".btn-excluir-file").click(function() {
+      removeAllFiles = true
+      myDropzone.removeAllFiles()
+    })
+
     $(".btn-save").click(function() {
       saveRegister()
     })
@@ -177,12 +260,15 @@
     });
 
     function saveRegister() {
+      if ($(".dropzone").length > 0) {
+        let dropzone = Dropzone.forElement(".dropzone");
+        dropzone.processQueue();
+      }
+
       let form = document.querySelector("form")
       let formData = new FormData(form);
+      let registro = <?= json_encode($registro) ?>
 
-      let nomes = {
-        link: "<?= $nomes["link"] ?>"
-      }
       $.ajax({
         url: "<?= base_url("painel/" . $nomes["link"] . "/salvar") ?>",
         data: formData,
@@ -193,6 +279,11 @@
         success(result) {
           response = JSON.parse(result)
           if (response.success) {
+            removeFilesFromDataBase(ids)
+
+            if(removeAllFiles)
+              removeAllFilesFromDataBase(registro.id)
+
             showAlert("primary", response.message, response.icon)
 
             setTimeout(function() {

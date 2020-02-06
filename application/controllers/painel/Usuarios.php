@@ -29,7 +29,6 @@ class Usuarios extends GodController
 			"visivelTabela" => true,
 			"rules" => "trim|required",
 			"col" => "col-md-6",
-			"label" => "(<a href='https://google.com' target='_blank'>Google</a>)"
 		],
 
 		"telefone" => [
@@ -56,14 +55,6 @@ class Usuarios extends GodController
 			"visivelTabela" => false,
 			"rules" => "trim",
 			"col" => "col-md-6"
-		],
-
-		"imagem" => [
-			"nome" => "Imagem",
-			"type" => "image",
-			"rules" => "trim",
-			"col" => "col-md-12",
-			"label" => "(1920 x 1080)"
 		],
 	];
 

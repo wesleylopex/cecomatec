@@ -93,7 +93,7 @@
                 <a href="<?= site_url("produtos/produto/$produto->slug") ?>">
                   <figure class="bg-white">
                     <div class='position-relative text-center'>
-                      <img class='cursor-pointer-and-opacity' src="<?= base_url("assets/uploads/images/$produto->imagem") ?>" alt='' />
+                      <img class='cursor-pointer-and-opacity' src="<?= base_url("assets/uploads/".$produto->primeiraImagemGaleria[0]->imagem) ?>" alt='' />
                     </div>
 
                     <figcaption class='bg-white text-center padding-10px-all'>

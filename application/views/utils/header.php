@@ -22,9 +22,9 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu xs-width-100" name="idioma">
-              <li language="pt"><span class="icon-country" style="background: url(<?= base_url("assets/site/img/country-flag-16x16/bra.png") ?>)"></span>Português</li>
-              <li language="en"><span class="icon-country" style="background: url(<?= base_url("assets/site/img/country-flag-16x16/usa.png") ?>)"></span>Inglês</li>
-              <li language="es"><span class="icon-country" style="background: url(<?= base_url("assets/site/img/country-flag-16x16/Spain.png") ?>)"></span>Espanhol</li>
+              <li language="pt"><span class="icon-country" style="background: url(<?= base_url("assets/site/img/country-flag-16X16/bra.png") ?>)"></span>Português</li>
+              <li language="en"><span class="icon-country" style="background: url(<?= base_url("assets/site/img/country-flag-16X16/usa.png") ?>)"></span>Inglês</li>
+              <li language="es"><span class="icon-country" style="background: url(<?= base_url("assets/site/img/country-flag-16X16/Spain.png") ?>)"></span>Espanhol</li>
             </ul>
           </div>
         </div>

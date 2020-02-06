@@ -152,8 +152,10 @@
 		}
 
 		function editRegister() {
-			$(".datatable tbody tr td").not(".not-clickable").on("click", function() {
+			$("table").on("click", "td:not(.not-clickable)", function() {
+
 				let id = $(this).closest("tr").attr("id")
+				
 				nomes = {
 					plural: "<?= $nomes["plural"]; ?>",
 					singular: "<?= $nomes["singular"]; ?>",

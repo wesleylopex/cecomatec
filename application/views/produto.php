@@ -29,30 +29,42 @@
       </div>
     </div>
   </section>
-  <section class="wow fadeIn animated animated" style="visibility: visible; animation-name: fadeIn;">
+  <section class="wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
     <div class="container">
       <div class="row equalize sm-equalize-auto">
         <div class="col-md-5 col-sm-12 col-xs-12 text-center sm-margin-30px-bottom wow fadeInLeft height-100" style="visibility: visible; animation-name: fadeInLeft; height: 371px;">
           <div class="blog-post-content xs-margin-30px-bottom xs-text-center">
-            <div class="swiper-full-screen swiper-container white-move">
+            <div class="swiper-container gallery-top white-move">
               <div class="swiper-wrapper tiles">
 
-                <div class="swiper-slide">
-                  <div class="tile zoom-in" data-scale='2.4' data-image="<?= base_url("assets/uploads/images/$produto->imagem") ?>">
-                    <div class="photo" style="background-image: url(<?= base_url("assets/uploads/images/$produto->imagem") ?>); transform: scale(1); transform-origin: 51.9651% 33.4792%;"></div>
+                <?php foreach ($produto->imagens as $imagem) : ?>
+                  <div class="swiper-slide">
+                    <div class="owl-product text-center">
+                      <img src="<?= base_url("assets/uploads/" . $imagem->imagem) ?>" />
+                    </div>
                   </div>
-                </div>
-                <!-- <div class="swiper-slide">
-                  <div class="tile zoom-in" data-scale='2.4' data-image="https://1920x1080">
-                    <div class="photo" style="background-image: url(https://placehold.it/1920x1080); transform: scale(1); transform-origin: 51.9651% 33.4792%;"></div>
-                  </div>
-                </div> -->
+                <?php endforeach ?>
               </div>
-
-              <div class="swiper-pagination swiper-pagination-square swiper-pagination-white"></div>
-              <div class="swiper-button-next swiper-button-black-highlight"></div>
-              <div class="swiper-button-prev swiper-button-black-highlight"></div>
+              <?php if (sizeof($produto->imagens) > 1) : ?>
+                <div class="swiper-pagination swiper-pagination-square swiper-pagination-white"></div>
+                <div class="swiper-button-next swiper-button-black-highlight"></div>
+                <div class="swiper-button-prev swiper-button-black-highlight"></div>
+              <?php endif ?>
             </div>
+
+            <?php if (sizeof($produto->imagens) > 1) : ?>
+              <div class="swiper-container gallery-thumbs white-move mt-50px">
+                <div class="swiper-wrapper tiles">
+                  <?php foreach ($produto->imagens as $imagem) : ?>
+                    <div class="swiper-slide">
+                      <div class="owl-product-thumb text-center">
+                        <img src="<?= base_url("assets/uploads/" . $imagem->imagem) ?>" />
+                    </div>
+                    </div>
+                  <?php endforeach ?>
+                </div>
+              </div>
+            <?php endif ?>
           </div>
           <?php if ($produto->video) : ?>
             <a href="<?= $produto->video ?>" class="popup-vimeo btn btn-medium btn-transparent-black text-medium btn-rounded mt-10px"> Vídeo <i class="fa fa-youtube-play icon-very-small" aria-hidden="true"></i></a>
@@ -164,18 +176,18 @@
         <div class="col-md-12 margin-three-bottom text-center sm-display-block height-auto">
           <h6 class="alt-font font-weight-500 text-extra-dark-gray letter-spacing-2 text-uppercase"> Produtos Relacionados </h6>
         </div>
-        <?php foreach ($produtosRelacionados as $produto) : ?>
+        <?php foreach ($produtosRelacionados as $produtoRelacionado) : ?>
           <div class="col-md-3 col-sm-6 col-xs-12 banner-style3 no-padding-lr">
             <figure class="hover-bg-gray">
               <div class="banner-image text-center">
-                <img src="<?= base_url("assets/uploads/images/$produto->imagem") ?>" />
+                <img src="<?= base_url("assets/uploads/" . $produtoRelacionado->primeiraImagemGaleria[0]->imagem) ?>" />
               </div>
               <figcaption>
                 <div class="display-table width-100 height-100">
                   <div class="display-table-cell vertical-align-middle text-center">
-                    <div class="text-large text-white alt-font text-uppercase font-weight-600 margin-10px-bottom padding-15px-lr"><?= $produto->titulo ?></div>
-                    <p class="text-light-gray width-80 margin-lr-auto"><?= $produto->categoria->nome ?></p>
-                    <a href="<?= site_url("produtos/produto/$produto->slug") ?>" class="btn btn-orange-style-2 btn-medium btn-soft-rounded font-weight-300"> Veja Mais </i></a>
+                    <div class="text-large text-white alt-font text-uppercase font-weight-600 margin-10px-bottom padding-15px-lr"><?= $produtoRelacionado->titulo ?></div>
+                    <p class="text-light-gray width-80 margin-lr-auto"><?= $produtoRelacionado->categoria->nome ?></p>
+                    <a href="<?= site_url("produtos/produto/$produtoRelacionado->slug") ?>" class="btn btn-orange-style-2 btn-medium btn-soft-rounded font-weight-300"> Veja Mais </i></a>
                   </div>
                 </div>
               </figcaption>

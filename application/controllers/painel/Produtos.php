@@ -67,14 +67,6 @@ class Produtos extends GodController
 			"visivelTabela" => true,
 			"col" => "col-md-4"
 		],
-
-		"imagem" => [
-			"nome" => "Imagem",
-			"type" => "image",
-			"visivelTabela" => false,
-			"rules" => "trim",
-			"col" => "col-md-12",
-		],
 		
 		"descricao" => [
 			"nome" => "Descrição",
@@ -117,6 +109,16 @@ class Produtos extends GodController
 			"visivelTabela" => false,
 			"rules" => "trim",
 			"col" => "col-md-12",
+		],
+
+		"galeria" => [
+			"nome" => "Imagens",
+			"type" => "gallery",
+			"model" => "galeriaProdutosModel",
+			"foreignKey" => "id_produto",
+			// "rules" => "trim|required",
+			"col" => "col-md-12",
+			"label" => "(1920 x 1080)"
 		],
 
 	];

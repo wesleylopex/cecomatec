@@ -422,6 +422,29 @@ $(document).ready(function () {
     /* ===================================
     swiper slider
     ====================================== */
+    var galleryTop = new Swiper('.gallery-top', {
+        spaceBetween: 10,
+
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        // loop: false,
+        // loopedSlides: 4,
+        // control: galleryThumbs
+    });
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+        spaceBetween: 10,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        touchRatio: 0.2,
+        slideToClickedSlide: true,
+        loopedSlides: 4,
+        // control: galleryTop
+    });
+    galleryTop.params.control = galleryThumbs;
+    galleryThumbs.params.control = galleryTop;
+    // galleryTop.reInit();
+    // galleryThumbs.reInit();
+
     var swiperFull = new Swiper('.swiper-full-screen', {
         pagination: '.swiper-pagination',
         paginationClickable: true,
@@ -431,7 +454,7 @@ $(document).ready(function () {
         keyboardControl: true,
         preventClicks: false,
         nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev'
+        prevButton: '.swiper-button-prev',
     });
 
     var swiperAutoFade = new Swiper('.swiper-auto-fade', {

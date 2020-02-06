@@ -21232,3 +21232,39 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
     align-items: center;
     content: "Procurar"
 }
+
+.color-white {
+    color: white;
+}
+
+.font-20px {
+    font-size: 20px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.dz-image img {
+    height: 120px;
+    width: auto;
+}
+
+.btn-remove-dropzone-image {
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+.btn-excluir-file {
+    margin-left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 90px;
+    padding: 6px 10px;
+}
+
+.btn-excluir-file:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
