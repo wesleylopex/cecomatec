@@ -22,6 +22,9 @@ class GodController extends MY_Controller
 
   public function index()
   {
+    if (isset($this->permissoes["registroUnico"]) && $this->permissoes["registroUnico"])
+      redirect("painel/" . $this->nomes["link"] . "/editar/1");
+
     $this->data["registros"] = $this->model->getAll();
     $this->data["registros"] = $this->configuraOptionTabela($this->data["registros"], $this->camposNaoModificados);
     $this->load->view("painel/godController/index", $this->data);
@@ -188,7 +191,7 @@ class GodController extends MY_Controller
 
         $dropzoneModel = $campo["model"];
         $dropzoneForeignKey = $campo["foreignKey"];
-      } else if (!isset($campo["disabled"]) || (isset($campo["disabled"]) && $campo["disabled"] == false))
+      } else if ($campo["type"] != "separator" && (!isset($campo["disabled"]) || (isset($campo["disabled"]) && $campo["disabled"] == false)))
         $dados[$key] = $this->input->post($key);
 
       if (isset($campo["slug"]) && $campo["slug"] == true)
@@ -333,6 +336,41 @@ class MY_Site_Controller extends CI_Controller
     $this->data["subcategorias"] = $this->subcategoriasProdutosModel->getAll();
 
     $this->load->vars($this->data);
+  }
+
+  public function array_sort($array, $on, $order = SORT_ASC)
+  {
+    $new_array = array();
+    $sortable_array = array();
+
+    if (count($array) > 0) {
+      foreach ($array as $k => $v) {
+        if (is_array($v)) {
+          foreach ($v as $k2 => $v2) {
+            if ($k2 == $on) {
+              $sortable_array[$k] = $v2;
+            }
+          }
+        } else {
+          $sortable_array[$k] = $v;
+        }
+      }
+
+      switch ($order) {
+        case SORT_ASC:
+          asort($sortable_array);
+          break;
+        case SORT_DESC:
+          arsort($sortable_array);
+          break;
+      }
+
+      foreach ($sortable_array as $k => $v) {
+        $new_array[$k] = $array[$k];
+      }
+    }
+
+    return $new_array;
   }
 
   public function getCategoriasWithSubcategorias($categorias)

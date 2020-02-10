@@ -1,4 +1,4 @@
-<footer class="footer-strip padding-50px-tb xs-padding-30px-tb bg-extra-dark-gray" style="margin-top:-1px">
+<footer class="footer-strip padding-50px-tb xs-padding-30px-tb bg-extra-dark-gray">
   <div class="container">
     <div class="row">
 

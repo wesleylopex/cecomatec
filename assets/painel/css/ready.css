@@ -21278,6 +21278,9 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+.mt-10px {
+    margin-top: 10px;
+}
 .ml-10px {
     margin-left: 10px;
 }
@@ -21299,4 +21302,12 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 .btn-green {
     background-color: #6accbd;
     border-color: #6accbd;
+}
+
+.no-pb {
+    padding-bottom: 0!important;
+}
+
+.pt-30px {
+    padding-top: 30px;
 }

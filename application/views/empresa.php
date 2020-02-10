@@ -36,45 +36,19 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 text-center last-paragraph-no-margin padding-seven-tb sm-padding-70px-top">
-          <h5 class="margin-three-bottom text-dark-gray alt-font font-weight-300 xs-margin-ten-bottom">Liderança na <span class="font-weight-500">América do Sul</span></h5>
-          <div class="text-medium-gray text-medium margin-5px-bottom xs-margin-three-bottom">A Cecomatec, está localizada em Farroupilha, cidade pertencente a região metropolitana da serra gaúcha. Fundada em 2005, aproveitando a experiência de 40 anos em projetos de máquinas de um de seus fundadores. Desde 1988 atende o setor de Fundição de Precisão, em que foi pioneira, tendo fabricado e instalado grande parte máquinas em funcionamento atualmente no Brasil. Hoje atua em desenvolvimento de projetos, fabricação de máquinas, equipamentos e peças técnicas para atendimento de diversos segmentos da indústria.
+          <h5 class="margin-three-bottom text-dark-gray alt-font font-weight-300 xs-margin-ten-bottom">Desde 1988, desenvolvendo máquinas para Fundição de Precisão / Microfusão.</span></h5>
+          <div class="text-medium-gray text-medium margin-5px-bottom xs-margin-three-bottom">A Cecomatec é uma empresa familiar e pioneira no desenvolvimento de máquinas para Microfusão/Fundição de precisão, tendo fabricado e instalado grande parte das máquinas em funcionamento atualmente no Brasil
+            Atualmente, tem diversificado suas atividades, atuando em desenvolvimento de projetos, fabricação de máquinas, equipamentos e peças técnicas para atendimento de variados setores da indústria, nacionais e internacionais.
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- start fancy text box style 02 section -->
-  <section class="wow fadeIn no-padding">
-    <div class="container-fluid">
-      <div class="row equalize xs-equalize-auto feature-box-14  border-top border-color-light-gray sm-margin-50px-tb">
-        <!-- start feature box item -->
-        <div class="col-md-4 col-sm-6 col-xs-12 text-center display-table last-paragraph-no-margin wow fadeInRight no-padding">
-          <div class="display-table-cell vertical-align-middle padding-fifteen-all sm-padding-50px-all xs-padding-30px-all">
-            <img src="<?= base_url() ?>assets/site/img/1.png">
-            <span class="display-block alt-font text-large text-extra-dark-gray margin-15px-top margin-10px-bottom xs-margin-5px-bottom">Especialistas em Fundição de Precisão</span>
-            <p>Assessoria completa à sua empresa: definição do layout industrial, acompanhamento civil, definição e fabricação de equipamentos necessários conforme quantidade, dimensões e tipos de peças a serem microfundidas.</p>
-          </div>
+        <div class="col-lg-12 col-md-12 text-center padding-four-tb sm-padding-70px-top">
+          <img src="<?= base_url("assets/site/img/empresa.jpg") ?>" alt="" class="border-radius-10px">
         </div>
-        <!-- end feature box item -->
-        <!-- start feature box item -->
-        <div class="col-md-4 col-sm-6 col-xs-12 text-center display-table last-paragraph-no-margin wow fadeInRight no-padding" data-wow-delay="0.2s">
-          <div class="display-table-cell vertical-align-middle padding-fifteen-all sm-padding-50px-all xs-padding-30px-all">
-            <img src="<?= base_url() ?>assets/site/img/2.png">
-            <span class="display-block alt-font text-large text-extra-dark-gray margin-15px-top margin-10px-bottom xs-margin-5px-bottom">Escolas Técnicas</span>
-            <p>Fabricamos máquinas e equipamentos dimensionados para atender escolas técnicas de fundição de precisão.</p>
-          </div>
+
+        <div class="col-lg-12 col-md-12 text-center last-paragraph-no-margin padding-seven-tb sm-padding-70px-top">
+          <h5 class="margin-5px-bottom text-extra-dark-gray alt-font font-weight-600 xs-margin-three-bottom text-uppercase"><span class="font-weight-700">Tecnologia e robustez no produto e dedicação ao cliente, são o foco de nosso trabalho.</h5>
         </div>
-        <!-- end feature box item -->
-        <!-- start feature box item -->
-        <div class="col-md-4 col-sm-6 col-xs-12 text-center display-table last-paragraph-no-margin wow fadeInRight no-padding" data-wow-delay="0.4s">
-          <div class="display-table-cell vertical-align-middle padding-fifteen-all sm-padding-50px-all xs-padding-30px-all">
-            <img src="<?= base_url() ?>assets/site/img/3.png">
-            <span class="display-block alt-font text-large text-extra-dark-gray margin-15px-top margin-10px-bottom xs-margin-5px-bottom">Máquinas Personalizadas</span>
-            <p>Produzimos máquinas e equipamentos personalizados para todos os segmentos da indústria: plástico, metalmecânico, automotivo, serviços, entre outros.</p>
-          </div>
-        </div>
-        <!-- end feature box item -->
       </div>
     </div>
   </section>

@@ -14,6 +14,7 @@ class Configuracoes extends GodController
 		"cadastrar" => false,
 		"editar" => true,
 		"excluir" => false,
+		"registroUnico" => true
 	];
 
 	protected $campos = [
@@ -22,6 +23,11 @@ class Configuracoes extends GodController
 			"type" => "hidden",
 			"visivelTabela" => false,
 			"rules" => "trim|required",
+		],
+
+		"separator_telefone" => [
+			"nome" => "Telefone",
+			"type" => "separator"
 		],
 
 		"telefone_principal" => [
@@ -39,15 +45,12 @@ class Configuracoes extends GodController
 			"rules" => "trim",
 			"col" => "col-md-4",
 		],
-
-		"tempo_banner" => [
-			"nome" => "Tempo dos Banner (Home)",
-			"type" => "text",
-			"visivelTabela" => true,
-			"rules" => "trim",
-			"col" => "col-md-4",
-		],
 		
+		"separator_informacoes" => [
+			"nome" => "Informações",
+			"type" => "separator"
+		],
+
 		"endereco" => [
 			"nome" => "Endereço",
 			"type" => "text",
@@ -64,6 +67,20 @@ class Configuracoes extends GodController
 			"col" => "col-md-6",
 		],
 		
+
+		"tempo_banner" => [
+			"nome" => "Tempo dos Banners (em segundos)",
+			"type" => "text",
+			"visivelTabela" => true,
+			"rules" => "trim",
+			"col" => "col-md-4",
+		],
+				
+		"separator_social" => [
+			"nome" => "Redes Sociais",
+			"type" => "separator"
+		],
+
 		"facebook" => [
 			"nome" => "Facebook",
 			"type" => "text",
@@ -85,6 +102,12 @@ class Configuracoes extends GodController
 			"rules" => "trim",
 			"col" => "col-md-4",
 		],
+
+		"separator_mapa" => [
+			"nome" => "Google Maps",
+			"type" => "separator"
+		],
+
 		"latitude" => [
 			"nome" => "Latitude",
 			"type" => "text",

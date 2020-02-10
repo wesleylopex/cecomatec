@@ -90,7 +90,7 @@
         background-image: url("../../site/img/maquina_big.png");
         background-size: 440px 655px;
         right: 5%;
-        margin-top: -270px;
+        margin-top: -300px;
     }
 
     .elemento-esquerda figure{
@@ -98,8 +98,8 @@
         height: 500px;
         background-image: url("../../site/img/02_big.png");
         background-size: 218px 500px;
-        top: 50%;
-        margin-top: -200px;
+        top: 40%;
+        margin-top: -140px;
     }
 
     .elemento-direita figure{
@@ -108,7 +108,7 @@
         background-image: url("../../site/img/01_big.png");
         background-size: 345px 350px;
         margin-right: -115px;
-        margin-top: -205px;
+        margin-top: -240px;
         opacity: 0.4;
     }
 }

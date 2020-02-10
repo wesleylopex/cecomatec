@@ -4167,7 +4167,7 @@ aside .latest-post li figure {width: 75px;}
     width: auto;
 }
 
-.related-product {
+.related-product img{
     height: 225px;
     width: auto;
 }
@@ -4188,4 +4188,21 @@ aside .latest-post li figure {width: 75px;}
 
 .mt-0 {
     margin-top: 0!important;
+}
+
+.mb-50px {
+    margin-bottom: 50px;
+}
+.mt-40px {
+    margin-top: 40px;
+}
+
+.pt-50px {
+    padding-top: 50px;
+}
+.pb-50px {
+    padding-bottom: 50px;
+}
+.border-radius-10px {
+    border-radius: 10px;
 }

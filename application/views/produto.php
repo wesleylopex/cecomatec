@@ -29,7 +29,7 @@
       </div>
     </div>
   </section>
-  <section class="wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
+  <section class="wow fadeIn animated no-padding-bottom pt-50px" style="visibility: visible; animation-name: fadeIn;">
     <div class="container">
       <div class="row equalize sm-equalize-auto">
         <div class="col-md-5 col-sm-12 col-xs-12 text-center sm-margin-30px-bottom wow fadeInLeft height-100" style="visibility: visible; animation-name: fadeInLeft; height: 371px;">
@@ -80,9 +80,11 @@
               </div>
 
               <a href="#contact-form" class="btn btn-orange-style-2 btn-large btn-soft-rounded wow fadeInDown popup-with-form xs-margin-5px-bottom"> Solicite mais informações </a>
-              <div class="col-md-8 col-sm-6 col-xs-12 sm-margin-seven-bottom xs-margin-40px-bottom wow fadeInRight last-paragraph-no-margin margin-30px-top no-padding-lr">
+              <div class="col-md-12 col-sm-6 col-xs-12 sm-margin-seven-bottom xs-margin-40px-bottom wow fadeInRight last-paragraph-no-margin margin-30px-top no-padding-lr">
                 <a href="https://www.bndes.gov.br/wps/portal/site/home/financiamento/finame/!ut/p/z1/04_iUlDg4tKPAFJABpSA0fpReYllmemJJZn5eYk5-hH6kVFm8T6W3q4eJv4GPu5mfk4Gji6Wlh7ezkaGBi5m-l76UfgVFGQHKgIAWRAQKw!!/" target="_blank"><img src="<?= base_url() ?>assets/site/img/bndes.jpg" style=" width:95px; margin-bottom:7px;" /></a>
-                <p style="font-size:14px; line-height: 1.45"> Consulte as linhas de financiamento para suas necessidades em máquinas e componentes. </p>
+                <a><img src="<?= base_url() ?>assets/site/img/logo_bndes.png" style="width:100px; margin-bottom:7px; margin-left: 10px" /></a>
+                <a href="https://www.cartaobndes.gov.br/cartaobndes/" target="_blank"><img src="<?= base_url() ?>assets/site/img/finame.webp" style="width:95px; margin-bottom:7px; margin-left: 10px" /></a>
+                <a href="https://www.bndes.gov.br/wps/portal/site/home/financiamento/finame/!ut/p/z1/04_iUlDg4tKPAFJABpSA0fpReYllmemJJZn5eYk5-hH6kVFm8T6W3q4eJv4GPu5mfk4Gji6Wlh7ezkaGBi5m-l76UfgVFGQHKgIAWRAQKw!!/" target="_blank"><img src="<?= base_url() ?>assets/site/img/img_cartao.gif" style="width:95px; margin-bottom:7px; margin-left: 10px" /></a>
               </div>
             </div>
           </div>
@@ -112,7 +114,7 @@
   </section>
 
   <!-- start tab style 01 section -->
-  <section class="wow fadeIn">
+  <section class="wow fadeIn pb-50px">
     <div class="container tab-style2">
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -125,7 +127,7 @@
               <li><a href="#modelos" data-toggle="tab">Modelos</a></li>
             <?php endif ?>
             <?php if ($produto->arquivo_pdf) : ?>
-              <li><a href="#download" data-toggle="tab">Download</a></li>
+              <li><a href="#informacoes" data-toggle="tab">Informações</a></li>
             <?php endif ?>
           </ul>
           <!-- end tab navigation -->
@@ -160,12 +162,12 @@
         <!-- end tab content -->
         <!-- start tab content -->
         <?php if ($produto->arquivo_pdf) : ?>
-          <div class="tab-pane fade in" id="download">
+          <div class="tab-pane fade in" id="informacoes">
             <div class="row equalize">
               <div class="col-md-12 center-col">
                 <div class="panel-body text-medium text-center">
                   <a href="<?= base_url("assets/uploads/files/$produto->arquivo_pdf") ?>" download style="width: 100%;">
-                    <button class="btn btn-small btn-soft-rounded btn-style-download wow fadeInDown">
+                    <button class="btn btn-small btn-soft-rounded btn-style-download">
                       <i class="fa fa-file-text-o" aria-hidden="true"></i>
                       Download
                     </button>
@@ -181,16 +183,16 @@
   </section>
   <!-- end tab style 01 section -->
 
-  <section class="no-padding-bottom">
+  <section class="no-padding">
     <div class="container-fluid">
       <div class="row equalize xs-equalize-auto">
-        <div class="col-md-12 margin-three-bottom text-center sm-display-block height-auto">
+        <div class="col-md-12 text-center sm-display-block height-auto">
           <h6 class="alt-font font-weight-500 text-extra-dark-gray letter-spacing-2 text-uppercase"> Produtos Relacionados </h6>
         </div>
         <?php foreach ($produtosRelacionados as $produtoRelacionado) : ?>
-          <div class="col-md-3 col-sm-6 col-xs-12 banner-style3 no-padding-lr">
+          <!-- <div class="col-md-3 col-sm-6 col-xs-12 banner-style3 no-padding-lr">
             <figure class="hover-bg-gray">
-              <div class="banner-image text-center">
+              <div class="banner-image text-center related-product">
                 <img src="<?= base_url("assets/uploads/" . $produtoRelacionado->primeiraImagemGaleria[0]->imagem) ?>" />
               </div>
               <figcaption>
@@ -203,6 +205,25 @@
                 </div>
               </figcaption>
             </figure>
+          </div> -->
+          <div class="col-md-3">
+            <a href="<?= site_url("produtos/produto/$produtoRelacionado->slug") ?>">
+              <figure>
+                <div class="portfolio-img product-image p-30px portfolio-item-style position-relative text-center overflow-hidden">
+                  <img class="cursor-pointer-and-opacity" src="<?= base_url("assets/uploads/" . $produtoRelacionado->primeiraImagemGaleria[0]->imagem) ?>" alt="" data-no-retina="">
+                </div>
+                <figcaption class="bg-white">
+                  <div class="portfolio-hover-main text-center">
+                    <div class="portfolio-hover-box vertical-align-middle">
+                      <div class="portfolio-hover-content position-relative">
+                        <span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block"><?= $produtoRelacionado->titulo ?></span>
+                        <p class="text-medium-gray text-extra-small text-uppercase"><?= $produtoRelacionado->categoria->nome ?></p>
+                      </div>
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+            </a>
           </div>
         <?php endforeach ?>
       </div>

@@ -34,13 +34,26 @@
           <div class="row">
             <div class="col-md-12">
               <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title"><?= $nomes["singular"] ?></h4>
-                </div>
                 <div class="card-body">
                   <?= form_open_multipart("painel/" . $nomes["link"] . "/salvar") ?>
+
                   <div class="form-row">
                     <?php foreach ($campos as $key => $campo) : ?>
+
+                      <?php if ($campo["type"] == "separator") : ?>
+                        <div class="form-group col-md-12 no-pb pt-30px">
+                          <div class="row">
+                            <div class="col-auto">
+                              <div class="title-section">
+                                <h5><?= $campo["nome"] ?></h5>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <hr class="title-separator">
+                            </div>
+                          </div>
+                        </div>
+                      <?php endif ?>
 
                       <!-- CONFIGURAÇÕES PARA OS CAMPOS NÃO FICAREM POLUÍDOS -->
                       <?php $disabled = false; ?>
@@ -61,7 +74,7 @@
                       <?php endif ?>
 
                       <!-- DEMAIS CAMPOS -->
-                      <?php if ($campo["type"] != "hidden") : ?>
+                      <?php if ($campo["type"] != "hidden" && $campo["type"] != "separator") : ?>
                         <div class="form-group <?= $col ?> form-show-validation">
                           <label class="d-flex align-items-center">
                             <?= $campo["nome"] ?><?= isset($campo["label"]) && $campo["label"] ? " " . $campo["label"] : "" ?>
@@ -209,6 +222,7 @@
     }
     var ids = []
     var removeAllFiles = false
+    var registro = <?= isset($registro) ? json_encode($registro) : json_encode([]) ?>
 
     if ($(".dropzone").length > 0) {
 
@@ -228,8 +242,6 @@
         }
       })
 
-      let registro = <?= json_encode($registro) ?>;
-
       registro.imagens.forEach(imagem => {
         let file = {
           name: imagem.imagem,
@@ -241,12 +253,12 @@
         myDropzone.emit("complete", file);
         myDropzone.files.push(file);
       });
-    }
 
-    $(".btn-excluir-file").click(function() {
-      removeAllFiles = true
-      myDropzone.removeAllFiles()
-    })
+      $(".btn-excluir-file").click(function() {
+        removeAllFiles = true
+        myDropzone.removeAllFiles()
+      })
+    }
 
     $(".btn-save").click(function() {
       saveRegister()
@@ -274,10 +286,9 @@
 
       let form = document.querySelector("form")
       let formData = new FormData(form);
-      let registro = <?= json_encode($registro) ?>
 
       $.ajax({
-        url: "<?= base_url("painel/" . $nomes["link"] . "/salvar") ?>",
+        url: "<?= base_url("painel/" . $nomes["link"] . "/salvar"); ?>",
         data: formData,
         cache: false,
         processData: false,
@@ -287,22 +298,41 @@
         },
         type: 'POST',
         success(result) {
-          response = JSON.parse(result)
-          if (response.success) {
-            removeFilesFromDataBase(ids)
 
-            if (removeAllFiles)
-              removeAllFilesFromDataBase(registro.id)
+          try {
+            response = JSON.parse(result)
 
-            showAlert("primary", response.message, response.icon)
+            if (response.success) {
+              removeFilesFromDataBase(ids)
 
-            setTimeout(function() {
-              location.href = `${base_url}painel/${nomes.link}`
-            }, 1500)
-          } else
-            showAlert("primary", response.message, response.icon)
+              if (removeAllFiles)
+                removeAllFilesFromDataBase(registro.id)
+
+              showAlert("primary", response.message, response.icon)
+
+              setTimeout(function() {
+                location.href = `${base_url}painel/${nomes.link}`
+              }, 1500)
+            } else
+              showAlert("primary", response.message, response.icon)
+          } catch (e) {
+            result = removeArrayFromString(["<p>", "</p>"], result)
+            showAlert("primary", result, "la la-close")
+          }
+        },
+        error(result) {
+          showAlert("primary", result, "la la-close")
         }
       });
+    }
+
+    function removeArrayFromString(items = [], string = null) {
+      for(item of items) {
+        alert(item)
+        string = string.replace(item, "")
+      }
+
+      return string
     }
   </script>
 </body>

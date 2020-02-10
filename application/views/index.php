@@ -3,7 +3,6 @@
 
 <head>
   <title> Cecomatec </title>
-  <script type="text/javascript" src="http://cdn.howcode.org/content/static/javascript/jquery.min.js"></script>
   <?php include("utils/start.php"); ?>
 </head>
 
@@ -34,7 +33,7 @@
             <div class="slider-typography text-center container-text">
               <div class="slider-text-middle-main">
                 <div class="slider-text-middle" style="vertical-align: bottom">
-                  <span class="text-medium text-very-light-gray font-weight-300 width-95 center-col display-block margin-10px-bottom subtitle">Texto: Há 30 anos, fabricando máquinas para fundição de precisão.</span>
+                  <span class="text-medium text-very-light-gray font-weight-300 width-95 center-col display-block margin-10px-bottom subtitle">Há 30 anos, fabricando máquinas para fundição de precisão.</span>
                   <h5 class="alt-font text-uppercase text-white font-weight-700 width-50 xs-width-90 sm-width-70 center-col" style="line-height: 40px">LIDERANÇA EM MÁQUINAS PARA MICROFUSÃO</h5>
                   <a href="<?= site_url("produtos") ?>" class="btn btn-orange-style-2 btn-small btn-soft-rounded">Conheça nossos produtos</a>
                 </div>
@@ -151,7 +150,7 @@
           </div>
 
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-no-padding-right xs-no-padding text-center last-paragraph-no-margin">
-            <a href="empresa.php">
+            <a href="<?= base_url("empresa") ?>">
               <button class="btn btn-large btn-orange-style-2 border-radius-10">Conheça a Cecomatec</button>
             </a>
           </div>

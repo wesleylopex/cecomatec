@@ -2,6 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
+  <title>Cecomatec | Pesquisa</title>
   <?php include_once("utils/start.php") ?>
 </head>
 
