@@ -225,7 +225,7 @@
         <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4 wow slideInDown" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: slideInDown;">
           <div class="position-relative overflow-hidden">
             <figure style="margin: 0">
-              <img src="<?= base_url() ?>assets/site/img/norma.png" alt="Reformas e adequações NR12" style="height:338px;">
+              <img src="<?= base_url() ?>assets/site/img/reformas.jpg" alt="Reformas e adequações NR12" style="height:338px;">
               <div class="opacity-medium bg-extra-dark-gray"></div>
               <figcaption>
                 <span class="text-medium-gray margin-10px-bottom display-inline-block ">Em conformidade com a NR-12</span>
@@ -240,7 +240,7 @@
         <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4 wow slideInDown" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: slideInDown;">
           <div class="position-relative overflow-hidden">
             <figure style="margin: 0">
-              <img src="<?= base_url() ?>assets/site/img/usinagem.png" alt="Usinagem" style="height:338px;">
+              <img src="<?= base_url() ?>assets/site/img/usinagem.jpg" alt="Usinagem" style="height:338px;">
               <div class="opacity-medium bg-extra-dark-gray"></div>
               <figcaption>
                 <span class="text-medium-gray margin-10px-bottom display-inline-block ">Alta tecnologia com a qualidade Cecomatec</span>

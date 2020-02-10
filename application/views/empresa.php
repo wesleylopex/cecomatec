@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <div class="col-lg-12 col-md-12 text-center padding-four-tb sm-padding-70px-top">
+        <div class="col-lg-12 col-md-12 text-center no-padding sm-padding-70px-top">
           <img src="<?= base_url("assets/site/img/empresa.jpg") ?>" alt="" class="border-radius-10px">
         </div>
 
