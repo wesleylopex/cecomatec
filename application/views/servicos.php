@@ -216,14 +216,18 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 no-padding-right sm-margin-30px-bottom wow fadeInUp no-padding-left config-padding">
-          <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp">
+      <div class="row p-50px">
+        <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp">
+          <!-- <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp">
             <h6 class="alt-font text-large text-extra-dark-gray text-uppercase font-weight-600" style="text-align: center">Antes</h6>
             <img src="<?= base_url() ?>assets/site/img/antes_2.png" class="width-100" alt="" style="height: 250px">
           </div>
           <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp no-padding-left">
             <h6 class="alt-font text-large text-extra-dark-gray text-uppercase font-weight-600" style="text-align: center">Depois</h6>
+            <img src="<?= base_url() ?>assets/site/img/depois_2.png" class="width-100" alt="" style="height: 250px">
+          </div> -->
+          <div class="cocoen">
+            <img src="<?= base_url() ?>assets/site/img/antes_2.png" class="width-100" alt="" style="height: 250px">
             <img src="<?= base_url() ?>assets/site/img/depois_2.png" class="width-100" alt="" style="height: 250px">
           </div>
         </div>
@@ -234,7 +238,7 @@
             <div class="text-gray text-medium margin-5px-bottom xs-margin-three-bottom padding-25px-top">
               Com equipe de engenheiros e técnicos especializados na construção de máquinas e com vasta experiência de mercado, a Cecomatec tem habilidades e meios de executar a aplicação completa da adequação à NR-12 de máquinas e equipamentos para Microfusão </div>
           </div> -->
-          <div class="col-md-10 center-col mt-40px sm-margin-30px-bottom wow fadeInUp no-padding-left">
+          <div class="col-md-10 center-col sm-margin-30px-bottom wow fadeInUp no-padding-left">
             <h5 class="margin-5px-bottom text-extra-dark-gray alt-font font-weight-600 xs-margin-three-bottom text-uppercase margin-5px-bottom">Sobre a Norma NR12</h5>
             <div class="text-medium-gray text-medium margin-5px-bottom xs-margin-three-bottom">Uma breve explicação sobre a norma</div>
             <div class="text-gray text-medium margin-5px-bottom xs-margin-three-bottom padding-25px-top">

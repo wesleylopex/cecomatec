@@ -21,12 +21,23 @@
 <script src="<?= base_url() ?>assets/painel/js/plugin/dropzone/dropzone.min.js"></script>
 <script src="<?= base_url() ?>assets/painel/js/plugin/jquery.validate/jquery.validate.min.js"></script>
 <script src="<?= base_url() ?>assets/painel/plugins/summernote/dist/summernote-bs4.js"></script>
+<script src="<?= base_url() ?>assets/painel/plugins/froala/js/froala_editor.pkgd.min.js"></script>
 
 <script>
   $(".phone").mask("(00) 0.0000-0000");
-  $(".summernote").summernote({
-    height: 300,
-  });
+
+  var editor = new FroalaEditor(".summernote")
+
+  // $(".summernote").summernote({
+  //   height: 300,
+  //   popover: {
+  //     table: [
+  //       ['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+  //       ['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+  //       ['custom', ['tableStyles']]
+  //     ],
+  //   },
+  // });
 
   // plugin jquery validation
   jQuery.extend(jQuery.validator.messages, {

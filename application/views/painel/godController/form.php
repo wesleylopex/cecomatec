@@ -45,11 +45,11 @@
                           <div class="row">
                             <div class="col-auto">
                               <div class="title-section">
-                                <h5><?= $campo["nome"] ?></h5>
+                                <h6><?= $campo["nome"] ?></h6>
                               </div>
                             </div>
                             <div class="col">
-                              <hr class="title-separator">
+                              <hr class="title-separator mt-10px">
                             </div>
                           </div>
                         </div>
@@ -241,18 +241,19 @@
           file.previewElement.remove();
         }
       })
-
-      registro.imagens.forEach(imagem => {
-        let file = {
-          name: imagem.imagem,
-          id: imagem.id,
-          size: 1000000
-        }
-        myDropzone.emit("addedfile", file);
-        myDropzone.emit("thumbnail", file, `${base_url}assets/uploads/${imagem.imagem}`);
-        myDropzone.emit("complete", file);
-        myDropzone.files.push(file);
-      });
+      if (registro.imagens) {
+        registro.imagens.forEach(imagem => {
+          let file = {
+            name: imagem.imagem,
+            id: imagem.id,
+            size: 1000000
+          }
+          myDropzone.emit("addedfile", file);
+          myDropzone.emit("thumbnail", file, `${base_url}assets/uploads/${imagem.imagem}`);
+          myDropzone.emit("complete", file);
+          myDropzone.files.push(file);
+        });
+      }
 
       $(".btn-excluir-file").click(function() {
         removeAllFiles = true
@@ -317,7 +318,8 @@
               showAlert("primary", response.message, response.icon)
           } catch (e) {
             result = removeArrayFromString(["<p>", "</p>"], result)
-            showAlert("primary", result, "la la-close")
+            // showAlert("primary", result, "la la-close")
+            showAlert("Danger", "Erro, tente novamente.", "la la-close")
           }
         },
         error(result) {
@@ -327,8 +329,7 @@
     }
 
     function removeArrayFromString(items = [], string = null) {
-      for(item of items) {
-        alert(item)
+      for (item of items) {
         string = string.replace(item, "")
       }
 

@@ -26,3 +26,4 @@
 <link rel="stylesheet" href="<?= base_url("assets/painel/css/ready.css") ?>">
 <link rel="stylesheet" href="<?= base_url("assets/painel/css/demo.css") ?>">
 <link rel="stylesheet" href="<?= base_url("assets/painel/plugins/summernote/dist/summernote-bs4.css") ?>">
+<link rel="stylesheet" href="<?= base_url("assets/painel/plugins/froala/css/froala_editor.pkgd.min.css") ?>" type="text/css" />

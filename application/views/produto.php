@@ -151,8 +151,8 @@
         <?php if ($produto->modelos) : ?>
           <div class="tab-pane fade in" id="modelos">
             <div class="row equalize">
-              <div class="col-md-6 center-col">
-                <div class="panel-body text-medium text-center">
+              <div class="col-md-12 col-froala">
+                <div class="panel-body text-medium text-center fr-view">
                   <?= $produto->modelos ?>
                 </div>
               </div>

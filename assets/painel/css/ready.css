@@ -21311,3 +21311,7 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 .pt-30px {
     padding-top: 30px;
 }
+
+/* .second-toolbar a, .fr-wrapper a {
+    display: none!important;
+} */

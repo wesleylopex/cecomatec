@@ -92,7 +92,7 @@
                 <a href="<?= site_url("produtos/produto/$produto->slug") ?>">
                   <figure class="bg-white">
                     <div class='position-relative text-center'>
-                      <img class='cursor-pointer-and-opacity' src="<?= base_url("assets/uploads/".$produto->primeiraImagemGaleria[0]->imagem) ?>" alt='' />
+                      <img class='cursor-pointer-and-opacity' src="<?= base_url("assets/uploads/" . $produto->primeiraImagemGaleria[0]->imagem) ?>" alt='' />
                     </div>
 
                     <figcaption class='bg-white text-center padding-10px-all'>
@@ -221,6 +221,22 @@
             </figure>
           </div>
         </div>
+        <!-- start interactive banners item -->
+        <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4 wow slideInDown" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: slideInDown;">
+          <div class="position-relative overflow-hidden">
+            <figure style="margin: 0">
+              <img src="<?= base_url() ?>assets/site/img/usinagem.jpg" alt="Usinagem" style="height:338px;">
+              <div class="opacity-medium bg-extra-dark-gray"></div>
+              <figcaption>
+                <span class="text-medium-gray margin-10px-bottom display-inline-block ">Alta tecnologia com a qualidade Cecomatec</span>
+                <div class="separator-line-horrizontal-full display-inline-block margin-10px-bottom" style="background-color: orange;"></div>
+                <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-90 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Usinagem e fabricação de componentes</span>
+                <a href="<?= site_url("servicos#Usinagem") ?>" class="btn btn-small btn-orange font-weight-300">Saiba mais</a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <!-- end interactive banners item -->
         <!-- end interactive banners item -->
         <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4 wow slideInDown" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: slideInDown;">
           <div class="position-relative overflow-hidden">
@@ -236,22 +252,6 @@
             </figure>
           </div>
         </div>
-        <!-- start interactive banners item -->
-        <div class="col-md-4 col-sm-4 col-xs-12 padding-5px-all grid-item feature-box-4 wow slideInDown" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: slideInDown;">
-          <div class="position-relative overflow-hidden">
-            <figure style="margin: 0">
-              <img src="<?= base_url() ?>assets/site/img/usinagem.jpg" alt="Usinagem" style="height:338px;">
-              <div class="opacity-medium bg-extra-dark-gray"></div>
-              <figcaption>
-                <span class="text-medium-gray margin-10px-bottom display-inline-block ">Alta tecnologia com a qualidade Cecomatec</span>
-                <div class="separator-line-horrizontal-full display-inline-block margin-10px-bottom" style="background-color: orange;"></div>
-                <span class="text-extra-large display-block text-white alt-font margin-25px-bottom width-90 md-width-100 sm-width-100 sm-margin-seven-bottom xs-width-100">Usinagem</span>
-                <a href="<?= site_url("servicos#Usinagem") ?>" class="btn btn-small btn-orange font-weight-300">Saiba mais</a>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-        <!-- end interactive banners item -->
       </div>
     </div>
   </section>

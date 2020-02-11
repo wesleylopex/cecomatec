@@ -56,7 +56,7 @@ class Configuracoes extends GodController
 			"type" => "text",
 			"visivelTabela" => false,
 			"rules" => "trim",
-			"col" => "col-md-6",
+			"col" => "col-md-8",
 		],
 
 		"email" => [
@@ -64,7 +64,7 @@ class Configuracoes extends GodController
 			"type" => "text",
 			"visivelTabela" => true,
 			"rules" => "trim",
-			"col" => "col-md-6",
+			"col" => "col-md-4",
 		],
 		
 
@@ -73,7 +73,7 @@ class Configuracoes extends GodController
 			"type" => "text",
 			"visivelTabela" => true,
 			"rules" => "trim",
-			"col" => "col-md-4",
+			"col" => "col-md-1",
 		],
 				
 		"separator_social" => [

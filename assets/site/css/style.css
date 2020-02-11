@@ -4206,3 +4206,37 @@ aside .latest-post li figure {width: 75px;}
 .border-radius-10px {
     border-radius: 10px;
 }
+
+#search-header {
+    display: flex;
+    align-items: center;
+}
+
+.col-froala {
+    display: flex;
+    justify-content: center;
+}
+
+#search-header .search-form{
+    width: 100%;
+}
+
+.fr-view table {
+    font-family: "Montserrat";
+}
+
+.fr-view table th, .fr-view table td {
+    padding: 6px 20px
+}
+
+.fr-view table thead tr th {
+    font-weight: 500;
+}
+
+p[data-f-id=pbf] {
+    display: none;
+}
+
+.p-50px {
+    padding: 50px
+}

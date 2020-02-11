@@ -31,3 +31,5 @@
 <!-- responsive css -->
 <link rel="stylesheet" href="<?= base_url() ?>assets/site/css/responsive.css" />
 <link rel="stylesheet" href="<?= base_url() ?>assets/site/css/zoomImages.css" />
+<link rel="stylesheet" href="<?= base_url() ?>assets/painel/plugins/froala/css/froala_style.min.css" type="text/css" />
+<link rel="stylesheet" href="<?= base_url() ?>assets/site/plugins/cocoen/dist/css/cocoen.min.css" type="text/css" />

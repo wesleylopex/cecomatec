@@ -59,6 +59,8 @@
 <script src="<?= base_url() ?>assets/painel/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
 
 <script src="<?= base_url() ?>assets/site/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<?= base_url() ?>assets/site/plugins/cocoen/dist/js/cocoen.min.js"></script>
+<script type="text/javascript" src="<?= base_url() ?>assets/site/plugins/cocoen/dist/js/cocoen-jquery.min.js"></script>
 
 <script type="text/javascript">
 
@@ -83,6 +85,9 @@
   })
 
   $(document).ready(function() {
+
+    $(".cocoen").cocoen()
+
     localLanguage = localStorage.getItem("language")
 
     let iconCountry = "bra.png"
