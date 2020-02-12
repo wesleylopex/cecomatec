@@ -10,34 +10,13 @@
   <!-- start header -->
   <?php include_once("utils/header.php"); ?>
 
-  <section class="wow fadeIn bg-light-gray padding-35px-top padding-35px-bottom page-title-small">
-    <div class="container">
-      <div class="row equalize xs-equalize-auto">
-        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table">
-          <div class="display-table-cell vertical-align-middle text-left xs-text-center">
-            <h1 class="alt-font text-extra-dark-gray font-weight-600 no-margin-bottom text-uppercase">Produtos</h1>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 display-table text-right xs-text-left xs-margin-10px-top">
-          <div class="display-table-cell vertical-align-middle breadcrumb text-small alt-font">
-            <ul class="xs-text-center">
-              <li><span class="text-dark-gray">Sempre o melhor para você</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- end page title section -->
-
-
   <!-- start portfolio section -->
-  <section class="wow fadeIn padding-90px-top sm-padding-50px-top xs-padding-30px-top" style="min-height: 500px;">
-    <div class="container">
+  <section class="wow fadeIn pt-65px sm-padding-50px-top xs-padding-30px-top" style="min-height: 500px;">
+    <div class="container pb-30px">
       <div class="row">
         <div class="col-md-3 col-md-offset-2">
           <div class="select-style medium-select icon-search-div">
-            <input type="text" name="pesquisar" class="bg-transparent no-margin-bottom" placeholder="Buscar...">
+            <input type="text" name="pesquisar" class="bg-transparent no-margin-bottom" placeholder="Pesquisar em produtos">
           </div>
         </div>
         <div class="col-md-3">

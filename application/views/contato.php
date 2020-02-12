@@ -9,7 +9,7 @@
   <?php include_once("utils/header.php"); ?>
 
 
-  <section class="wow fadeIn bg-light-gray padding-35px-top padding-35px-bottom page-title-small">
+  <!-- <section class="wow fadeIn bg-light-gray padding-35px-top padding-35px-bottom page-title-small">
     <div class="container">
       <div class="row equalize xs-equalize-auto">
         <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table">
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- start contact form -->
   <section id="contact" class="no-padding">

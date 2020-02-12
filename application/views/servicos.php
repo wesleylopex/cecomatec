@@ -11,7 +11,7 @@
   <?php include_once("utils/header.php"); ?>
   <!-- end header -->
 
-  <section class="wow fadeIn bg-light-gray padding-35px-top padding-35px-bottom page-title-small">
+  <!-- <section class="wow fadeIn bg-light-gray padding-35px-top padding-35px-bottom page-title-small">
     <div class="container">
       <div class="row equalize xs-equalize-auto">
         <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table">
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- start interactive banners section -->
   <section class="wow fadeIn no-padding">
@@ -151,13 +151,11 @@
         </div>
       </div>
     </div>
-
   </section>
   <!-- end feature box section -->
 
-
   <!-- start feature box section -->
-  <section class="no-padding-top bg-white" id="Usinagem">
+  <section class="no-padding bg-white" id="Usinagem">
     <div class="container-fluid bg-light-gray">
       <div class="row equalize sm-equalize-auto">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wow fadeInLeft padding-50px-tb">
@@ -189,6 +187,67 @@
     </div>
   </section>
   <!-- end feature box section -->
+
+  <section class="no-padding-top bg-white" id="beforeAfter">
+    <div class="container-fluid">
+      <div class="row equalize sm-equalize-auto">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding cover-background sm-height-500px xs-height-350px wow fadeInLeft">
+          <div class="cocoen" style="height: 100%; max-height: 531px">
+            <img src="<?= base_url() ?>assets/site/img/antes_2.png" class="h-100" alt="">
+            <img src="<?= base_url() ?>assets/site/img/depois_2.png" class="h-100" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wow fadeInRight padding-50px-tb">
+          <div class="padding-six-all pull-left sm-no-padding-lr xs-padding-50px-tb xs-no-padding-lr">
+            <div class="col-md-12 center-col wow fadeInUp text-center">
+              <h5 class="margin-5px-bottom text-extra-dark-gray alt-font font-weight-600 xs-margin-three-bottom text-uppercase">Reformas e adequações</h5>
+              <div class="text-medium-gray text-medium margin-5px-bottom xs-margin-three-bottom">Reforma e adequação de segurança em equipamentos</div>
+              <div class="text-gray text-medium margin-5px-bottom xs-margin-three-bottom padding-25px-top">
+                Com equipe de engenheiros e técnicos especializados na construção de máquinas e com vasta experiência de mercado, a Cecomatec tem habilidades e meios de executar a aplicação completa da adequação à NR-12 de máquinas e equipamentos para Microfusão </div>
+            </div>
+            <div class="col-md-12">
+              <div class="div-text-content margin-15px-top text-center">
+                Reformas estruturais | Adequação mecânica, hidráulica, elétrica e software | Emissão ART
+
+                <!-- <ul class="no-padding list-style-12 sm-text-left" style="display: inline-flex">
+                  <li style="margin-right: 15px; border-bottom: none!important">Reformas estruturais</li>
+                  <li style="margin-right: 15px; border-bottom: none!important">Adequação mecânica, hidráulica, elétrica e software</li>
+                  <li>Emissão ART</li>
+                </ul> -->
+              </div>
+            </div>
+            <div class="col-md-12">
+              <!-- start accordion -->
+              <div class="panel-group accordion-style1 mt-20px" id="accordion-design">
+                <!-- start accordion item -->
+                <div class="panel">
+                  <div class="panel-heading">
+                    <a data-toggle="collapse" data-parent="#accordion-design" href="#design1" class="collapsed accordion-link" aria-expanded="false">
+                      <div class="panel-title font-weight-500 text-extra-dark-gray text-uppercase">Sobre a Norma NR12<span class="float-right"><i class="ti-plus"></i></span></div>
+                    </a>
+                  </div>
+                  <div id="design1" class="panel-collapse collapse" data-parent="#accordion-design" aria-expanded="false" role="tablist">
+                    <div class="panel-body">
+                      A NR12 estabelece medidas preventivas de segurança e higiene do trabalho a serem obrigatoriamente adotadas pelas empresas em relação à instalação, operação e manutenção. Visa a rigorosa prevenção de possíveis acidentes, garante à empresa e ao colaborador qualidade e segurança.
+                    </div>
+                  </div>
+                  <div class="col-md-12 centered mt-30px">
+                    <a href="<?= site_url("contato") ?>">
+                      <button class="text-white btn btn-large btn-orange-style-2 border-radius-10" id="btn-reformas">Entre em contato</button>
+                    </a>
+                  </div>
+                </div>
+                <!-- end accordion item -->
+              </div>
+              <!-- end accordion -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
 
   <!-- start feature box section -->
   <section class="no-padding-top wow fadeIn bg-white" id="Norma">
@@ -262,12 +321,22 @@
   <script>
     $(document).ready(function() {
       var $doc = $('html, body');
-      $('a').click(function() {
+      $("a").not(".accordion-link").click(function() {
         $doc.animate({
           scrollTop: $($.attr(this, 'href')).offset().top
         }, 500);
         return false;
       });
+
+      $(".accordion-link").click(function() {
+        if ($(this).hasClass("collapsed")) {
+          $("#btn-reformas").hide()
+        } else {
+          setTimeout(() => {
+            $("#btn-reformas").show()
+          }, 335)
+        }
+      })
     });
   </script>
 </body>

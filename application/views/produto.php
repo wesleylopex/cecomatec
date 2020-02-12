@@ -11,7 +11,7 @@
 
   <?php include_once("utils/header.php") ?>
 
-  <section class="wow fadeIn bg-light-gray padding-35px-top padding-35px-bottom page-title-small">
+  <!-- <section class="wow fadeIn bg-light-gray padding-35px-top padding-35px-bottom page-title-small">
     <div class="container">
       <div class="row equalize xs-equalize-auto">
         <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12 display-table">
@@ -28,7 +28,8 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+
   <section class="wow fadeIn animated no-padding-bottom pt-50px" style="visibility: visible; animation-name: fadeIn;">
     <div class="container">
       <div class="row equalize sm-equalize-auto">
@@ -81,7 +82,7 @@
 
               <a href="#contact-form" class="btn btn-orange-style-2 btn-large btn-soft-rounded wow fadeInDown popup-with-form xs-margin-5px-bottom"> Solicite mais informações </a>
               <div class="col-md-12 col-sm-6 col-xs-12 sm-margin-seven-bottom xs-margin-40px-bottom wow fadeInRight last-paragraph-no-margin margin-30px-top no-padding-lr">
-                <a href="https://www.bndes.gov.br/wps/portal/site/home/financiamento/finame/!ut/p/z1/04_iUlDg4tKPAFJABpSA0fpReYllmemJJZn5eYk5-hH6kVFm8T6W3q4eJv4GPu5mfk4Gji6Wlh7ezkaGBi5m-l76UfgVFGQHKgIAWRAQKw!!/" target="_blank"><img src="<?= base_url() ?>assets/site/img/bndes.jpg" style=" width:95px; margin-bottom:7px;" /></a>
+                <!-- <a href="https://www.bndes.gov.br/wps/portal/site/home/financiamento/finame/!ut/p/z1/04_iUlDg4tKPAFJABpSA0fpReYllmemJJZn5eYk5-hH6kVFm8T6W3q4eJv4GPu5mfk4Gji6Wlh7ezkaGBi5m-l76UfgVFGQHKgIAWRAQKw!!/" target="_blank"><img src="<?= base_url() ?>assets/site/img/bndes.jpg" style=" width:95px; margin-bottom:7px;" /></a> -->
                 <a><img src="<?= base_url() ?>assets/site/img/logo_bndes.png" style="width:100px; margin-bottom:7px; margin-left: 10px" /></a>
                 <a href="https://www.cartaobndes.gov.br/cartaobndes/" target="_blank"><img src="<?= base_url() ?>assets/site/img/finame.webp" style="width:95px; margin-bottom:7px; margin-left: 10px" /></a>
                 <a href="https://www.bndes.gov.br/wps/portal/site/home/financiamento/finame/!ut/p/z1/04_iUlDg4tKPAFJABpSA0fpReYllmemJJZn5eYk5-hH6kVFm8T6W3q4eJv4GPu5mfk4Gji6Wlh7ezkaGBi5m-l76UfgVFGQHKgIAWRAQKw!!/" target="_blank"><img src="<?= base_url() ?>assets/site/img/img_cartao.gif" style="width:95px; margin-bottom:7px; margin-left: 10px" /></a>
@@ -114,7 +115,7 @@
   </section>
 
   <!-- start tab style 01 section -->
-  <section class="wow fadeIn pb-50px">
+  <section class="wow fadeIn pb-50px pt-50px">
     <div class="container tab-style2">
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">

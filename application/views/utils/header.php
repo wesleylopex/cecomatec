@@ -43,6 +43,25 @@
           </a>
         </div>
         <!-- end logo -->
+
+        <div class="col-md-2">
+          <!-- <div class="header-searchbar">
+            <a href="#search-header" class="header-search-form text-white"><i class="fa fa-search search-button"></i></a>
+            
+            <?= form_open(site_url("pesquisa"), ["id" => "search-header", "class" => "search-form-result"]) ?>
+            <div class="search-form position-relative">
+              <button type="submit" class="fa fa-search close-search search-button"></button>
+              <input type="text" name="pesquisa" class="form-control" placeholder="Pesquisar" autocomplete="off">
+            </div>
+            </form>
+          </div> -->
+          <?= form_open(site_url("pesquisa"), ["id" => "search-header", "class" => "search-form-result"]) ?>
+          <div class="select-style medium-select icon-search-div mb-0">
+            <input type="text" name="pesquisa" class="bg-transparent no-margin-bottom" placeholder="Pesquisar">
+          </div>
+          </form>
+        </div>
+
         <div class="col-md-6 col-xs-2 width-auto pull-right accordion-menu xs-no-padding-right">
           <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#navbar-collapse-toggle-1">
             <span class="sr-only">toggle navigation</span>
@@ -53,9 +72,6 @@
           <div class="navbar-collapse collapse pull-right" id="navbar-collapse-toggle-1">
             <ul id="accordion" class="nav navbar-nav navbar-left no-margin alt-font text-normal" data-in="fadeIn" data-out="fadeOut">
               <!-- start menu item -->
-              <li class="<?= $page == "home" ? "active" : "" ?>">
-                <a class="hover-orange" href="<?= base_url() ?>">Início</a>
-              </li>
 
               <li class="dropdown simple-dropdown <?= $page == "produtos" ? "active" : "" ?>">
                 <a class="hover-orange" href="<?= site_url("produtos") ?>">Produtos</a>
@@ -85,26 +101,6 @@
                 <a class="hover-orange" href="<?= site_url("contato") ?>">Contato</a>
               </li>
             </ul>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="header-searchbar">
-            <a href="#search-header" class="header-search-form text-white"><i class="fa fa-search search-button"></i></a>
-            <!-- start search input -->
-            <?= form_open(site_url("pesquisa"), ["id" => "search-header", "class" => "mfp-hide search-form-result"]) ?>
-              <div class="search-form position-relative">
-                <button type="submit" class="fa fa-search close-search search-button"></button>
-                <input type="text" name="pesquisa" class="search-input" placeholder="Pesquisar" autocomplete="off">
-              </div>
-            </form>
-            <!-- end search input -->
-          </div>
-        </div>
-        <div class="col-md-4 col-xs-8 width-auto">
-          <div class="header-searchbar">
-            <a href="<?= $configuracoes->facebook ?>" title="Facebook" target="_blank" class="hover-orange text-extra-dark-gray"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="<?= $configuracoes->linkedin ?>" title="Linked In" target="_blank" class="hover-orange text-extra-dark-gray"><i class="fa fa-linkedin"></i></a>
-            <a href="<?= $configuracoes->youtube ?>" title="YouTube" target="_blank" class="hover-orange text-extra-dark-gray"><i class="fa fa-youtube"></i></a>
           </div>
         </div>
       </div>

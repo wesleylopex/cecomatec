@@ -5,7 +5,6 @@
   var configuracoes = <?= json_encode($configuracoes) ?>;
 
 </script>
-
 <script type="text/javascript" src="<?= base_url() ?>assets/site/js/jquery.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>assets/site/js/modernizr.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>assets/site/js/bootstrap.min.js"></script>
@@ -19,7 +18,7 @@
 <!-- animation -->
 <script type="text/javascript" src="<?= base_url() ?>assets/site/js/wow.min.js"></script>
 <!-- page scroll -->
-
+<script type="text/javascript" src="<?= base_url() ?>assets/site/js/page-scroll.js"></script>
 <!-- swiper carousel -->
 <script type="text/javascript" src="<?= base_url() ?>assets/site/js/swiper.min.js"></script>
 <!-- counter -->
