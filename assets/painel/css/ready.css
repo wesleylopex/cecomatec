@@ -21247,7 +21247,7 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 
 .dz-image img {
     height: 120px;
-    width: auto;
+    width: 100%;
 }
 
 .dropzone .dz-preview:hover .dz-image img {

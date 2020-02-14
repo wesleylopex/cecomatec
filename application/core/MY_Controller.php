@@ -44,8 +44,12 @@ class GodController extends MY_Controller
     $this->load->model($model);
 
     $ids = $this->input->post("ids");
+    $this->load->model("imageModel");
 
     foreach ($ids as $key => $id) {
+      $imagem = $this->{$model}->getByPrimary($id);
+      $this->imageModel->removeImage("", $imagem->imagem);
+      
       $this->{$model}->delete($id);
     }
   }
@@ -55,9 +59,9 @@ class GodController extends MY_Controller
     $model = $this->camposNaoModificados["galeria"]["model"];
     $this->load->model($model);
 
-    $id_produto = $this->input->post("id_produto");
+    $id_produto = $this->input->post("idRegistro");
 
-    $this->{$model}->deleteWhere(["id_produto" => $id_produto]);
+    $this->{$model}->deleteWhere([$this->camposNaoModificados["galeria"]["foreignKey"] => $id_produto]);
   }
 
   public function getImagensFromRegistro($registro = null)
@@ -142,7 +146,7 @@ class GodController extends MY_Controller
         array_push($_SESSION["dropzoneImages"], $path);
 
       // Set preference
-      $config['upload_path'] = 'assets/uploads/';
+      $config['upload_path'] = 'assets/uploads/teste';
       $config['allowed_types'] = 'jpg|jpeg|png';
       $config['max_size'] = '1024'; // max_size in kb
       $config['file_name'] = $path;
@@ -212,8 +216,6 @@ class GodController extends MY_Controller
 
       session_start();
       $dropzoneImages = $_SESSION["dropzoneImages"];
-
-      // var_dump($dropzoneImages);
 
       if ($dropzoneImages) {
         $this->load->model($dropzoneModel);

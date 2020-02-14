@@ -188,7 +188,7 @@
   </section>
   <!-- end feature box section -->
 
-  <section class="no-padding-top bg-white" id="beforeAfter">
+  <section class="no-padding bg-white" id="beforeAfter" style="max-height: 531px">
     <div class="container-fluid">
       <div class="row equalize sm-equalize-auto">
 
@@ -247,65 +247,6 @@
       </div>
     </div>
 
-  </section>
-
-  <!-- start feature box section -->
-  <section class="no-padding-top wow fadeIn bg-white" id="Norma">
-    <div class="container-fluid">
-      <div class="row mb-50px">
-        <div class="col-md-6 center-col wow fadeInUp text-center">
-          <h5 class="margin-5px-bottom text-extra-dark-gray alt-font font-weight-600 xs-margin-three-bottom text-uppercase">Reformas e adequações</h5>
-          <div class="text-medium-gray text-medium margin-5px-bottom xs-margin-three-bottom">Reforma e adequação de segurança em equipamentos</div>
-          <div class="text-gray text-medium margin-5px-bottom xs-margin-three-bottom padding-25px-top">
-            Com equipe de engenheiros e técnicos especializados na construção de máquinas e com vasta experiência de mercado, a Cecomatec tem habilidades e meios de executar a aplicação completa da adequação à NR-12 de máquinas e equipamentos para Microfusão </div>
-        </div>
-        <div class="col-md-12">
-          <div class="">
-            <!-- <div class="text-uppercase alt-font text-medium text-center letter-spacing-1 font-weight-600 margin-30px-top" style="color:orange">
-                Nossos Serviços
-              </div> -->
-            <div class="div-text-content margin-15px-top text-center">
-              <ul class="no-padding list-style-12 sm-text-left" style="display: inline-flex">
-                <li style="margin-right: 15px; border-bottom: none!important">Reformas estruturais</li>
-                <li style="margin-right: 15px; border-bottom: none!important">Adequação mecânica, hidráulica, elétrica e software</li>
-                <li>Emissão ART</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row p-50px">
-        <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp">
-          <!-- <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp">
-            <h6 class="alt-font text-large text-extra-dark-gray text-uppercase font-weight-600" style="text-align: center">Antes</h6>
-            <img src="<?= base_url() ?>assets/site/img/antes_2.png" class="width-100" alt="" style="height: 250px">
-          </div>
-          <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp no-padding-left">
-            <h6 class="alt-font text-large text-extra-dark-gray text-uppercase font-weight-600" style="text-align: center">Depois</h6>
-            <img src="<?= base_url() ?>assets/site/img/depois_2.png" class="width-100" alt="" style="height: 250px">
-          </div> -->
-          <div class="cocoen">
-            <img src="<?= base_url() ?>assets/site/img/antes_2.png" class="width-100" alt="" style="height: 250px">
-            <img src="<?= base_url() ?>assets/site/img/depois_2.png" class="width-100" alt="" style="height: 250px">
-          </div>
-        </div>
-        <div class="col-md-6 no-padding-right sm-margin-30px-bottom wow fadeInUp no-padding-left config-padding">
-          <!-- <div class="col-md-6 sm-margin-30px-bottom wow fadeInUp">
-            <h5 class="margin-5px-bottom text-extra-dark-gray alt-font font-weight-600 xs-margin-three-bottom text-uppercase">Reformas e adequações</h5>
-            <div class="text-medium-gray text-medium margin-5px-bottom xs-margin-three-bottom">Reforma e adequação de segurança em equipamentos</div>
-            <div class="text-gray text-medium margin-5px-bottom xs-margin-three-bottom padding-25px-top">
-              Com equipe de engenheiros e técnicos especializados na construção de máquinas e com vasta experiência de mercado, a Cecomatec tem habilidades e meios de executar a aplicação completa da adequação à NR-12 de máquinas e equipamentos para Microfusão </div>
-          </div> -->
-          <div class="col-md-10 center-col sm-margin-30px-bottom wow fadeInUp no-padding-left">
-            <h5 class="margin-5px-bottom text-extra-dark-gray alt-font font-weight-600 xs-margin-three-bottom text-uppercase margin-5px-bottom">Sobre a Norma NR12</h5>
-            <div class="text-medium-gray text-medium margin-5px-bottom xs-margin-three-bottom">Uma breve explicação sobre a norma</div>
-            <div class="text-gray text-medium margin-5px-bottom xs-margin-three-bottom padding-25px-top">
-              A Norma Regulamentadora de segurança no trabalho em máquinas e equipamentos NR12 estabelece medidas preventivas de segurança e higiene do trabalho a serem obrigatoriamente adotadas pelas empresas em relação à instalação, operação e manutenção. Visa a rigorosa prevenção de possíveis acidentes, garante à empresa e ao colaborador qualidade e segurança.
-            </div>
-          </div>
-        </div>
-      </div>
   </section>
 
   <!-- start footer -->

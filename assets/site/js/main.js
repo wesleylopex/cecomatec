@@ -437,6 +437,7 @@ $(document).ready(function () {
         slidesPerView: 'auto',
         touchRatio: 0.2,
         slideToClickedSlide: true,
+        direction: "vertical",
         loopedSlides: 4,
         // control: galleryTop
     });

@@ -33,48 +33,54 @@
   <section class="wow fadeIn animated no-padding-bottom pt-50px" style="visibility: visible; animation-name: fadeIn;">
     <div class="container">
       <div class="row equalize sm-equalize-auto">
-        <div class="col-md-5 col-sm-12 col-xs-12 text-center sm-margin-30px-bottom wow fadeInLeft height-100" style="visibility: visible; animation-name: fadeInLeft; height: 371px;">
+        <div class="<?= sizeof($produto->imagens) > 1 ? "col-md-7" : "col-md-5" ?> col-sm-12 col-xs-12 text-center sm-margin-30px-bottom wow fadeInLeft height-100" style="visibility: visible; animation-name: fadeInLeft; height: 371px;">
           <div class="blog-post-content xs-margin-30px-bottom xs-text-center">
-            <div class="swiper-container gallery-top white-move">
-              <div class="swiper-wrapper tiles">
-
-                <?php foreach ($produto->imagens as $imagem) : ?>
-                  <div class="swiper-slide">
-                    <div class="owl-product text-center">
-                      <img src="<?= base_url("assets/uploads/" . $imagem->imagem) ?>" />
+            <div class="row">
+              <?php if (sizeof($produto->imagens) > 1) : ?>
+                <div class="col-md-3">
+                  <div class="swiper-container gallery-thumbs white-move mt-50px">
+                    <div class="swiper-wrapper tiles">
+                      <?php foreach ($produto->imagens as $imagem) : ?>
+                        <div class="swiper-slide">
+                          <div class="owl-product-thumb text-center">
+                            <img src="<?= base_url("assets/uploads/" . $imagem->imagem) ?>" />
+                          </div>
+                        </div>
+                      <?php endforeach ?>
                     </div>
                   </div>
-                <?php endforeach ?>
-              </div>
-              <?php if (sizeof($produto->imagens) > 1) : ?>
-                <div class="swiper-pagination swiper-pagination-square swiper-pagination-white"></div>
-                <div class="swiper-button-next swiper-button-black-highlight"></div>
-                <div class="swiper-button-prev swiper-button-black-highlight"></div>
+                </div>
               <?php endif ?>
-            </div>
-
-            <?php if (sizeof($produto->imagens) > 1) : ?>
-              <div class="swiper-container gallery-thumbs white-move mt-50px">
-                <div class="swiper-wrapper tiles">
-                  <?php foreach ($produto->imagens as $imagem) : ?>
-                    <div class="swiper-slide">
-                      <div class="owl-product-thumb text-center">
-                        <img src="<?= base_url("assets/uploads/" . $imagem->imagem) ?>" />
+              <div class="col-md-9">
+                <div class="swiper-container gallery-top white-move">
+                  <div class="swiper-wrapper tiles">
+                    <?php foreach ($produto->imagens as $imagem) : ?>
+                      <div class="swiper-slide">
+                        <div class="owl-product text-center">
+                          <img src="<?= base_url("assets/uploads/" . $imagem->imagem) ?>" />
+                        </div>
                       </div>
-                    </div>
-                  <?php endforeach ?>
+                    <?php endforeach ?>
+                  </div>
+
+                  <?php if (sizeof($produto->imagens) > 1) : ?>
+                    <div class="swiper-pagination swiper-pagination-square swiper-pagination-white"></div>
+                    <div class="swiper-button-next swiper-button-black-highlight"></div>
+                    <div class="swiper-button-prev swiper-button-black-highlight"></div>
+                  <?php endif ?>
                 </div>
               </div>
-            <?php endif ?>
+            </div>
+
           </div>
           <?php if ($produto->video) : ?>
             <a href="<?= $produto->video ?>" class="popup-vimeo btn btn-medium btn-transparent-black text-medium btn-rounded mt-10px"> Vídeo <i class="fa fa-youtube-play icon-very-small" aria-hidden="true"></i></a>
           <?php endif ?>
         </div>
 
-        <div class="col-md-7 col-sm-12 col-xs-12 wow fadeInRight" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight; height: 371px;">
+        <div class="<?= sizeof($produto->imagens) > 1 ? "col-md-5" : "col-md-7" ?> col-sm-12 col-xs-12 wow fadeInRight" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight; height: 371px;">
           <div class="display-table width-100 height-100">
-            <div class="display-table-cell vertical-align-middle padding-twelve-lr sm-text-center sm-no-padding width-100">
+            <div class="display-table-cell vertical-align-middle padding-eigth-lr sm-text-center sm-no-padding width-100">
               <h6 class="alt-font text-extra-dark-gray"><?= $produto->titulo ?></h6>
               <div class="text-medium">
                 <p><?= nl2br($produto->descricao) ?></p>
@@ -83,9 +89,15 @@
               <a href="#contact-form" class="btn btn-orange-style-2 btn-large btn-soft-rounded wow fadeInDown popup-with-form xs-margin-5px-bottom"> Solicite mais informações </a>
               <div class="col-md-12 col-sm-6 col-xs-12 sm-margin-seven-bottom xs-margin-40px-bottom wow fadeInRight last-paragraph-no-margin margin-30px-top no-padding-lr">
                 <!-- <a href="https://www.bndes.gov.br/wps/portal/site/home/financiamento/finame/!ut/p/z1/04_iUlDg4tKPAFJABpSA0fpReYllmemJJZn5eYk5-hH6kVFm8T6W3q4eJv4GPu5mfk4Gji6Wlh7ezkaGBi5m-l76UfgVFGQHKgIAWRAQKw!!/" target="_blank"><img src="<?= base_url() ?>assets/site/img/bndes.jpg" style=" width:95px; margin-bottom:7px;" /></a> -->
-                <a><img src="<?= base_url() ?>assets/site/img/logo_bndes.png" style="width:100px; margin-bottom:7px; margin-left: 10px" /></a>
-                <a href="https://www.cartaobndes.gov.br/cartaobndes/" target="_blank"><img src="<?= base_url() ?>assets/site/img/finame.webp" style="width:95px; margin-bottom:7px; margin-left: 10px" /></a>
-                <a href="https://www.bndes.gov.br/wps/portal/site/home/financiamento/finame/!ut/p/z1/04_iUlDg4tKPAFJABpSA0fpReYllmemJJZn5eYk5-hH6kVFm8T6W3q4eJv4GPu5mfk4Gji6Wlh7ezkaGBi5m-l76UfgVFGQHKgIAWRAQKw!!/" target="_blank"><img src="<?= base_url() ?>assets/site/img/img_cartao.gif" style="width:95px; margin-bottom:7px; margin-left: 10px" /></a>
+                <a href="https://www.bndes.gov.br/wps/portal/site/home/financiamento/finame/!ut/p/z1/04_iUlDg4tKPAFJABpSA0fpReYllmemJJZn5eYk5-hH6kVFm8T6W3q4eJv4GPu5mfk4Gji6Wlh7ezkaGBi5m-l76UfgVFGQHKgIAWRAQKw!!/" target="_blank">
+                  <img src="<?= base_url() ?>assets/site/img/img_cartao.gif" style="width:80px; margin-bottom:7px; margin-right: 10px" />
+                </a>
+                <a href="https://www.cartaobndes.gov.br/cartaobndes/" target="_blank">
+                  <img src="<?= base_url() ?>assets/site/img/finame.webp" style="width:80px; margin-bottom:7px; margin-left: 10px" />
+                </a>
+                <a>
+                  <img src="<?= base_url() ?>assets/site/img/logo_bndes.png" style="width:85px; margin-bottom:7px; margin-left: 10px" />
+                </a>
               </div>
             </div>
           </div>
@@ -139,8 +151,8 @@
         <?php if ($produto->caracteristicas) : ?>
           <div class="tab-pane med-text fade in active" id="caracteristicas">
             <div class="row equalize">
-              <div class="col-md-7 center-col">
-                <div class="panel-body text-medium">
+              <div class="col-md-12 center-col">
+                <div class="panel-body text-medium fr-view">
                   <?= $produto->caracteristicas ?>
                 </div>
               </div>

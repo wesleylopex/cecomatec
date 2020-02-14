@@ -53,7 +53,7 @@ class ImageModel extends CI_Model
   }
 
 
-  function remove_image($app_name, $name)
+  function removeImage($app_name, $name)
   {
     if (is_file('./assets/uploads/' . $app_name . $name)) {
       @unlink('./assets/uploads/' . $app_name . $name);

@@ -54,7 +54,6 @@
                           </div>
                         </div>
                       <?php endif ?>
-
                       <!-- CONFIGURAÇÕES PARA OS CAMPOS NÃO FICAREM POLUÍDOS -->
                       <?php $disabled = false; ?>
                       <?php if (isset($campo["disabled"]) && $campo["disabled"]) $disabled = true; ?>
@@ -204,14 +203,17 @@
           ids
         },
         type: 'POST',
+        success(result) {
+          alert(result)
+        }
       });
     }
 
-    function removeAllFilesFromDataBase(idProduto = []) {
+    function removeAllFilesFromDataBase(idRegistro = []) {
       $.ajax({
         url: "<?= base_url("painel/" . $nomes["link"] . "/removeAllFilesFromDataBase") ?>",
         data: {
-          idProduto
+          idRegistro
         },
         type: 'POST',
       });
@@ -299,7 +301,6 @@
         },
         type: 'POST',
         success(result) {
-
           try {
             response = JSON.parse(result)
 
@@ -312,14 +313,14 @@
               showAlert("primary", response.message, response.icon)
 
               setTimeout(function() {
-                location.href = `${base_url}painel/${nomes.link}`
+                // location.href = `${base_url}painel/${nomes.link}`
               }, 1500)
             } else
               showAlert("primary", response.message, response.icon)
           } catch (e) {
             result = removeArrayFromString(["<p>", "</p>"], result)
             // showAlert("primary", result, "la la-close")
-            showAlert("Danger", "Erro, tente novamente.", "la la-close")
+            showAlert("danger", "Erro, tente novamente.", "la la-close")
           }
         },
         error(result) {
