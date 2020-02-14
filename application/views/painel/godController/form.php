@@ -329,6 +329,18 @@
       });
     }
 
+
+    $(function() {
+      $(".dropzone").sortable({
+        items: '.dz-preview',
+        cursor: 'move',
+        opacity: 0.5,
+        containment: '.dropzone',
+        distance: 20,
+        tolerance: 'pointer'
+      });
+    })
+
     function removeArrayFromString(items = [], string = null) {
       for (item of items) {
         string = string.replace(item, "")

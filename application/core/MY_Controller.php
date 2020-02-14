@@ -146,7 +146,7 @@ class GodController extends MY_Controller
         array_push($_SESSION["dropzoneImages"], $path);
 
       // Set preference
-      $config['upload_path'] = 'assets/uploads/teste';
+      $config['upload_path'] = 'assets/uploads';
       $config['allowed_types'] = 'jpg|jpeg|png';
       $config['max_size'] = '1024'; // max_size in kb
       $config['file_name'] = $path;
