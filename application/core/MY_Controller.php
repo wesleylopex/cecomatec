@@ -46,11 +46,13 @@ class GodController extends MY_Controller
     $ids = $this->input->post("ids");
     $this->load->model("imageModel");
 
-    foreach ($ids as $key => $id) {
-      $imagem = $this->{$model}->getByPrimary($id);
-      $this->imageModel->removeImage("", $imagem->imagem);
+    if ($ids) {
+      foreach ($ids as $key => $id) {
+        $imagem = $this->{$model}->getByPrimary($id);
+        $this->imageModel->removeImage($this->nomes["link"], $imagem->imagem);
 
-      $this->{$model}->delete($id);
+        $this->{$model}->delete($id);
+      }
     }
   }
 
@@ -129,26 +131,15 @@ class GodController extends MY_Controller
     return $text;
   }
 
-
-  public function saveImagesByOrder()
-  {
-
-    $files = $this->input->post("files");
-
-    // foreach ($files as $key => $file) {
-    //   echo $files->name;
-    // }
-  }
-
   public function uploadDropzoneImage()
   {
 
     if (!empty($_FILES['file']['name'])) {
 
-      $path = "jocc-" . $_FILES['file']['name'];
+      $path = "jocc-" . $this->nomes["link"] . "-" . $_FILES['file']['name'];
 
       // Set preference
-      $config['upload_path'] = 'assets/uploads';
+      $config['upload_path'] = 'assets/uploads/'.$this->nomes["link"];
       $config['allowed_types'] = 'jpg|jpeg|png';
       $config['max_size'] = '1024'; // max_size in kb
       $config['file_name'] = $path;
@@ -216,43 +207,25 @@ class GodController extends MY_Controller
       else
         $id_registro = $this->model->create($dados);
 
-      // session_start();
-      // $dropzoneImages = $_SESSION["dropzoneImages"];
-      // // print_r($dropzoneImages);
-
-      // if ($dropzoneImages) {
-      //   $this->load->model($dropzoneModel);
-      // foreach ($dropzoneImages as $key => $imageName) {
-      //   // echo $imageName . "\n";
-      //   $this->{$dropzoneModel}->create([
-      //     "imagem" => $imageName,
-      //     $dropzoneForeignKey => $dados["id"] ? $dados["id"] : $id_registro
-      //   ]);
-      // }
-      // }
-
-      // $_SESSION["dropzoneImages"] = [];
-
       $files = json_decode($this->input->post("files"));
-      $this->load->model($dropzoneModel);
 
-      // print_r($files);
+      if ($files) {
+        $this->load->model($dropzoneModel);
+        foreach ($files as $key => $file) {
+          // echo $file->id . $file->name . "[". $key ."]\n";
+          if (isset($file->id) && $file->id) {
+            $this->{$dropzoneModel}->update([
+              "id" => $file->id,
+              "ordem" => $key
+            ]);
+          } else {
 
-      foreach ($files as $key => $file) {
-
-        // echo $file->id . $file->name . "[". $key ."]\n";
-
-        if (isset($file->id) && $file->id) {
-          $this->{$dropzoneModel}->update([
-            "id" => $file->id,
-            "ordem" => $key
-          ]);
-        } else {
-          $this->{$dropzoneModel}->create([
-            "imagem" => "jocc-".$file->name,
-            $dropzoneForeignKey => $dados["id"] ? $dados["id"] : $id_registro,
-            "ordem" => $key
-          ]);
+            $this->{$dropzoneModel}->create([
+              "imagem" => "jocc-" . $this->nomes["link"] . "-" . $file->name,
+              $dropzoneForeignKey => $dados["id"] ? $dados["id"] : $id_registro,
+              "ordem" => $key
+            ]);
+          }
         }
       }
 

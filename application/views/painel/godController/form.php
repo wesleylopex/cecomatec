@@ -204,6 +204,7 @@
         },
         type: 'POST',
         success(result) {
+          console.log(result)
         }
       });
     }
@@ -252,7 +253,7 @@
             draggable: true
           }
           myDropzone.emit("addedfile", file);
-          myDropzone.emit("thumbnail", file, `${base_url}assets/uploads/${imagem.imagem}`);
+          myDropzone.emit("thumbnail", file, `${base_url}assets/uploads/${nomes.link}/${imagem.imagem}`);
           myDropzone.emit("complete", file);
           myDropzone.files.push(file);
         });
@@ -293,15 +294,17 @@
 
       fileNames = []
 
-      myDropzone.files.forEach(file => {
-        fileNames.push({
-          name: file.name,
-          id: file.id
-        })
-      });
+      if ($(".dropzone").length > 0) {
+        myDropzone.files.forEach(file => {
+          fileNames.push({
+            name: file.name,
+            id: file.id
+          })
+        });
 
-      formData.append("files", JSON.stringify(fileNames))
-      
+        formData.append("files", JSON.stringify(fileNames))
+      }
+
       $.ajax({
         url: "<?= base_url("painel/" . $nomes["link"] . "/salvar"); ?>",
         data: formData,
@@ -314,22 +317,21 @@
         type: 'POST',
         success(result) {
 
-          console.log(result)
-
           try {
             response = JSON.parse(result)
 
             if (response.success) {
-              removeFilesFromDataBase(ids)
 
               if (removeAllFiles)
                 removeAllFilesFromDataBase(registro.id)
+
+              removeFilesFromDataBase(ids)
 
               showAlert("primary", response.message, response.icon)
 
               setTimeout(function() {
                 // location.href = `${base_url}painel/${nomes.link}`
-                window.location.reload()
+                // window.location.reload()
               }, 1500)
             } else
               showAlert("primary", response.message, response.icon)
@@ -363,7 +365,7 @@
     $(function() {
       $(".dropzone").sortable({
         items: '.dz-preview',
-        cursor: 'move',
+        cursor: 'grabbing',
         opacity: 0.5,
         containment: '.dropzone',
         distance: 20,
