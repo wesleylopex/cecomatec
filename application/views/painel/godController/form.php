@@ -204,7 +204,6 @@
         },
         type: 'POST',
         success(result) {
-          alert(result)
         }
       });
     }
@@ -243,12 +242,14 @@
           file.previewElement.remove();
         }
       })
+
       if (registro.imagens) {
         registro.imagens.forEach(imagem => {
           let file = {
             name: imagem.imagem,
             id: imagem.id,
-            size: 1000000
+            size: 1000000,
+            draggable: true
           }
           myDropzone.emit("addedfile", file);
           myDropzone.emit("thumbnail", file, `${base_url}assets/uploads/${imagem.imagem}`);
@@ -290,6 +291,17 @@
       let form = document.querySelector("form")
       let formData = new FormData(form);
 
+      fileNames = []
+
+      myDropzone.files.forEach(file => {
+        fileNames.push({
+          name: file.name,
+          id: file.id
+        })
+      });
+
+      formData.append("files", JSON.stringify(fileNames))
+      
       $.ajax({
         url: "<?= base_url("painel/" . $nomes["link"] . "/salvar"); ?>",
         data: formData,
@@ -301,6 +313,9 @@
         },
         type: 'POST',
         success(result) {
+
+          console.log(result)
+
           try {
             response = JSON.parse(result)
 
@@ -314,6 +329,7 @@
 
               setTimeout(function() {
                 // location.href = `${base_url}painel/${nomes.link}`
+                window.location.reload()
               }, 1500)
             } else
               showAlert("primary", response.message, response.icon)
@@ -329,6 +345,20 @@
       });
     }
 
+    function getOrderedImages() {
+      let queue = myDropzone.files
+      let newQueue = []
+
+      $('.dropzone .dz-preview .dz-filename span').each(function(count, el) {
+        var name = $(el).text();
+        queue.forEach(function(file) {
+          if (file.name === name)
+            newQueue.push(file)
+        });
+      });
+
+      return newQueue
+    }
 
     $(function() {
       $(".dropzone").sortable({
@@ -337,8 +367,13 @@
         opacity: 0.5,
         containment: '.dropzone',
         distance: 20,
-        tolerance: 'pointer'
-      });
+        tolerance: 'pointer',
+        stop() {
+
+          myDropzone.files = getOrderedImages();
+        }
+      })
+      $(".dropzone").disableSelection()
     })
 
     function removeArrayFromString(items = [], string = null) {

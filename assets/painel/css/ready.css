@@ -21215,10 +21215,11 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
     background: #191919;
     border-color: #191919;
     color: #fff;
+    border-radius: 5px;
 }
 
 .btn-black:hover {
-    background: #2e2e2e;
+    background: #111111;
     color: #fff;
 }
 
