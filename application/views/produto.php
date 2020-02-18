@@ -43,7 +43,7 @@
                       <?php foreach ($produto->imagens as $imagem) : ?>
                         <div class="swiper-slide">
                           <div class="owl-product-thumb text-center">
-                            <img src="<?= base_url("assets/uploads/" . $imagem->imagem) ?>" />
+                            <img src="<?= base_url("assets/uploads/produtos/" . $imagem->imagem) ?>" />
                           </div>
                         </div>
                       <?php endforeach ?>
@@ -57,7 +57,7 @@
                     <?php foreach ($produto->imagens as $imagem) : ?>
                       <div class="swiper-slide">
                         <div class="owl-product text-center">
-                          <img src="<?= base_url("assets/uploads/" . $imagem->imagem) ?>" />
+                          <img src="<?= base_url("assets/uploads/produtos/" . $imagem->imagem) ?>" />
                         </div>
                       </div>
                     <?php endforeach ?>
@@ -203,27 +203,11 @@
           <h6 class="alt-font font-weight-500 text-extra-dark-gray letter-spacing-2 text-uppercase"> Produtos Relacionados </h6>
         </div>
         <?php foreach ($produtosRelacionados as $produtoRelacionado) : ?>
-          <!-- <div class="col-md-3 col-sm-6 col-xs-12 banner-style3 no-padding-lr">
-            <figure class="hover-bg-gray">
-              <div class="banner-image text-center related-product">
-                <img src="<?= base_url("assets/uploads/" . $produtoRelacionado->primeiraImagemGaleria[0]->imagem) ?>" />
-              </div>
-              <figcaption>
-                <div class="display-table width-100 height-100">
-                  <div class="display-table-cell vertical-align-middle text-center">
-                    <div class="text-large text-white alt-font text-uppercase font-weight-600 margin-10px-bottom padding-15px-lr"><?= $produtoRelacionado->titulo ?></div>
-                    <p class="text-light-gray width-80 margin-lr-auto"><?= $produtoRelacionado->categoria->nome ?></p>
-                    <a href="<?= site_url("produtos/produto/$produtoRelacionado->slug") ?>" class="btn btn-orange-style-2 btn-medium btn-soft-rounded font-weight-300"> Veja Mais </i></a>
-                  </div>
-                </div>
-              </figcaption>
-            </figure>
-          </div> -->
           <div class="col-md-3">
             <a href="<?= site_url("produtos/produto/$produtoRelacionado->slug") ?>">
               <figure>
                 <div class="portfolio-img product-image p-30px portfolio-item-style position-relative text-center overflow-hidden">
-                  <img class="cursor-pointer-and-opacity" src="<?= base_url("assets/uploads/" . $produtoRelacionado->primeiraImagemGaleria[0]->imagem) ?>" alt="" data-no-retina="">
+                  <img class="cursor-pointer-and-opacity" src="<?= base_url("assets/uploads/produtos/" . $produtoRelacionado->primeiraImagemGaleria[0]->imagem) ?>" alt="" data-no-retina="">
                 </div>
                 <figcaption class="bg-white">
                   <div class="portfolio-hover-main text-center">

@@ -51,7 +51,7 @@
                   <a href="<?= site_url("produtos/produto/$produto->slug") ?>">
                     <figure>
                       <div class="portfolio-img product-image p-30px portfolio-item-style position-relative text-center overflow-hidden">
-                        <img class="cursor-pointer-and-opacity" src="<?= base_url("assets/uploads/".$produto->primeiraImagemGaleria[0]->imagem) ?>" alt="" data-no-retina="">
+                        <img class="cursor-pointer-and-opacity" src="<?= base_url("assets/uploads/produtos/".$produto->primeiraImagemGaleria[0]->imagem) ?>" alt="" data-no-retina="">
                       </div>
                       <figcaption class="bg-white">
                         <div class="portfolio-hover-main text-center">

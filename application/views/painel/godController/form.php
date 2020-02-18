@@ -371,11 +371,9 @@
         distance: 20,
         tolerance: 'pointer',
         stop() {
-
           myDropzone.files = getOrderedImages();
         }
       })
-      $(".dropzone").disableSelection()
     })
 
     function removeArrayFromString(items = [], string = null) {
