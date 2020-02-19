@@ -89,7 +89,7 @@
                           <?php endif ?>
 
                           <?php if ($campo["type"] == "password") : ?>
-                            <input type="password" class="form-control <?= $class ?>" <?php if ($disabled) : ?> disabled <?php endif ?> name="<?= $key ?>" <?php if ($required) : ?> required <?php endif ?>>
+                            <input type="password" class="form-control <?= $class ?>" <?php if ($disabled) : ?> disabled <?php endif ?> name="<?= $key ?>" <?php if ($required) : ?> required <?php endif ?> autocomplete="off">
                           <?php endif ?>
 
                           <?php if ($campo["type"] == "textarea") : ?>

@@ -55,7 +55,7 @@
                 <div class="swiper-container gallery-top white-move">
                   <div class="swiper-wrapper tiles">
                     <?php foreach ($produto->imagens as $imagem) : ?>
-                      <div class="swiper-slide">
+                      <div class="swiper-slide align-items-center">
                         <div class="owl-product text-center">
                           <img src="<?= base_url("assets/uploads/produtos/" . $imagem->imagem) ?>" />
                         </div>

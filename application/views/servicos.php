@@ -194,15 +194,14 @@
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding cover-background sm-height-500px xs-height-350px wow fadeInLeft">
           <div class="cocoen" style="height: 100%; max-height: 531px">
-            <img src="<?= base_url() ?>assets/site/img/antes_2.png" class="h-100" alt="">
-            <img src="<?= base_url() ?>assets/site/img/depois_2.png" class="h-100" alt="">
+            <img src="<?= base_url() ?>assets/site/img/antes_2.png" class="h-101" alt="">
+            <img src="<?= base_url() ?>assets/site/img/depois_2.png" class="h-101" alt="">
           </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wow fadeInRight padding-50px-tb">
           <div class="padding-six-all pull-left sm-no-padding-lr xs-padding-50px-tb xs-no-padding-lr">
             <div class="col-md-12 center-col wow fadeInUp text-center">
               <h5 class="margin-5px-bottom text-extra-dark-gray alt-font font-weight-600 xs-margin-three-bottom text-uppercase">Reformas e adequações</h5>
-              <div class="text-medium-gray text-medium margin-5px-bottom xs-margin-three-bottom">Reforma e adequação de segurança em equipamentos</div>
               <div class="text-gray text-medium margin-5px-bottom xs-margin-three-bottom padding-25px-top">
                 Com equipe de engenheiros e técnicos especializados na construção de máquinas e com vasta experiência de mercado, a Cecomatec tem habilidades e meios de executar a aplicação completa da adequação à NR-12 de máquinas e equipamentos para Microfusão </div>
             </div>

@@ -26,18 +26,11 @@
 <script>
   $(".phone").mask("(00) 0.0000-0000");
 
-  var editor = new FroalaEditor(".summernote")
+  var editor = new FroalaEditor(".froala")
 
-  // $(".summernote").summernote({
-  //   height: 300,
-  //   popover: {
-  //     table: [
-  //       ['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
-  //       ['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
-  //       ['custom', ['tableStyles']]
-  //     ],
-  //   },
-  // });
+  $(".summernote").summernote({
+    height: 300
+  });
 
   // plugin jquery validation
   jQuery.extend(jQuery.validator.messages, {

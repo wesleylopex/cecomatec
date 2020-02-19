@@ -82,7 +82,7 @@ class Produtos extends GodController
 			"visivelTabela" => false,
 			"rules" => "trim",
 			"col" => "col-md-12",
-			"class" => "summernote"
+			"class" => "froala"
 		],
 
 		"modelos" => [
@@ -91,7 +91,7 @@ class Produtos extends GodController
 			"visivelTabela" => false,
 			"rules" => "trim",
 			"col" => "col-md-12",
-			"class" => "summernote"
+			"class" => "froala"
 		],
 		
 		"video" => [
