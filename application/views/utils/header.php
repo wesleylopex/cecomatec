@@ -39,7 +39,7 @@
         <!-- start logo -->
         <div class="col-md-4 col-xs-5">
           <a href="<?= base_url() ?>" class="logo">
-            <img src="<?= base_url() ?>assets/site/img/logo.png" data-no-retina class="logo-dark default" style="max-height:40px;">
+            <img src="<?= base_url() ?>assets/site/img/logo_cecomatec.png" data-no-retina class="logo-dark default" style="max-height:40px;">
           </a>
         </div>
         <!-- end logo -->

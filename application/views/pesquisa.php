@@ -25,8 +25,8 @@
           <div class="display-table-cell vertical-align-middle breadcrumb text-small alt-font">
             <!-- start breadcrumb -->
             <ul class="xs-text-center">
-              <li><a href="#" class="text-dark-gray">Home</a></li>
-              <li><a href="#" class="text-dark-gray">Pesquisa</a></li>
+              <li><a href="<?= base_url() ?>" class="text-dark-gray">Home</a></li>
+              <li><a class="text-dark-gray">Pesquisa</a></li>
             </ul>
             <!-- end breadcrumb -->
           </div>

@@ -37,15 +37,49 @@
       <div class="row">
         <div class="col-lg-12 col-md-12 text-center last-paragraph-no-margin padding-seven-tb sm-padding-70px-top">
           <h5 class="margin-three-bottom text-dark-gray alt-font font-weight-300 xs-margin-ten-bottom">Desde 1988, desenvolvendo máquinas para Fundição de Precisão / Microfusão.</span></h5>
-          <div class="text-medium-gray text-medium margin-5px-bottom xs-margin-three-bottom">A Cecomatec é uma empresa familiar e pioneira no desenvolvimento de máquinas para Microfusão/Fundição de precisão, tendo fabricado e instalado grande parte das máquinas em funcionamento atualmente no Brasil
+          <!-- <div class="text-medium-gray text-medium margin-5px-bottom xs-margin-three-bottom">A Cecomatec é uma empresa familiar e pioneira no desenvolvimento de máquinas para Microfusão/Fundição de precisão, tendo fabricado e instalado grande parte das máquinas em funcionamento atualmente no Brasil
             Atualmente, tem diversificado suas atividades, atuando em desenvolvimento de projetos, fabricação de máquinas, equipamentos e peças técnicas para atendimento de variados setores da indústria, nacionais e internacionais.
-          </div>
+          </div> -->
         </div>
+      </div>
 
+      <div class="row">
+        <!-- start process step item -->
+        <div class="col-12 col-md-4 text-center feature-box-10 sm-margin-20px-bottom wow fadeInUp last-paragraph-no-margin" style="visibility: visible; animation-name: fadeInUp;">
+          <div class="d-inline-block padding-five-all margin-10px-bottom">
+            <span class="number alt-font border-width-2 border-all border-color-deep-pink rounded-circle letter-spacing-minus-1 text-extra-dark-gray">01</span>
+          </div>
+          <div class="alt-font text-medium text-extra-dark-gray margin-10px-bottom">Discussion of the Idea</div>
+          <p class="width-75 md-width-85 mx-auto">Lorem Ipsum is simply text of the printing and typesetting industry. Lorem Ipsum has been standard dummy.</p>
+        </div>
+        <!-- end process step item -->
+        <!-- start process step item -->
+        <div class="col-12 col-md-4 text-center feature-box-10 sm-margin-20px-bottom wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+          <div class="d-inline-block padding-five-all margin-10px-bottom">
+            <span class="number number-center alt-font border-width-2 border-all border-color-deep-pink rounded-circle letter-spacing-minus-1 text-extra-dark-gray">02</span>
+          </div>
+          <div class="alt-font text-medium text-extra-dark-gray margin-10px-bottom">Handcrafted Templates</div>
+          <p class="width-75 md-width-85 mx-auto">Lorem Ipsum is simply text of the printing and typesetting industry. Lorem Ipsum has been standard dummy.</p>
+        </div>
+        <!-- end process step item -->
+        <!-- start process step item -->
+        <div class="col-12 col-md-4 text-center feature-box-10 wow fadeInUp last-paragraph-no-margin" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+          <div class="d-inline-block padding-five-all margin-10px-bottom">
+            <span class="number alt-font border-width-2 border-all border-color-deep-pink rounded-circle letter-spacing-minus-1 text-extra-dark-gray">03</span>
+          </div>
+          <div class="alt-font text-medium text-extra-dark-gray margin-10px-bottom">Testing for Perfection</div>
+          <p class="width-75 md-width-85 mx-auto">Lorem Ipsum is simply text of the printing and typesetting industry. Lorem Ipsum has been standard dummy.</p>
+        </div>
+        <!-- end process step item -->
+      </div>
+
+      <div class="row">
         <div class="col-lg-12 col-md-12 text-center no-padding sm-padding-70px-top">
           <img src="<?= base_url("assets/site/img/empresa.jpg") ?>" alt="" class="border-radius-10px">
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-lg-12 col-md-12 text-center last-paragraph-no-margin padding-seven-tb sm-padding-70px-top">
           <h5 class="margin-5px-bottom text-extra-dark-gray alt-font font-weight-600 xs-margin-three-bottom text-uppercase"><span class="font-weight-700">Tecnologia e robustez no produto e dedicação ao cliente, são o foco de nosso trabalho.</h5>
         </div>
