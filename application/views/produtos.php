@@ -10,71 +10,101 @@
   <!-- start header -->
   <?php include_once("utils/header.php"); ?>
 
-  <!-- start portfolio section -->
-  <section class="wow fadeIn pt-65px sm-padding-50px-top xs-padding-30px-top" style="min-height: 500px;">
-    <div class="container pb-30px">
-      <div class="row">
-        <div class="col-md-3 col-md-offset-2">
-          <div class="select-style medium-select icon-search-div">
-            <input type="text" name="pesquisar" class="bg-transparent no-margin-bottom" placeholder="Pesquisar em produtos">
-          </div>
+  <?php if (isset($categories) && sizeof($categories) > 0) : ?>
+    <section class="wow fadeIn">
+      <div class="container">
+        <div class="row">
+          <?php foreach ($categories as $category) : ?>
+            <div class="col-md-3 col-sm-4 col-xs-12 margin-30px-bottom wow fadeIn">
+              <div class="position-relative overflow-hidden">
+                <img src="<?= base_url("assets/uploads/images/$category->thumbnail") ?>" class="width-100" alt="">
+                <div class="opacity-extra-medium bg-dark-gray"></div>
+                <div class="blog-box">
+                  <div class="blog-box-image height-100">
+                    <div class="display-table width-100 height-100 text-center">
+                      <div class="display-table-cell vertical-align-middle">
+                        <span class="text-white text-uppercase alt-font font-weight-600 text-small letter-spacing-2"><?= $category->nome ?></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="blog-box-content height-100">
+                    <div class="display-table width-100 height-100 text-center">
+                      <div class="display-table-cell vertical-align-middle">
+                        <a href="<?= site_url("produtos/categorias/$category->slug") ?>" class="btn btn-white btn-rounded btn-small">Ver mais</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php endforeach ?>
         </div>
-        <div class="col-md-3">
-          <div class="select-style medium-select cat-select">
-            <select name="categorias" id="categorias" class="bg-transparent no-margin-bottom">
-              <option value="*">Todos</option>
-              <?php foreach ($categorias as $categoria) : ?>
-                <option value="<?= $categoria->id ?>"><?= $categoria->nome ?></option>
-              <?php endforeach ?>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="select-style medium-select subcat-select" style="display: none">
-            <select name="subcategorias" id="subcategorias" class="bg-transparent no-margin-bottom">
-              <option value="*">Todos</option>
-            </select>
+      </div>
+    </section>
+  <?php else : ?>
+
+    <section class="wow fadeIn parallax small-height" data-stellar-background-ratio="0" style="background-image:url('<?= base_url("assets/uploads/images/$category->banner") ?>'); background-size: contain; background-repeat: no-repeat;">
+    <!-- <section class="wow fadeIn parallax small-height" data-stellar-background-ratio="0" style="background-image:url('https://placehold.it/1420x500'); background-size: contain"> -->
+      <div class="opacity-medium" style="background: rgba(51, 51, 51, 0.7)"></div>
+      <div class="container small-height">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12 extra-small-screen display-table page-title-large">
+            <div class="display-table-cell vertical-align-middle text-center">
+              <!-- start page title -->
+              <h1 class="text-white alt-font font-weight-600 letter-spacing-minus-1 margin-10px-bottom"><?= $category->nome ?></h1>
+              <!-- end page title -->
+              <!-- start sub title -->
+              <span class="text-white alt-font font-18px"><?= nl2br($category->descricao) ?></span>
+              <!-- end sub title -->
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- start filter content -->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12 no-padding xs-padding-15px-lr text-center">
-          <div class="filter-content overflow-hidden">
-            <ul class="ml-100px portfolio-grid border-around work-4col gutter-medium hover-option6 lightbox-portfolio">
-              <li class="grid-sizer"></li>
-              <!-- start portfolio-item item -->
-              <?php foreach ($produtos as $produto) : ?>
-                <li class="subcat-<?= $produto->id_subcategoria ?> cat-<?= $produto->id_categoria ?> grid-item fadeInUp last-paragraph-no-margin" style="visibility: visible; animation-name: fadeInUp; position: absolute; left: 22.9901%; top: 0px;">
-                  <a href="<?= site_url("produtos/produto/$produto->slug") ?>">
-                    <figure>
-                      <div class="portfolio-img product-image p-30px portfolio-item-style position-relative text-center overflow-hidden">
-                        <img class="cursor-pointer-and-opacity" src="<?= base_url("assets/uploads/produtos/".$produto->primeiraImagemGaleria[0]->imagem) ?>" alt="" data-no-retina="">
-                      </div>
-                      <figcaption class="bg-white">
-                        <div class="portfolio-hover-main text-center">
-                          <div class="portfolio-hover-box vertical-align-middle">
-                            <div class="portfolio-hover-content position-relative">
-                              <span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block"><?= $produto->titulo ?></span>
-                              <p class="text-medium-gray text-extra-small text-uppercase"><?= $produto->categoria->nome ?></p>
+    </section>
+  <?php endif ?>
+
+  <!-- start portfolio section -->
+
+  <?php if (isset($produtos) && sizeof($produtos) > 0) : ?>
+
+    <section class="wow fadeIn pt-65px">
+      <!-- start filter content -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 no-padding xs-padding-15px-lr text-center">
+            <div class="filter-content overflow-hidden">
+              <ul class="ml-100px portfolio-grid border-around work-4col gutter-medium hover-option6 lightbox-portfolio">
+                <li class="grid-sizer"></li>
+                <!-- start portfolio-item item -->
+                <?php foreach ($produtos as $produto) : ?>
+                  <li class="grid-item fadeInUp last-paragraph-no-margin" style="visibility: visible; animation-name: fadeInUp; position: absolute; left: 22.9901%; top: 0px;">
+                    <a href="<?= site_url("produtos/produto/$produto->slug") ?>">
+                      <figure>
+                        <div class="portfolio-img product-image p-30px portfolio-item-style position-relative text-center overflow-hidden">
+                          <img class="cursor-pointer-and-opacity" src="<?= base_url("assets/uploads/produtos/" . $produto->primeiraImagemGaleria[0]->imagem) ?>" alt="" data-no-retina="">
+                        </div>
+                        <figcaption class="bg-white">
+                          <div class="portfolio-hover-main text-center">
+                            <div class="portfolio-hover-box vertical-align-middle">
+                              <div class="portfolio-hover-content position-relative">
+                                <span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block"><?= $produto->titulo ?></span>
+                                <p class="text-medium-gray text-extra-small text-uppercase"><?= $produto->categoria->nome ?></p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </figcaption>
-                    </figure>
-                  </a>
-                </li>
-              <?php endforeach ?>
-              <!-- end portfolio item -->
-            </ul>
+                        </figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                <?php endforeach ?>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- end filter content -->
-  </section>
+      <!-- end filter content -->
+    </section>
+  <?php endif ?>
   <!-- end portfolio section -->
   <!-- start footer -->
   <?php include_once("utils/footer.php"); ?>
@@ -117,75 +147,6 @@
         }
         timeout = setTimeout(delayed, threshold);
       };
-    }
-
-    let header_categoria = <?= isset($header_categoria) ? json_encode($header_categoria) : "[]" ?>;
-    let header_subcategoria = <?= isset($header_subcategoria) ? json_encode($header_subcategoria) : "[]" ?>;
-
-    $(document).ready(function() {
-      if (header_categoria.id)
-        $("#categorias").val(header_categoria.id).change()
-      if (header_subcategoria.id)
-        $("#subcategorias").val(header_subcategoria.id).change()
-    })
-
-    $("#subcategorias").on("change", function() {
-      if ($(this).val() == "*") {
-        $('.portfolio-grid').isotope({
-          filter: ".cat-" + $("#categorias").val()
-        })
-      } else {
-        $('.portfolio-grid').isotope({
-          filter: ".cat-" + $("#categorias").val() + ".subcat-" + $(this).val()
-        })
-      }
-    })
-
-    $("#categorias").on("change", function() {
-      if ($(this).val() != "*")
-        setOptionsOnSelectSubcategories($(this).val())
-      else {
-        $(".subcat-select").hide()
-        $('.portfolio-grid').isotope({
-          filter: "*"
-        })
-
-      }
-    })
-
-    function setOptionsOnSelectSubcategories(id) {
-      let categoria = getCategoriaById(id)
-      let subcategorias = getSubcategoriasFromCategoria(categoria)
-
-      let produtos = <?= json_encode($produtos) ?>;
-
-      $('.portfolio-grid').isotope({
-        filter: ".cat-" + categoria.id
-      });
-
-      if (subcategorias.length > 0) {
-        $(".subcat-select").show()
-        $("#subcategorias").html("<option value='*'>Todos</option>")
-
-        subcategorias.forEach(subcategoria => {
-          $("#subcategorias").append("<option value='" + subcategoria.id + "'>" + subcategoria.nome + "</option>")
-        });
-      }
-    }
-
-    function getSubcategoriasFromCategoria(categoria) {
-      let subcategorias = <?= json_encode($subcategorias) ?>;
-
-      return subcategorias.filter((subcategoria) => {
-        return subcategoria.id_categoria == categoria.id
-      })
-    }
-
-    function getCategoriaById(id) {
-      let categorias = <?= json_encode($categorias) ?>;
-      return categorias.filter((categoria) => {
-        return categoria.id == parseInt(id)
-      })[0]
     }
   </script>
 </body>

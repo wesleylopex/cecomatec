@@ -1,5 +1,5 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>Cecomatec - <?= $nomes["plural"] ?></title>
+<title>Cecomatec | <?= $nomes["plural"] ?></title>
 <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 <!-- favicon -->
 <link rel="shortcut icon" href="<?= base_url() ?>assets/site/img/favicon.png">

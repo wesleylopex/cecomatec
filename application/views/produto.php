@@ -33,29 +33,36 @@
   <section class="wow fadeIn animated no-padding-bottom pt-50px" style="visibility: visible; animation-name: fadeIn;">
     <div class="container">
       <div class="row equalize sm-equalize-auto">
-        <div class="<?= sizeof($produto->imagens) > 1 ? "col-md-7" : "col-md-5" ?> col-sm-12 col-xs-12 text-center sm-margin-30px-bottom wow fadeInLeft height-100" style="visibility: visible; animation-name: fadeInLeft; height: 371px;">
+        <div class="<?= sizeof($produto->imagens) > 1 ? "col-md-7" : "col-md-5" ?> col-sm-12 col-xs-12 text-center sm-margin-30px-bottom wow fadeInLeft height-100 text-left" style="visibility: visible; animation-name: fadeInLeft; height: 371px;">
           <div class="blog-post-content xs-margin-30px-bottom xs-text-center">
             <div class="row">
               <?php if (sizeof($produto->imagens) > 1) : ?>
                 <div class="col-md-3">
+                  <?php if (sizeof($produto->imagens) > 1) : ?>
+                    <div class="swiper-button-prev thumb-prev-button swiper-button-black-highlight"></div>
+                  <?php endif ?>
                   <div class="swiper-container gallery-thumbs white-move mt-50px">
-                    <div class="swiper-wrapper tiles">
+                    <div class="swiper-wrapper tiles align-items-center">
                       <?php foreach ($produto->imagens as $imagem) : ?>
-                        <div class="swiper-slide">
+                        <div class="swiper-slide align-items-center">
                           <div class="owl-product-thumb text-center">
                             <img src="<?= base_url("assets/uploads/produtos/" . $imagem->imagem) ?>" />
                           </div>
                         </div>
                       <?php endforeach ?>
                     </div>
+
                   </div>
+                  <?php if (sizeof($produto->imagens) > 1) : ?>
+                    <div class="swiper-button-next thumb-next-button swiper-button-black-highlight"></div>
+                  <?php endif ?>
                 </div>
               <?php endif ?>
               <div class="col-md-9">
                 <div class="swiper-container gallery-top white-move">
                   <div class="swiper-wrapper tiles">
                     <?php foreach ($produto->imagens as $imagem) : ?>
-                      <div class="swiper-slide align-items-center">
+                      <div class="swiper-slide center-all">
                         <div class="owl-product text-center">
                           <img src="<?= base_url("assets/uploads/produtos/" . $imagem->imagem) ?>" />
                         </div>
@@ -74,7 +81,7 @@
 
           </div>
           <?php if ($produto->video) : ?>
-            <a href="<?= $produto->video ?>" class="popup-vimeo btn btn-medium btn-transparent-black text-medium btn-rounded mt-10px"> Vídeo <i class="fa fa-youtube-play icon-very-small" aria-hidden="true"></i></a>
+            <a href="<?= $produto->video ?>" style="margin-top: 35px" class="text-left popup-vimeo btn btn-medium btn-transparent-black text-medium btn-rounded"> Vídeo <i class="fa fa-youtube-play icon-very-small" aria-hidden="true"></i></a>
           <?php endif ?>
         </div>
 

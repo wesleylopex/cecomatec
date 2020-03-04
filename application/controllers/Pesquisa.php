@@ -24,10 +24,12 @@ class Pesquisa extends MY_Site_Controller
         "descricao" => "Empregamos nosso conhecimento em fabricação de máquinas, para desenvolvimento de soluções em usinagem de peças para nossos clientes. Trabalhamos com grandes lotes ou peças únicas de reposição através de desenho ou amostra, auxiliando na definição de materiais, tratamento térmico e acabamento superficial."
       ],
       [
-        "titulo" => "Norma NR-12",
+        "titulo" => "Reformas e Adequações NR12",
         "descricao" => "A Norma Regulamentadora de segurança no trabalho em máquinas e equipamentos estabelece medidas preventivas de segurança e higiene do trabalho a serem obrigatoriamente adotadas pelas empresas em relação à instalação, operação e manutenção. Visa a rigorosa prevenção de possíveis acidentes, garante à empresa e ao colaborador qualidade e segurança."
       ],
     ];
+    $this->load->model("categoriasProdutosModel");
+    $categorias = $this->categoriasProdutosModel->getAll();
 
     $this->data["pesquisa"] = $this->input->get("pesquisa");
     $pesquisa = strtolower($this->data["pesquisa"]);
@@ -35,10 +37,12 @@ class Pesquisa extends MY_Site_Controller
 
     $produtos = $this->getRelatedRegisters($produtos, $palavras);
     $servicos = $this->getRelatedRegisters($this->ToObject($servicos), $palavras);
+    $categorias = $this->getRelatedRegisters($this->ToObject($categorias), $palavras);
     $this->data["produtos"] = $produtos;
     $this->data["servicos"] = $servicos;
+    $this->data["categorias"] = $categorias;
 
-    $this->data["size"] = sizeof($produtos) + sizeof($servicos);
+    $this->data["size"] = sizeof($produtos) + sizeof($servicos) + sizeof($categorias);
 
     $this->load->view("pesquisa", $this->data);
   }
@@ -47,13 +51,21 @@ class Pesquisa extends MY_Site_Controller
   {
     $registrosFinais = [];
 
-    foreach ($palavras as $key => $palavra) {
-      foreach ($registros as $key => $registro) {
-        $titulo = strpos(strtolower($registro->titulo), $palavra);
-        if (isset($registro->subtitulo))
-          $subtitulo = strpos(strtolower($registro->subtitulo), $palavra);
+    foreach ($registros as $key => $registro) {
+      foreach ($palavras as $key => $palavra) {
+        // echo strtolower($registro->titulo) . "----->" . strtolower($palavra) . "</br>";
+        if (!empty($palavra)) {
+          if (isset($registro->titulo))
+            $titulo = strpos(strtolower($registro->titulo), strtolower($palavra));
 
-        if ($titulo !== false || (isset($subtitulo) && $subtitulo !== false)) {
+          if (isset($registro->subtitulo))
+            $subtitulo = strpos(strtolower($registro->subtitulo), $palavra);
+
+          if (isset($registro->nome))
+            $nome = strpos(strtolower($registro->nome), $palavra);
+        }
+
+        if ((isset($titulo) && $titulo !== false) || (isset($subtitulo) && $subtitulo !== false) || (isset($nome) && $nome !== false)) {
           array_push($registrosFinais, $registro);
           break;
         }

@@ -330,7 +330,7 @@
               showAlert("primary", response.message, response.icon)
 
               setTimeout(function() {
-                // location.href = `${base_url}painel/${nomes.link}`
+                location.href = `${base_url}painel/${nomes.link}`
                 // window.location.reload()
               }, 1500)
             } else

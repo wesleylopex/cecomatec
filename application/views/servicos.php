@@ -93,7 +93,7 @@
               <div class="blog-box-content height-100">
                 <div class="display-table width-100 height-100 text-center">
                   <div class="display-table-cell vertical-align-middle">
-                    <a href="#Norma" id='norma' class="btn btn-white btn-soft-rounded btn-small">Ver mais</a>
+                    <a href="#beforeAfter" id='norma' class="btn btn-white btn-soft-rounded btn-small">Ver mais</a>
                   </div>
                 </div>
               </div>
@@ -188,14 +188,14 @@
   </section>
   <!-- end feature box section -->
 
-  <section class="no-padding bg-white" id="beforeAfter" style="max-height: 531px">
+  <section class="no-padding bg-white" id="beforeAfter">
     <div class="container-fluid">
       <div class="row equalize sm-equalize-auto">
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding cover-background sm-height-500px xs-height-350px wow fadeInLeft">
           <div class="cocoen" style="height: 100%; max-height: 531px">
-            <img src="<?= base_url() ?>assets/site/img/antes_2.png" class="h-101" alt="">
-            <img src="<?= base_url() ?>assets/site/img/depois_2.png" class="h-101" alt="">
+            <img src="<?= base_url("assets/site/img/antes_2.png") ?>" class="h-101" alt="">
+            <img src="<?= base_url("assets/site/img/depois_2.png") ?>" class="h-101" alt="">
           </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wow fadeInRight padding-50px-tb">
@@ -260,6 +260,16 @@
 
   <script>
     $(document).ready(function() {
+      configLinks()
+      appendBeforeAfter()
+    })
+
+    function appendBeforeAfter() {
+      $(".cocoen-drag").append("<div class='cocoen-before'></div>")
+      $(".cocoen-drag").append("<div class='cocoen-after'></div>")
+    }
+
+    function configLinks() {
       var $doc = $('html, body');
       $("a").not(".accordion-link").click(function() {
         $doc.animate({
@@ -277,7 +287,7 @@
           }, 335)
         }
       })
-    });
+    }
   </script>
 </body>
 

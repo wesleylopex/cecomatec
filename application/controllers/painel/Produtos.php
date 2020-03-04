@@ -54,19 +54,19 @@ class Produtos extends GodController
 			"col" => "col-md-4"
 		],
 
-		"id_subcategoria" => [
-			"nome" => "Subcategoria",
-			"type" => "select",
-			"rules" => "trim",
-			"fromDataBase" => true,
-			"options" => [
-				"value" => "id",
-				"texto" => "nome",
-				"model" => "subcategoriasProdutosModel",
-			],
-			"visivelTabela" => true,
-			"col" => "col-md-4"
-		],
+		// "id_subcategoria" => [
+		// 	"nome" => "Subcategoria",
+		// 	"type" => "select",
+		// 	"rules" => "trim",
+		// 	"fromDataBase" => true,
+		// 	"options" => [
+		// 		"value" => "id",
+		// 		"texto" => "nome",
+		// 		"model" => "subcategoriasProdutosModel",
+		// 	],
+		// 	"visivelTabela" => true,
+		// 	"col" => "col-md-4"
+		// ],
 		
 		"descricao" => [
 			"nome" => "Descrição",

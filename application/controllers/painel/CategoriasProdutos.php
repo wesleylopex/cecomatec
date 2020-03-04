@@ -28,8 +28,34 @@ class CategoriasProdutos extends GodController
 			"type" => "text",
 			"visivelTabela" => true,
 			"rules" => "trim|required",
-			"col" => "col-md-12",
+			"col" => "col-md-8",
 			"slug" => true
+		],
+		
+		"ordem" => [
+			"nome" => "Ordem",
+			"type" => "text",
+			"visivelTabela" => true,
+			"rules" => "trim",
+			"col" => "col-md-4",
+		],
+
+		"thumbnail" => [
+			"nome" => "Imagem de Perfil",
+			"type" => "image",
+			"visivelTabela" => false,
+			"rules" => "trim",
+			"col" => "col-md-12",
+			"label" => "(500 x 500)"
+		],
+
+		"banner" => [
+			"nome" => "Banner",
+			"type" => "image",
+			"visivelTabela" => false,
+			"rules" => "trim",
+			"col" => "col-md-12",
+			"label" => "(1420 x 500)"
 		],
 		
 		"descricao" => [
@@ -38,7 +64,7 @@ class CategoriasProdutos extends GodController
 			"visivelTabela" => false,
 			"rules" => "trim",
 			"col" => "col-md-12",
-			"class" => "summernote"
+			// "class" => ""
 		],
 	];
 

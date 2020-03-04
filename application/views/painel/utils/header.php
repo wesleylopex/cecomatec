@@ -121,12 +121,12 @@
             <p>Categorias</p>
           </a>
         </li>
-        <li class="nav-item <?= isset($nomes) && $nomes["link"] == "subcategoriasProdutos" ? "active" : "" ?>">
+        <!-- <li class="nav-item <?= isset($nomes) && $nomes["link"] == "subcategoriasProdutos" ? "active" : "" ?>">
           <a href="<?= site_url("painel/subcategoriasProdutos") ?>">
             <i class="flaticon-layers"></i>
             <p>Subcategorias</p>
           </a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

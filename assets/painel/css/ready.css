@@ -21314,5 +21314,5 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 }
 
 .second-toolbar #logo, .fr-wrapper a:nth-of-type(1) {
-    display: none!important
+    /* display: none!important */
 }

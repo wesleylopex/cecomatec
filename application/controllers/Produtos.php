@@ -9,24 +9,77 @@ class Produtos extends MY_Site_Controller
     $this->data["page"] = "produtos";
   }
 
-  public function index($slug_categoria = null, $slug_subcategoria = null)
+  public function index($slug_categoria = null)
   {
-    $this->load->model("produtosModel");
-    $produtos = $this->getProdutosWithCategoria($this->produtosModel->getAll());
-    $produtos = $this->getProdutosWithFirstImage($produtos);
-    $this->data["produtos"] = $this->removeProdutosWithoutImages($produtos);
+    redirect("produtos/categorias");
+    // $this->load->model("produtosModel");
+    // $produtos = $this->getProdutosWithCategoria($this->produtosModel->getAll());
+    // $produtos = $this->getProdutosWithFirstImage($produtos);
+    // $this->data["produtos"] = $this->removeProdutosWithoutImages($produtos);
 
-    if ($slug_categoria) {
-      $this->load->model("categoriasProdutosModel");
-      $this->data["header_categoria"] = $this->categoriasProdutosModel->getRowWhere(["slug" => $slug_categoria]);
-    }
+    // if ($slug_categoria) {
+    //   $this->load->model("categoriasProdutosModel");
+    //   $this->data["header_categoria"] = $this->categoriasProdutosModel->getRowWhere(["slug" => $slug_categoria]);
+    // }
 
-    if ($slug_subcategoria) {
-      $this->load->model("subcategoriasProdutosModel");
-      $this->data["header_subcategoria"] = $this->subcategoriasProdutosModel->getRowWhere(["slug" => $slug_subcategoria]);
+    // $this->load->view("produtos", $this->data);
+  }
+
+  public function categorias($slug = null)
+  {
+
+    $this->load->model("categoriasProdutosModel", "categoriesModel");
+
+    if ($slug) {
+      $this->load->model("produtosModel", "productsModel");
+      $category = $this->categoriesModel->getRowWhere(["slug" => $slug]);
+      if(!$category)
+        redirect("produtos/categorias");
+      $products = $this->productsModel->getAllWhere(["id_categoria" => $category->id]);
+      $products = $this->getProdutosWithFirstImage($products);
+      $products = $this->setCategorieOnProducts($products, $category);
+
+      $this->data["produtos"] = $products;
+      $this->data["categories"] = [];
+      $this->data["category"] = $category;
+    } else {
+      $categories = $this->categoriesModel->getAll();
+
+      $this->data["categories"] = $categories;
+      $this->data["produtos"] = [];
     }
 
     $this->load->view("produtos", $this->data);
+  }
+
+  public function setCategorieOnProducts($products, $categorie) {
+    foreach ($products as $key => $product) {
+      $product->categoria = $categorie;
+    }
+
+    return $products;
+  }
+
+  public function getCategoriesWithImages($categories)
+  {
+    foreach ($categories as $category) {
+      $category = $this->getCategoryWithImage($category);
+    }
+
+    return $categories;
+  }
+
+  public function getCategoryWithImage($category)
+  {
+
+    // $this->load->model("produtosModel");
+    // $product = $this->produtosModel->getLastWhere(["id_categoria" => $category->id]);
+
+    // $this->load->model("galeriaProdutosModel", "galleryModel");
+    // $last_image = $this->galleryModel->getLastWhere(["id_produto" => $product->id]);
+    // $category->image = $last_image;
+
+    return $category;
   }
 
   public function produto($slug = null)
@@ -72,7 +125,8 @@ class Produtos extends MY_Site_Controller
     return $produtos;
   }
 
-  public function getProdutoWithImages($produto = null) {
+  public function getProdutoWithImages($produto = null)
+  {
 
     $this->load->model("galeriaProdutosModel");
     $produto->imagens = $this->galeriaProdutosModel->getAllWhere(["id_produto" => $produto->id]);

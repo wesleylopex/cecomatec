@@ -432,13 +432,16 @@ $(document).ready(function () {
         // control: galleryThumbs
     });
     var galleryThumbs = new Swiper('.gallery-thumbs', {
-        spaceBetween: 10,
+        // spaceBetween: 0,
         centeredSlides: true,
-        slidesPerView: 'auto',
+        slidesPerView: 3,
         touchRatio: 0.2,
         slideToClickedSlide: true,
         direction: "vertical",
-        loopedSlides: 4,
+        // loopedSlides: 4,
+        height: 360,
+        nextButton: '.thumb-next-button',
+        prevButton: '.thumb-prev-button',
         // control: galleryTop
     });
     galleryTop.params.control = galleryThumbs;

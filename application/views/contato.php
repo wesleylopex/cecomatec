@@ -80,7 +80,7 @@
 
         <div class="col-md-6" style="background-color: #f9f9f9;">
           <div class="padding-eleven-all text-center xs-no-padding-lr">
-            <div class="text-medium-gray alt-font text-small text-uppercase margin-5px-bottom xs-margin-three-bottom">preecnha o formulário e retornaremos em breve</div>
+            <div class="text-medium-gray alt-font text-small text-uppercase margin-5px-bottom xs-margin-three-bottom">preencha o formulário e retornaremos em breve</div>
 
             <h5 class="margin-55px-bottom text-dark-gray alt-font font-weight-700 text-uppercase xs-margin-ten-bottom">Contato Via e-mail</h5>
 

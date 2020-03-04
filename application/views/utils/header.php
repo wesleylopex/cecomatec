@@ -7,10 +7,10 @@
   <div class="top-header-area bg-extra-dark-gray padding-5px-tb">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 text-uppercase alt-font xs-no-padding-lr xs-text-center">
+        <div class="col-md-6 col-sm-6 col-xs-12 alt-font xs-no-padding-lr xs-text-center">
           <a class="text-link-orange xs-width-100"><?= $configuracoes->telefone_principal ?></a>
           <div class="separator-line-verticle-extra-small bg-dark-gray display-inline-block margin-two-lr hidden-xs position-relative vertical-align-middle top-minus1"></div>
-          <a href="mailto:<?= $configuracoes->email ?>" class="text-link-orange xs-width-100"><?= $configuracoes->email ?></a>
+          <a href="mailto:<?= $configuracoes->email ?>" class="font-12px text-link-orange xs-width-100"><?= $configuracoes->email ?></a>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12 hidden-xs xs-no-padding-lr text-right">
 
@@ -78,7 +78,7 @@
                 <ul class="dropdown-menu animated fadeOut" role="menu" style="top: 72px; display: none; opacity: 1;background-color:white;border:1px solid #f9f9f9; width: 250px;">
                   <?php foreach ($categorias as $categoria) : ?>
                     <li class='dropdown'>
-                      <a href="<?= site_url("produtos/index/$categoria->slug") ?>" class='dropdown-toggle hover-orange' data-toggle='dropdown' style='color:black;'><?= $categoria->nome ?></i></a>
+                      <a href="<?= site_url("produtos/categorias/$categoria->slug") ?>" class='dropdown-toggle hover-orange' data-toggle='dropdown' style='color:black;'><?= $categoria->nome ?></i></a>
                     </li>
                   <?php endforeach ?>
                 </ul>
@@ -89,7 +89,7 @@
                 <ul class="dropdown-menu animated fadeOut" role="menu" style="top: 72px; display: none; opacity: 1;background-color:white;border:1px solid #f9f9f9;">
                   <li><a href="<?= site_url("servicos") ?>" class="hover-orange" style="color:black;">Assessoria Microfusão</a></li>
                   <li><a href="<?= site_url("servicos") ?>" class="hover-orange" style="color:black;">Usinagem</a></li>
-                  <li><a href="<?= site_url("servicos") ?>" class="hover-orange" style="color:black;">Norma NR-12</a></li>
+                  <li><a href="<?= site_url("servicos") ?>" class="hover-orange" style="color:black;">Reformas e Adequações NR-12</a></li>
                 </ul>
               </li>
 

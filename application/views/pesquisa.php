@@ -41,36 +41,84 @@
       <div class="row">
         <main class="col-md-8 center-col col-sm-12 col-xs-12 right-sidebar sm-margin-60px-bottom xs-margin-40px-bottom sm-padding-15px-lr center-col">
 
-          <?php if($size == 0) : ?>
+          <?php if ($size == 0) : ?>
             <h4 class="alt-font text-center text-extra-dark-gray font-weight-600 no-margin-bottom text-uppercase">Nenhum resultado encontrado para "<?= $pesquisa ?>"</h4>
+          <?php elseif (isset($categorias) && sizeof($categorias) > 0): ?>
+            <div class="row">
+              <div class="col-md-3 width-auto">
+                <h6 class="text-black">Categorias</h6>
+              </div>
+              <div class="col-md-9">
+                <hr class="title-separator mt-15px">
+              </div>
+            </div>
           <?php endif ?>
           <!-- start post item -->
-          <?php foreach ($produtos as $produto) : ?>
-            <div class="equalize sm-equalize-auto blog-post-content margin-60px-bottom padding-60px-bottom display-inline-block border-bottom border-color-extra-light-gray sm-margin-30px-bottom sm-padding-30px-bottom xs-text-center sm-no-border">
-              <div class="blog-text col-md-12 display-table no-padding">
-                <div class="display-table-cell vertical-align-middle">
-                  <div class="content margin-20px-bottom sm-no-padding-left ">
-                    <a href="<?= site_url("produtos/produto/$produto->slug") ?>" class="text-extra-dark-gray margin-5px-bottom alt-font text-extra-large font-weight-600 display-inline-block"><?= $produto->titulo ?></a>
-                    <p class="no-margin width-95"><?= $produto->descricao ?></p>
+          <div class="items mb-120px">
+            <?php foreach ($categorias as $categoria) : ?>
+              <div class="equalize sm-equalize-auto blog-post-content margin-60px-bottom padding-60px-bottom sm-margin-30px-bottom sm-padding-30px-bottom xs-text-center sm-no-border">
+                <div class="blog-text col-md-12 pb-20px display-table border-bottom border-color-extra-light-gray">
+                  <div class="display-table-cell vertical-align-middle">
+                    <div class="content margin-20px-bottom sm-no-padding-left ">
+                      <a href="<?= site_url("produtos/categorias/$categoria->slug") ?>" class="text-extra-dark-gray margin-5px-bottom alt-font text-extra-large font-weight-600 display-inline-block"><?= $categoria->nome ?></a>
+                      <!-- <p class="no-margin width-95"><?= $produto->descricao ?></p> -->
+                    </div>
+                    <a class="btn btn-very-small btn-dark-gray text-uppercase" href="<?= site_url("produtos/categorias/$categoria->slug") ?>">Saiba mais</a>
                   </div>
-                  <a class="btn btn-very-small btn-dark-gray text-uppercase" href="<?= site_url("produtos/produto/$produto->slug") ?>">Saiba mais</a>
                 </div>
               </div>
-            </div>
-          <?php endforeach ?>
-          <?php foreach ($servicos as $servico) : ?>
-            <div class="equalize sm-equalize-auto blog-post-content margin-60px-bottom padding-60px-bottom display-inline-block border-bottom border-color-extra-light-gray sm-margin-30px-bottom sm-padding-30px-bottom xs-text-center sm-no-border">
-              <div class="blog-text col-md-12 display-table no-padding">
-                <div class="display-table-cell vertical-align-middle">
-                  <div class="content margin-20px-bottom sm-no-padding-left ">
-                    <a href="<?= site_url("servicos") ?>" class="text-extra-dark-gray margin-5px-bottom alt-font text-extra-large font-weight-600 display-inline-block"><?= $servico->titulo ?></a>
-                    <p class="no-margin width-95"><?= $servico->descricao ?></p>
-                  </div>
-                  <a class="btn btn-very-small btn-dark-gray text-uppercase" href="<?= site_url("servicos") ?>">Saiba mais</a>
-                </div>
+            <?php endforeach ?>
+          </div>
+          <?php if (isset($produtos) && sizeof($produtos) > 0) : ?>
+            <div class="row">
+              <div class="col-md-3 width-auto">
+                <h6 class="text-black">Produtos</h6>
+              </div>
+              <div class="col-md-9">
+                <hr class="title-separator mt-15px">
               </div>
             </div>
-          <?php endforeach ?>
+          <?php endif ?>
+          <div class="items">
+            <?php foreach ($produtos as $produto) : ?>
+              <div class="equalize sm-equalize-auto blog-post-content margin-60px-bottom padding-60px-bottom display-inline-block border-bottom border-color-extra-light-gray sm-margin-30px-bottom sm-padding-30px-bottom xs-text-center sm-no-border">
+                <div class="blog-text col-md-12 display-table no-padding">
+                  <div class="display-table-cell vertical-align-middle">
+                    <div class="content margin-20px-bottom sm-no-padding-left ">
+                      <a href="<?= site_url("produtos/produto/$produto->slug") ?>" class="text-extra-dark-gray margin-5px-bottom alt-font text-extra-large font-weight-600 display-inline-block"><?= $produto->titulo ?></a>
+                      <p class="no-margin width-95"><?= $produto->descricao ?></p>
+                    </div>
+                    <a class="btn btn-very-small btn-dark-gray text-uppercase" href="<?= site_url("produtos/produto/$produto->slug") ?>">Saiba mais</a>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach ?>
+          </div>
+          <?php if (isset($servicos) && sizeof($servicos) > 0) : ?>
+            <div class="row">
+              <div class="col-md-3 width-auto">
+                <h6 class="text-black">Serviços</h6>
+              </div>
+              <div class="col-md-9">
+                <hr class="title-separator mt-15px">
+              </div>
+            </div>
+          <?php endif ?>
+          <div class="items">
+            <?php foreach ($servicos as $servico) : ?>
+              <div class="equalize sm-equalize-auto blog-post-content margin-60px-bottom padding-60px-bottom display-inline-block border-bottom border-color-extra-light-gray sm-margin-30px-bottom sm-padding-30px-bottom xs-text-center sm-no-border">
+                <div class="blog-text col-md-12 display-table no-padding">
+                  <div class="display-table-cell vertical-align-middle">
+                    <div class="content margin-20px-bottom sm-no-padding-left ">
+                      <a href="<?= site_url("servicos") ?>" class="text-extra-dark-gray margin-5px-bottom alt-font text-extra-large font-weight-600 display-inline-block"><?= $servico->titulo ?></a>
+                      <p class="no-margin width-95"><?= $servico->descricao ?></p>
+                    </div>
+                    <a class="btn btn-very-small btn-dark-gray text-uppercase" href="<?= site_url("servicos") ?>">Saiba mais</a>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach ?>
+          </div>
           <!-- end post item -->
         </main>
       </div>
